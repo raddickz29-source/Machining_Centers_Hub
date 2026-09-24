@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0061)https://machining-centers-hub-rodney.raddickz29.chatgpt.site/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Machining Centers HUB V216</title>
+<title>Machining Centers HUB V219</title>
 <meta name="description" content="CNC cutting-tool, program, jig and fixture monitoring hub.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23081620'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%2317aeea' stroke-width='6'/%3E%3Cpath d='M28 13h8v11h-8zM28 40h8v11h-8zM13 28h11v8H13zM40 28h11v8H40z' fill='%2376d8ff'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23ff9f1a'/%3E%3C/svg%3E">
 <style>
@@ -15323,27 +15323,28 @@ body.compact #machines .v193CombinedSetupRow{gap:4px;margin-bottom:4px}
 })();
 </script>
 
-<script id="v218ForceStartupLogin">
-/* V218 — restore startup login gate. Keep V217 Return Tool to CAB unchanged. */
+<script id="v219RestoreGraphicsFirst">
+/* V219 — startup flow: GRAPHICS -> ENTER SYSTEM -> LOGIN -> HUB. */
 (function(){
-  function forceStartupLogin(){
+  function restoreGraphicsFirst(){
     try {
       sessionStorage.removeItem('hub_login_user');
       sessionStorage.removeItem('hub_login_role');
     } catch(e) {}
-    document.body.classList.remove('hubHomePending','hubOperator','hubAdmin');
+    document.body.classList.remove('hubOperator','hubAdmin');
+    document.body.classList.add('hubHomePending');
     const launch=document.getElementById('hubLaunchScreen');
-    if(launch) launch.classList.add('hide');
+    if(launch) launch.classList.remove('hide');
     const gate=document.getElementById('hubLoginGate');
-    if(gate) gate.classList.remove('hidden');
+    if(gate) gate.classList.add('hidden');
     const bar=document.getElementById('hubUserBar');
     if(bar) bar.classList.remove('show');
     const err=document.getElementById('hubLoginError');
     if(err) err.textContent='';
-    setTimeout(()=>document.getElementById('hubLoginUser')?.focus(),50);
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forceStartupLogin,{once:true});
-  else forceStartupLogin();
+  if(document.readyState==='loading')
+    document.addEventListener('DOMContentLoaded',restoreGraphicsFirst,{once:true});
+  else restoreGraphicsFirst();
 })();
 </script>
 </body></html>
