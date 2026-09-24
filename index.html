@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0061)https://machining-centers-hub-rodney.raddickz29.chatgpt.site/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Machining Centers HUB V219</title>
+<title>Machining Centers HUB V220</title>
 <meta name="description" content="CNC cutting-tool, program, jig and fixture monitoring hub.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23081620'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%2317aeea' stroke-width='6'/%3E%3Cpath d='M28 13h8v11h-8zM28 40h8v11h-8zM13 28h11v8H13zM40 28h11v8H40z' fill='%2376d8ff'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23ff9f1a'/%3E%3C/svg%3E">
 <style>
@@ -15316,7 +15316,19 @@ body.compact #machines .v193CombinedSetupRow{gap:4px;margin-bottom:4px}
    let state=get(AK,{});state[id]=arr.filter(t=>!(t&&Number(t.slot)===Number(slot)));set(AK,state);let setups=get(SK,{});if(setups[id]){setups[id].tools=(Array.isArray(setups[id].tools)?setups[id].tools:[]).filter(t=>!(t&&Number(t.slot)===Number(slot)));setups[id].lastToolReturnedAt=new Date().toLocaleString();set(SK,setups)}
    selected=null;selectedMachine='';try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){}try{if(typeof window.drawRack==='function')window.drawRack()}catch(e){}let s=document.getElementById('ctSyncStatus');if(s)s.textContent='Returned '+idOf(x)+' to CAB'+h.cab+'-'+h.pot+'.';setTimeout(decorate,80)
  }
- document.addEventListener('click',function(e){let box=e.target.closest&&e.target.closest('#machines #mgrid .slot');if(!box)return;let grid=box.parentElement,slot=[...grid.children].indexOf(box)+1,id=mid(),tool=atc(id).find(x=>x&&Number(x.slot)===slot);if(!tool||active(id).has(slot))return;setTimeout(()=>{selected=slot;selectedMachine=id;decorate()},0)},true);
+ document.addEventListener('click',function(e){
+   let box=e.target.closest&&e.target.closest('#machines #mgrid .slot');if(!box)return;
+   let grid=box.parentElement,slot=[...grid.children].indexOf(box)+1,id=mid(),tool=atc(id).find(x=>x&&Number(x.slot)===slot);
+   if(!tool||active(id).has(slot))return;
+   /* V220: follow the SAME selected/highlighted tool used by REMOVE.
+      This makes REMOVE and RETURN mutually available for one selection. */
+   setTimeout(()=>{
+     let hi=grid.querySelector('.slot.v213SelectedTool');
+     if(!hi){selected=null;selectedMachine='';}
+     else{selected=[...grid.children].indexOf(hi)+1;selectedMachine=id;}
+     decorate();
+   },20)
+ },true);
  let obs=new MutationObserver(()=>setTimeout(decorate,0));function start(){let g=document.getElementById('mgrid');if(g&&!g.dataset.v217Observed){g.dataset.v217Observed='1';obs.observe(g,{childList:true})}decorate()}
  document.addEventListener('click',e=>{let b=e.target.closest&&e.target.closest('button');if(b&&/CUTTING TOOL MONITOR|CHECK CUTTING TOOL|REFRESH FROM MACHINE SETUP/i.test(String(b.textContent||'')))setTimeout(start,100)},true);
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(start,1200));else setTimeout(start,1200);
