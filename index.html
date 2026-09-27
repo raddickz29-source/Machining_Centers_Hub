@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0061)https://machining-centers-hub-rodney.raddickz29.chatgpt.site/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Machining Centers HUB V220</title>
+<title>Machining Centers HUB V257</title>
 <meta name="description" content="CNC cutting-tool, program, jig and fixture monitoring hub.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23081620'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%2317aeea' stroke-width='6'/%3E%3Cpath d='M28 13h8v11h-8zM28 40h8v11h-8zM13 28h11v8H13zM40 28h11v8H40z' fill='%2376d8ff'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23ff9f1a'/%3E%3C/svg%3E">
 <style>
@@ -1119,6 +1119,23 @@ body.compact #machines .v188LoadedJig .jig{font-size:10px}
 })();
 </script>
 
+
+<style id="v225-center-cab-reference">
+/* V225: visual-only change — center CAB location beneath Tool ID */
+.v224-cab-ref{
+  display:block !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  text-align:center !important;
+  margin:2px auto 0 !important;
+  padding:0 !important;
+  font-size:9px !important;
+  line-height:10px !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+}
+</style>
+
 </head><body class="compact hubAdmin">
 <div id="hubLoginGate" class="hidden">
  <div class="hubLoginCard">
@@ -1167,7 +1184,7 @@ body.compact #machines .v188LoadedJig .jig{font-size:10px}
 
 
 
-<button class="navb active" data-page="machines" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⚙</span>CUTTING TOOL MONITOR</button><button class="navb" data-page="machineStatusPage" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⚙</span>MACHINE MONITOR</button><button class="navb" data-page="cabinet" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▤</span>CUTTING TOOL RACK</button><button class="navb" data-page="master" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">◆</span>TOOL MASTER</button><button class="navb" data-page="fixtureMonitor" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">◆</span>JIG &amp; FIXTURE MASTER</button><button class="navb" data-page="programMaster" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▤</span>PROGRAM MASTER</button><button class="navb" data-page="fixtures" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▧</span>JIG &amp; FIXTURE RACK</button><button class="navb" data-page="toolLifePage" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">◷</span>TOOL LIFE MONITOR</button><button class="navb" data-page="outputPage" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▥</span>OUTPUT MONITOR</button><button class="navb" data-page="setup" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">✓</span>SETUP / TOOL READY</button><button class="navb" data-page="jobs" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▣</span>JOB / PROGRAM MONITOR</button><button class="navb" data-page="maintenance" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">🔧</span>MAINTENANCE MONITOR</button><button class="navb" data-page="quality" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">✓</span>QUALITY / INSPECTION</button><button class="navb" data-page="gauges" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⌖</span>GAUGE MONITOR</button><button class="navb" data-page="alerts" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⚠</span>ALERT CENTER</button><button class="navb" data-page="handover" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⇄</span>SHIFT HANDOVER</button><button class="navb" data-page="scan" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▦</span>QR / NFC / RFID</button><button class="navb" data-page="history" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">↺</span>HISTORY / TRACEABILITY</button><button class="navb" data-page="assemblies" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⚙</span>ASSEMBLY / COMPONENT MONITOR</button></div></header>
+<button class="navb active" data-page="machines" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⚙</span>CUTTING TOOL MONITOR</button><button class="navb" data-page="machineStatusPage" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⚙</span>MACHINE MONITOR</button><button class="navb" data-page="cabinet" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▤</span>CUTTING TOOL RACK</button><button class="navb" data-page="master" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">◆</span>TOOL MASTER</button><button class="navb" data-page="fixtureMonitor" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">◆</span>JIG &amp; FIXTURE MASTER</button><button class="navb" data-page="programMaster" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▤</span>PROGRAM MASTER</button><button class="navb" data-page="fixtures" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▧</span>JIG &amp; FIXTURE RACK</button><button class="navb" data-page="cuttingToolInfo" draggable="false" title="Live synchronized tool cabinet and machine status"><span class="navicon">▤</span>CUTTING TOOL INFO</button><button class="navb" data-page="jigFixtureInfo" draggable="false" title="Live synchronized jig cabinet and machine status"><span class="navicon">▤</span>JIG &amp; FIXTURE INFO</button><button class="navb" data-page="toolLifePage" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">◷</span>TOOL LIFE MONITOR</button><button class="navb" data-page="outputPage" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▥</span>OUTPUT MONITOR</button><button class="navb" data-page="setup" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">✓</span>SETUP / TOOL READY</button><button class="navb" data-page="jobs" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▣</span>JOB / PROGRAM MONITOR</button><button class="navb" data-page="maintenance" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">🔧</span>MAINTENANCE MONITOR</button><button class="navb" data-page="quality" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">✓</span>QUALITY / INSPECTION</button><button class="navb" data-page="gauges" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⌖</span>GAUGE MONITOR</button><button class="navb" data-page="alerts" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⚠</span>ALERT CENTER</button><button class="navb" data-page="handover" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⇄</span>SHIFT HANDOVER</button><button class="navb" data-page="scan" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">▦</span>QR / NFC / RFID</button><button class="navb" data-page="history" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">↺</span>HISTORY / TRACEABILITY</button><button class="navb" data-page="assemblies" draggable="false" title="Hold and drag to rearrange HUB tools"><span class="navicon">⚙</span>ASSEMBLY / COMPONENT MONITOR</button></div></header>
 <main>
 <section id="machines"><div class="hubPageToolbar"><button class="hubFitScreenBtn" onclick="toggleCompactView()">Fit Screen</button><button class="hubFullScreenBtn" onclick="toggleHubFullscreen()">Full Screen</button><button class="hubSettingsBtn" onclick="openHubSettings('machines')">Settings</button></div><div class="top"><div><h2>Cutting Tool Monitor</h2><div class="mut">Live ATC / tool magazine status for the selected CNC machine</div></div></div>
 <div class="tabs" id="machineTabs"><button class="mb machineDragTab active" data-machine-id="MC-01" style="cursor: grab; touch-action: none;">MC-01 | OKUMA1</button><button class="mb machineDragTab" data-machine-id="MC-02" style="cursor: grab; touch-action: none;">MC-02 | OKUMA2</button><button class="mb machineDragTab" data-machine-id="MC-03" style="cursor: grab; touch-action: none;">MC-03 | OKUMA3</button><button class="mb machineDragTab" data-machine-id="MC-04" style="cursor: grab; touch-action: none;">MC-04 | OKUMA4</button><button class="mb machineDragTab" data-machine-id="MC-05" style="cursor: grab; touch-action: none;">MC-05 | OKUMA5</button><button>+ ADD MACHINE</button><button class="danger">DELETE MACHINE</button></div><div class="machineEditToolbar"><button class="machineEditBtn" onclick="openEditMachine()">✎ EDIT CURRENT MACHINE / ATC</button><span class="mut">Rename machine, machine ID, holder type and ATC/tool magazine capacity.</span></div><br>
@@ -9868,7 +9885,9 @@ body.compact #machines .v188LoadedJig .jig{font-size:10px}
  <td><span class="tmAvailability instock">IN STOCK</span></td><td><b>100</b></td><td class="tmOut"><b>0</b></td><td>SPT-20 Customized Tool Ø80</td><td>80.00</td><td>245</td><td>BT40-SPT-20</td><td>ER32</td><td>PS-BT40</td><td>-</td>
  <td class="tmRowActions"><button onclick="event.stopPropagation();tmOpen(14310)">✎</button><button class="trash" onclick="event.stopPropagation();tmDelete(14310)">🗑</button></td></tr></tbody></table></div>
     <div class="tmBottomBar"><div id="tmCount">Showing 2860 of 14831 tools</div><div class="tmLegend"><span class="green"></span>Drill <span class="orange"></span>End Mill <span class="blue"></span>Face/Chamfer/Center/Spot <span class="pink"></span>Tap/Thread Mill <span class="violet"></span>Boring/Slot <span class="peach"></span>Special/Reamer</div></div>
-   </main>
+   <section id="cuttingToolInfo" class="hide hubInfoPage"><div class="hubPageToolbar"><button class="hubFitScreenBtn" onclick="toggleCompactView()">Fit Screen</button><button class="hubFullScreenBtn" onclick="toggleHubFullscreen()">Full Screen</button></div><div class="hubInfoCard"><div class="hubInfoHead"><div><h2>CUTTING TOOL INFO</h2><div class="mut">Live synchronized view of Tool Rack, cabinet status and loaded machine/program.</div></div><button onclick="v270RenderToolInfo()">REFRESH</button></div><div class="hubInfoFilters"><label>Cabinet <select id="v270ToolCabFilter" onchange="v270RenderToolInfo()"><option value="">ALL CABINETS</option></select></label><label>Search <input id="v270ToolSearch" oninput="v270RenderToolInfo()" placeholder="Tool ID / machine / program"></label></div><div class="hubInfoTableWrap"><table class="hubInfoTable"><thead><tr><th>TOOL ID</th><th>TOOL TYPE</th><th>CABINET</th><th>POT</th><th>STATUS</th><th>MACHINE</th><th>PROGRAM</th><th>ATC</th></tr></thead><tbody id="v270ToolInfoBody"></tbody></table></div></div></section>
+<section id="jigFixtureInfo" class="hide hubInfoPage"><div class="hubPageToolbar"><button class="hubFitScreenBtn" onclick="toggleCompactView()">Fit Screen</button><button class="hubFullScreenBtn" onclick="toggleHubFullscreen()">Full Screen</button></div><div class="hubInfoCard"><div class="hubInfoHead"><div><h2>JIG &amp; FIXTURE INFO</h2><div class="mut">Live synchronized view of Jig Rack, cabinet status and loaded machine/program.</div></div><button onclick="v270RenderJigInfo()">REFRESH</button></div><div class="hubInfoFilters"><label>Cabinet <select id="v270JigCabFilter" onchange="v270RenderJigInfo()"><option value="">ALL CABINETS</option></select></label><label>Search <input id="v270JigSearch" oninput="v270RenderJigInfo()" placeholder="Jig ID / machine / program"></label></div><div class="hubInfoTableWrap"><table class="hubInfoTable"><thead><tr><th>JIG ID</th><th>JIG / FIXTURE</th><th>CABINET</th><th>POSITION</th><th>STATUS</th><th>MACHINE</th><th>PROGRAM</th><th>PART ID</th></tr></thead><tbody id="v270JigInfoBody"></tbody></table></div></div></section>
+</main>
   </div>
  </div></section>
 <section id="programMaster" class="hide">
@@ -9889,7 +9908,7 @@ body.compact #machines .v188LoadedJig .jig{font-size:10px}
 <div class="tabs" id="fixtureCabTabs"><button class="active">CAB 1</button><button>CAB 2</button><button>CAB 3</button><button>CAB 4</button><button>CAB 5</button><button>+ ADD CABINET</button><button class="danger">DELETE CABINET</button></div><br>
 <div class="cabwrap"><div class="panel fixtureInfoPanel"><h3 id="fixtureHeading">Jig &amp; Fixture Cabinet 1</h3><p>Numbered storage positions for jigs and fixtures.</p><p class="mut">Drag a jig/fixture to rearrange positions. Click a position to select it.</p><div class="fixtureStatusLegend"><b>STATUS LEGEND</b><div>🟩 Ready to Use</div><div>🟦 In Machine / In Use</div><div>🟧 Set-up</div><div>🟨 Inspection</div><div>🟥 For Repair</div><div>🟪 Out of Service</div><div>⬜ Missing / Empty</div></div><div class="fixtureInfoList"><b>INFO IN EACH POSITION</b><div>1. Cabinet / Position</div><div>2. Size (L × W)</div><div>3. Machine / Attachment</div><div>4. Status</div></div><div class="fixtureQuickActions"><b>QUICK ACTIONS</b><button type="button" onclick="v103EditSelectedFixture()">EDIT SELECTED</button><button type="button" onclick="v103SaveFixturePosition(this)">SAVE POSITION</button></div></div><div class="fixtureDragHint">Drag fixture cabinets to rearrange them. Drag a jig / fixture position to move or swap it with another position.</div><div class="rack" id="fixtureRack" style=""><div class="pot" data-fixture-pos="1" draggable="true"><div class="fixtureRackCab">CAB 1-1</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="2" draggable="true"><div class="fixtureRackCab">CAB 1-2</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="3" draggable="true"><div class="fixtureRackCab">CAB 1-3</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="4" draggable="true"><div class="fixtureRackCab">CAB 1-4</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="5" draggable="true"><div class="fixtureRackCab">CAB 1-5</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="6" draggable="true"><div class="fixtureRackCab">CAB 1-6</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="7" draggable="true"><div class="fixtureRackCab">CAB 1-7</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="8" draggable="true"><div class="fixtureRackCab">CAB 1-8</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="9" draggable="true"><div class="fixtureRackCab">CAB 1-9</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="10" draggable="true"><div class="fixtureRackCab">CAB 1-10</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="11" draggable="true"><div class="fixtureRackCab">CAB 1-11</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="12" draggable="true"><div class="fixtureRackCab">CAB 1-12</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="13" draggable="true"><div class="fixtureRackCab">CAB 1-13</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="14" draggable="true"><div class="fixtureRackCab">CAB 1-14</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="15" draggable="true"><div class="fixtureRackCab">CAB 1-15</div><div class="fixtureRackSize">300 × 200</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus available">READY TO USE</div></div><div class="pot" data-fixture-pos="16" draggable="true"><div class="fixtureRackCab">CAB 1-16</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div><div class="pot" data-fixture-pos="17" draggable="true"><div class="fixtureRackCab">CAB 1-17</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div><div class="pot" data-fixture-pos="18" draggable="true"><div class="fixtureRackCab">CAB 1-18</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div><div class="pot" data-fixture-pos="19" draggable="true"><div class="fixtureRackCab">CAB 1-19</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div><div class="pot" data-fixture-pos="20" draggable="true"><div class="fixtureRackCab">CAB 1-20</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div><div class="pot" data-fixture-pos="21" draggable="true"><div class="fixtureRackCab">CAB 1-21</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div><div class="pot" data-fixture-pos="22" draggable="true"><div class="fixtureRackCab">CAB 1-22</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div><div class="pot" data-fixture-pos="23" draggable="true"><div class="fixtureRackCab">CAB 1-23</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div><div class="pot" data-fixture-pos="24" draggable="true"><div class="fixtureRackCab">CAB 1-24</div><div class="fixtureRackSize">SIZE NOT SET</div><div class="fixtureRackMachine">—</div><div class="status fixtureRackStatus ">EMPTY</div></div></div></div></section>
 
-<section id="fixtureMonitor" class="hide"><div class="jfmShell"><div class="jfmHead"><div class="jfmTitle"><h1>▤ Jig &amp; Fixture Cabinet Master List</h1><p>Each physical cabinet has its own master list. Rack operator updates and master-list records stay linked by cabinet and position.</p></div><div class="jfmSearch"><input id="jfmSearch" placeholder="Search this cabinet..." oninput="jfmRender()"></div><div class="jfmActions"><button class="add" onclick="jfmOpen(-1)">＋ ADD JIG / FIXTURE</button><button onclick="jfmEditSelected()">✎ EDIT</button><button class="del" onclick="jfmDeleteSelected()">🗑 DELETE</button><button onclick="jfmSyncRack()">↻ SYNC RACK</button><button onclick="jfmExport()">⇩ EXPORT CABINET</button><button onclick="jfmImport()">⇧ IMPORT</button><button onclick="toggleCompactView()">FIT SCREEN</button></div></div><div class="jfmCabTabs" id="jfmCabTabs"><button class="active" onclick="jfmSetCab(1)">CAB 1</button><button class="" onclick="jfmSetCab(2)">CAB 2</button><button class="" onclick="jfmSetCab(3)">CAB 3</button><button class="" onclick="jfmSetCab(4)">CAB 4</button><button class="" onclick="jfmSetCab(5)">CAB 5</button><span class="jfmCabNote">Showing master list for CAB 1</span></div><div class="jfmSync">LIVE LINK: Cabinet master list ↔ Jig &amp; Fixture Rack. Position, ID, size, machine, attachment and status are synchronized.</div><div class="jfmFilters"><select id="jfmStatus" onchange="jfmRender()"><option value="">ALL STATUS</option><option>READY TO USE</option></select><select id="jfmMachine" onchange="jfmRender()"><option value="">ALL MACHINE</option></select><select id="jfmAttach" onchange="jfmRender()"><option value="">ALL ATTACHMENT</option><option>MACHINE TABLE</option></select><button onclick="jfmReset()">RESET FILTERS</button><span class="jfmCount" id="jfmCount">CAB 1: 15 records</span></div><div class="jfmTableWrap"><table class="jfmTable"><thead><tr><th>NO.</th><th>JIG ID</th><th>JIG / FIXTURE NAME</th><th>PART NO.</th><th>SIZE</th><th>LOCATION</th><th>STATUS</th><th>ATTACHMENT</th><th>MACHINE</th><th>CABINET</th><th>POSITION</th><th>MATERIAL</th><th>WEIGHT</th><th>OWNER</th><th>LAST INSPECTION</th><th>NEXT INSPECTION</th><th>NOTES</th><th>ACTION</th></tr></thead><tbody id="jfmBody"><tr class="" onclick="jfmSelect(6)"><td class="jfmNo">1</td><td class="jfmId">C1-JIG-01</td><td><b>Hydraulic Filter Body Fixture</b></td><td>P1-001</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">1</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1001">Linked directly to Program Master O1001</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(6)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(6)">🗑</button></td></tr><tr class="" onclick="jfmSelect(7)"><td class="jfmNo">2</td><td class="jfmId">C1-JIG-02</td><td><b>Camera Housing Fixture</b></td><td>P1-002</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">2</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1002">Linked directly to Program Master O1002</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(7)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(7)">🗑</button></td></tr><tr class="" onclick="jfmSelect(8)"><td class="jfmNo">3</td><td class="jfmId">C1-JIG-03</td><td><b>Microscope Base Fixture</b></td><td>P1-003</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">3</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1003">Linked directly to Program Master O1003</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(8)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(8)">🗑</button></td></tr><tr class="" onclick="jfmSelect(9)"><td class="jfmNo">4</td><td class="jfmId">C1-JIG-04</td><td><b>Die Insert Fixture</b></td><td>P1-004</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">4</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1004">Linked directly to Program Master O1004</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(9)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(9)">🗑</button></td></tr><tr class="" onclick="jfmSelect(10)"><td class="jfmNo">5</td><td class="jfmId">C1-JIG-05</td><td><b>Casting Bracket Fixture</b></td><td>P1-005</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">5</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1005">Linked directly to Program Master O1005</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(10)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(10)">🗑</button></td></tr><tr class="" onclick="jfmSelect(11)"><td class="jfmNo">6</td><td class="jfmId">C1-JIG-06</td><td><b>Valve Manifold Fixture</b></td><td>P1-006</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">6</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1006">Linked directly to Program Master O1006</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(11)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(11)">🗑</button></td></tr><tr class="" onclick="jfmSelect(12)"><td class="jfmNo">7</td><td class="jfmId">C1-JIG-07</td><td><b>Bearing Housing Fixture</b></td><td>P1-007</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">7</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1007">Linked directly to Program Master O1007</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(12)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(12)">🗑</button></td></tr><tr class="" onclick="jfmSelect(13)"><td class="jfmNo">8</td><td class="jfmId">C1-JIG-08</td><td><b>Pump Cover Fixture</b></td><td>P1-008</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">8</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1008">Linked directly to Program Master O1008</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(13)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(13)">🗑</button></td></tr><tr class="" onclick="jfmSelect(14)"><td class="jfmNo">9</td><td class="jfmId">C1-JIG-09</td><td><b>Motor Mount Fixture</b></td><td>P1-009</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">9</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1009">Linked directly to Program Master O1009</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(14)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(14)">🗑</button></td></tr><tr class="" onclick="jfmSelect(15)"><td class="jfmNo">10</td><td class="jfmId">C1-JIG-10</td><td><b>Sensor Plate Fixture</b></td><td>P1-010</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">10</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1010">Linked directly to Program Master O1010</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(15)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(15)">🗑</button></td></tr><tr class="" onclick="jfmSelect(16)"><td class="jfmNo">11</td><td class="jfmId">C1-JIG-11</td><td><b>Gearbox Cover Fixture</b></td><td>P1-011</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">11</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1011">Linked directly to Program Master O1011</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(16)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(16)">🗑</button></td></tr><tr class="" onclick="jfmSelect(17)"><td class="jfmNo">12</td><td class="jfmId">C1-JIG-12</td><td><b>Nozzle Block Fixture</b></td><td>P1-012</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">12</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1012">Linked directly to Program Master O1012</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(17)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(17)">🗑</button></td></tr><tr class="" onclick="jfmSelect(18)"><td class="jfmNo">13</td><td class="jfmId">C1-JIG-13</td><td><b>Clamp Body Fixture</b></td><td>P1-013</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">13</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1013">Linked directly to Program Master O1013</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(18)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(18)">🗑</button></td></tr><tr class="" onclick="jfmSelect(19)"><td class="jfmNo">14</td><td class="jfmId">C1-JIG-14</td><td><b>Index Plate Fixture</b></td><td>P1-014</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">14</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1014">Linked directly to Program Master O1014</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(19)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(19)">🗑</button></td></tr><tr class="" onclick="jfmSelect(20)"><td class="jfmNo">15</td><td class="jfmId">C1-JIG-15</td><td><b>Adapter Flange Fixture</b></td><td>P1-015</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">15</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1015">Linked directly to Program Master O1015</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(20)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(20)">🗑</button></td></tr></tbody></table></div></div><div class="jfmModal" id="jfmModal"><div class="jfmCard"><h2 id="jfmModalTitle">Jig / Fixture Record</h2><div class="jfmGrid"><label>JIG ID<input id="jfm_id" type="text"></label><label>JIG / FIXTURE NAME<input id="jfm_name" type="text"></label><label>PART NUMBER<input id="jfm_part" type="text"></label><label>SIZE (L × W)<input id="jfm_size" type="text"></label><label>LOCATION<input id="jfm_location" type="text"></label><label>STATUS<select id="jfm_status"><option>READY TO USE</option><option>IN MACHINE</option><option>FOR SETUP</option><option>INSPECTION</option><option>FOR REPAIR</option><option>OUT OF SERVICE</option><option>NOT AVAILABLE</option></select></label><label>ATTACHMENT<input id="jfm_attachment" type="text"></label><label>MACHINE<input id="jfm_machine" type="text"></label><label>CABINET<input id="jfm_cabinet" readonly=""></label><label>POSITION<input id="jfm_position" type="text"></label><label>MATERIAL<input id="jfm_material" type="text"></label><label>WEIGHT<input id="jfm_weight" type="text"></label><label>OWNER / DEPARTMENT<input id="jfm_owner" type="text"></label><label>LAST INSPECTION<input id="jfm_last" type="date"></label><label>NEXT INSPECTION<input id="jfm_next" type="date"></label><label class="span4">NOTES<textarea id="jfm_notes" rows="3"></textarea></label></div><div class="jfmModalBtns"><button onclick="jfmClose()">CANCEL</button><button class="save" onclick="jfmSave()">SAVE &amp; UPDATE RACK</button></div></div></div></section>
+<section id="fixtureMonitor" class="hide"><div class="jfmShell"><div class="jfmHead"><div class="jfmTitle"><h1>▤ Jig &amp; Fixture Cabinet Master List</h1><p>Each physical cabinet has its own master list. Jig IDs belong to the master list. Physical rack location and status update only when a jig is actually placed or returned to the rack.</p></div><div class="jfmSearch"><input id="jfmSearch" placeholder="Search this cabinet..." oninput="jfmRender()"></div><div class="jfmActions"><button class="add" onclick="jfmOpen(-1)">＋ ADD JIG / FIXTURE</button><button onclick="jfmEditSelected()">✎ EDIT</button><button class="del" onclick="jfmDeleteSelected()">🗑 DELETE</button><button onclick="jfmSyncRack()">↻ SYNC RACK</button><button onclick="jfmExport()">⇩ EXPORT CABINET</button><button onclick="jfmImport()">⇧ IMPORT</button><button onclick="toggleCompactView()">FIT SCREEN</button></div></div><div class="jfmCabTabs" id="jfmCabTabs"><button class="active" onclick="jfmSetCab(1)">CAB 1</button><button class="" onclick="jfmSetCab(2)">CAB 2</button><button class="" onclick="jfmSetCab(3)">CAB 3</button><button class="" onclick="jfmSetCab(4)">CAB 4</button><button class="" onclick="jfmSetCab(5)">CAB 5</button><span class="jfmCabNote">Showing master list for CAB 1</span></div><div class="jfmSync">LIVE LINK: Cabinet master list ↔ Jig &amp; Fixture Rack. Position, ID, size, machine, attachment and status are synchronized.</div><div class="jfmFilters"><select id="jfmStatus" onchange="jfmRender()"><option value="">ALL STATUS</option><option>READY TO USE</option></select><select id="jfmMachine" onchange="jfmRender()"><option value="">ALL MACHINE</option></select><select id="jfmAttach" onchange="jfmRender()"><option value="">ALL ATTACHMENT</option><option>MACHINE TABLE</option></select><button onclick="jfmReset()">RESET FILTERS</button><span class="jfmCount" id="jfmCount">CAB 1: 15 records</span></div><div class="jfmTableWrap"><table class="jfmTable"><thead><tr><th>NO.</th><th>JIG ID</th><th>JIG / FIXTURE NAME</th><th>PART NO.</th><th>SIZE</th><th>LOCATION</th><th>STATUS</th><th>ATTACHMENT</th><th>MACHINE</th><th>CABINET</th><th>POSITION</th><th>MATERIAL</th><th>WEIGHT</th><th>OWNER</th><th>LAST INSPECTION</th><th>NEXT INSPECTION</th><th>NOTES</th><th>ACTION</th></tr></thead><tbody id="jfmBody"><tr class="" onclick="jfmSelect(6)"><td class="jfmNo">1</td><td class="jfmId">C1-JIG-01</td><td><b>Hydraulic Filter Body Fixture</b></td><td>P1-001</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">1</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1001">Linked directly to Program Master O1001</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(6)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(6)">🗑</button></td></tr><tr class="" onclick="jfmSelect(7)"><td class="jfmNo">2</td><td class="jfmId">C1-JIG-02</td><td><b>Camera Housing Fixture</b></td><td>P1-002</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">2</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1002">Linked directly to Program Master O1002</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(7)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(7)">🗑</button></td></tr><tr class="" onclick="jfmSelect(8)"><td class="jfmNo">3</td><td class="jfmId">C1-JIG-03</td><td><b>Microscope Base Fixture</b></td><td>P1-003</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">3</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1003">Linked directly to Program Master O1003</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(8)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(8)">🗑</button></td></tr><tr class="" onclick="jfmSelect(9)"><td class="jfmNo">4</td><td class="jfmId">C1-JIG-04</td><td><b>Die Insert Fixture</b></td><td>P1-004</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">4</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1004">Linked directly to Program Master O1004</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(9)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(9)">🗑</button></td></tr><tr class="" onclick="jfmSelect(10)"><td class="jfmNo">5</td><td class="jfmId">C1-JIG-05</td><td><b>Casting Bracket Fixture</b></td><td>P1-005</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">5</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1005">Linked directly to Program Master O1005</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(10)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(10)">🗑</button></td></tr><tr class="" onclick="jfmSelect(11)"><td class="jfmNo">6</td><td class="jfmId">C1-JIG-06</td><td><b>Valve Manifold Fixture</b></td><td>P1-006</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">6</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1006">Linked directly to Program Master O1006</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(11)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(11)">🗑</button></td></tr><tr class="" onclick="jfmSelect(12)"><td class="jfmNo">7</td><td class="jfmId">C1-JIG-07</td><td><b>Bearing Housing Fixture</b></td><td>P1-007</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">7</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1007">Linked directly to Program Master O1007</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(12)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(12)">🗑</button></td></tr><tr class="" onclick="jfmSelect(13)"><td class="jfmNo">8</td><td class="jfmId">C1-JIG-08</td><td><b>Pump Cover Fixture</b></td><td>P1-008</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">8</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1008">Linked directly to Program Master O1008</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(13)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(13)">🗑</button></td></tr><tr class="" onclick="jfmSelect(14)"><td class="jfmNo">9</td><td class="jfmId">C1-JIG-09</td><td><b>Motor Mount Fixture</b></td><td>P1-009</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">9</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1009">Linked directly to Program Master O1009</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(14)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(14)">🗑</button></td></tr><tr class="" onclick="jfmSelect(15)"><td class="jfmNo">10</td><td class="jfmId">C1-JIG-10</td><td><b>Sensor Plate Fixture</b></td><td>P1-010</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">10</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1010">Linked directly to Program Master O1010</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(15)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(15)">🗑</button></td></tr><tr class="" onclick="jfmSelect(16)"><td class="jfmNo">11</td><td class="jfmId">C1-JIG-11</td><td><b>Gearbox Cover Fixture</b></td><td>P1-011</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">11</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1011">Linked directly to Program Master O1011</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(16)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(16)">🗑</button></td></tr><tr class="" onclick="jfmSelect(17)"><td class="jfmNo">12</td><td class="jfmId">C1-JIG-12</td><td><b>Nozzle Block Fixture</b></td><td>P1-012</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">12</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1012">Linked directly to Program Master O1012</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(17)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(17)">🗑</button></td></tr><tr class="" onclick="jfmSelect(18)"><td class="jfmNo">13</td><td class="jfmId">C1-JIG-13</td><td><b>Clamp Body Fixture</b></td><td>P1-013</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">13</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1013">Linked directly to Program Master O1013</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(18)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(18)">🗑</button></td></tr><tr class="" onclick="jfmSelect(19)"><td class="jfmNo">14</td><td class="jfmId">C1-JIG-14</td><td><b>Index Plate Fixture</b></td><td>P1-014</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">14</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1014">Linked directly to Program Master O1014</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(19)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(19)">🗑</button></td></tr><tr class="" onclick="jfmSelect(20)"><td class="jfmNo">15</td><td class="jfmId">C1-JIG-15</td><td><b>Adapter Flange Fixture</b></td><td>P1-015</td><td class="jfmSize">300 × 200</td><td>CABINET / RACK</td><td><span class="jfmStatus jfm-ready">READY TO USE</span></td><td>MACHINE TABLE</td><td>—</td><td><span class="jfmCabBadge">CAB 1</span></td><td><span class="jfmPosBadge">15</span></td><td>Steel</td><td></td><td>Machining</td><td></td><td></td><td title="Linked directly to Program Master O1015">Linked directly to Program Master O1015</td><td class="jfmRowBtns"><button onclick="event.stopPropagation();jfmOpen(20)">✎</button><button class="trash" onclick="event.stopPropagation();jfmDelete(20)">🗑</button></td></tr></tbody></table></div></div><div class="jfmModal" id="jfmModal"><div class="jfmCard"><h2 id="jfmModalTitle">Jig / Fixture Record</h2><div class="jfmGrid"><label>JIG ID<input id="jfm_id" type="text"></label><label>JIG / FIXTURE NAME<input id="jfm_name" type="text"></label><label>PART NUMBER<input id="jfm_part" type="text"></label><label>SIZE (L × W)<input id="jfm_size" type="text"></label><label>LOCATION<input id="jfm_location" type="text"></label><label>STATUS<select id="jfm_status"><option>READY TO USE</option><option>IN MACHINE</option><option>FOR SETUP</option><option>INSPECTION</option><option>FOR REPAIR</option><option>OUT OF SERVICE</option><option>NOT AVAILABLE</option></select></label><label>ATTACHMENT<input id="jfm_attachment" type="text"></label><label>MACHINE<input id="jfm_machine" type="text"></label><label>CABINET<input id="jfm_cabinet" readonly=""></label><label>POSITION<input id="jfm_position" type="text"></label><label>MATERIAL<input id="jfm_material" type="text"></label><label>WEIGHT<input id="jfm_weight" type="text"></label><label>OWNER / DEPARTMENT<input id="jfm_owner" type="text"></label><label>LAST INSPECTION<input id="jfm_last" type="date"></label><label>NEXT INSPECTION<input id="jfm_next" type="date"></label><label class="span4">NOTES<textarea id="jfm_notes" rows="3"></textarea></label></div><div class="jfmModalBtns"><button onclick="jfmClose()">CANCEL</button><button class="save" onclick="jfmSave()">SAVE &amp; UPDATE RACK</button></div></div></div></section>
 </main>
 <div class="modal" id="modal"><div class="dialog"><h3 id="dtitle"></h3><p id="dinfo" class="mut"></p><div id="actions"></div><button onclick="closeM()">CLOSE</button></div></div>
 <script>
@@ -12487,7 +12506,7 @@ function syncFromRack(doRender=true){let cabs=getCabs();cabs.forEach(c=>Object.e
 function syncToRack(r,oldCab,oldPos){let cabs=getCabs();let oc=cabs.find(c=>Number(c.number)===Number(oldCab)),nc=cabs.find(c=>Number(c.number)===cabNo(r.cabinet));if(!nc)return;if(oc&&oldPos&&(Number(oc.number)!==Number(nc.number)||Number(oldPos)!==Number(r.position)))delete oc.positions[oldPos];let size=String(r.size||'').match(/([\d.]+)\s*[×xX]\s*([\d.]+)/);nc.positions=nc.positions||{};nc.positions[Number(r.position)]={...(nc.positions[Number(r.position)]||{}),id:r.id,name:r.name,partNumber:r.part,length:size?size[1]:'',width:size?size[2]:'',status:masterToRack(r.status),machine:r.machine||'',machineLocation:r.attachment||'NOT ASSIGNED',attachment:r.attachment||''};localStorage.setItem('ct_fixture_cabs',JSON.stringify(cabs));try{if(typeof fixtureCabs!=='undefined')fixtureCabs=cabs;if(typeof saveFixtureCabs==='function')saveFixtureCabs();if(typeof renderFixtureTabs==='function')renderFixtureTabs();if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}}
 function statusClass(s){s=String(s||'').toUpperCase();if(s.includes('READY'))return'jfm-ready';if(s.includes('IN MACHINE')||s.includes('IN USE'))return'jfm-inuse';if(s.includes('SETUP')||s.includes('SET-UP'))return'jfm-setup';if(s.includes('REPAIR'))return'jfm-repair';if(s.includes('OUT OF SERVICE'))return'jfm-out';if(s.includes('INSPECTION'))return'jfm-inspection';return'jfm-na'}
 function field(k,l,t='text'){return `<label>${l}<input id="jfm_${k}" type="${t}"></label>`} function selectField(k,l,a){return `<label>${l}<select id="jfm_${k}">${a.map(v=>`<option>${v}</option>`).join('')}</select></label>`}
-function build(){let sec=document.getElementById('fixtureMonitor');if(!sec)return;sec.innerHTML=`<div class="jfmShell"><div class="jfmHead"><div class="jfmTitle"><h1>▤ Jig & Fixture Cabinet Master List</h1><p>Each physical cabinet has its own master list. Rack operator updates and master-list records stay linked by cabinet and position.</p></div><div class="jfmSearch"><input id="jfmSearch" placeholder="Search this cabinet..." oninput="jfmRender()"></div><div class="jfmActions"><button class="add" onclick="jfmOpen(-1)">＋ ADD JIG / FIXTURE</button><button onclick="jfmEditSelected()">✎ EDIT</button><button class="del" onclick="jfmDeleteSelected()">🗑 DELETE</button><button onclick="jfmSyncRack()">↻ SYNC RACK</button><button onclick="jfmExport()">⇩ EXPORT CABINET</button><button onclick="jfmImport()">⇧ IMPORT</button><button onclick="toggleCompactView()">FIT SCREEN</button></div></div><div class="jfmCabTabs" id="jfmCabTabs"></div><div class="jfmSync">LIVE LINK: Cabinet master list ↔ Jig & Fixture Rack. Position, ID, size, machine, attachment and status are synchronized.</div><div class="jfmFilters"><select id="jfmStatus" onchange="jfmRender()"></select><select id="jfmMachine" onchange="jfmRender()"></select><select id="jfmAttach" onchange="jfmRender()"></select><button onclick="jfmReset()">RESET FILTERS</button><span class="jfmCount" id="jfmCount"></span></div><div class="jfmTableWrap"><table class="jfmTable"><thead><tr><th>NO.</th><th>JIG ID</th><th>JIG / FIXTURE NAME</th><th>PART NO.</th><th>SIZE</th><th>LOCATION</th><th>STATUS</th><th>ATTACHMENT</th><th>MACHINE</th><th>CABINET</th><th>POSITION</th><th>MATERIAL</th><th>WEIGHT</th><th>OWNER</th><th>LAST INSPECTION</th><th>NEXT INSPECTION</th><th>NOTES</th><th>ACTION</th></tr></thead><tbody id="jfmBody"></tbody></table></div></div><div class="jfmModal" id="jfmModal"><div class="jfmCard"><h2 id="jfmModalTitle">Jig / Fixture Record</h2><div class="jfmGrid">${field('id','JIG ID')}${field('name','JIG / FIXTURE NAME')}${field('part','PART NUMBER')}${field('size','SIZE (L × W)')}${field('location','LOCATION')}${selectField('status','STATUS',['READY TO USE','IN MACHINE','FOR SETUP','INSPECTION','FOR REPAIR','OUT OF SERVICE','NOT AVAILABLE'])}${field('attachment','ATTACHMENT')}${field('machine','MACHINE')}<label>CABINET<input id="jfm_cabinet" readonly></label>${field('position','POSITION')}${field('material','MATERIAL')}${field('weight','WEIGHT')}${field('owner','OWNER / DEPARTMENT')}${field('last','LAST INSPECTION','date')}${field('next','NEXT INSPECTION','date')}<label class="span4">NOTES<textarea id="jfm_notes" rows="3"></textarea></label></div><div class="jfmModalBtns"><button onclick="jfmClose()">CANCEL</button><button class="save" onclick="jfmSave()">SAVE & UPDATE RACK</button></div></div></div>`;refreshTabs();refreshFilters();render()}
+function build(){let sec=document.getElementById('fixtureMonitor');if(!sec)return;sec.innerHTML=`<div class="jfmShell"><div class="jfmHead"><div class="jfmTitle"><h1>▤ Jig & Fixture Cabinet Master List</h1><p>Each physical cabinet has its own master list. Jig IDs belong to the master list. Physical rack location and status update only when a jig is actually placed or returned to the rack.</p></div><div class="jfmSearch"><input id="jfmSearch" placeholder="Search this cabinet..." oninput="jfmRender()"></div><div class="jfmActions"><button class="add" onclick="jfmOpen(-1)">＋ ADD JIG / FIXTURE</button><button onclick="jfmEditSelected()">✎ EDIT</button><button class="del" onclick="jfmDeleteSelected()">🗑 DELETE</button><button onclick="jfmSyncRack()">↻ SYNC RACK</button><button onclick="jfmExport()">⇩ EXPORT CABINET</button><button onclick="jfmImport()">⇧ IMPORT</button><button onclick="toggleCompactView()">FIT SCREEN</button></div></div><div class="jfmCabTabs" id="jfmCabTabs"></div><div class="jfmSync">PHYSICAL RACK LINK: LOCATION, POSITION and STATUS stay empty until the jig is physically placed or returned to the Jig & Fixture Rack.</div><div class="jfmFilters"><select id="jfmStatus" onchange="jfmRender()"></select><select id="jfmMachine" onchange="jfmRender()"></select><select id="jfmAttach" onchange="jfmRender()"></select><button onclick="jfmReset()">RESET FILTERS</button><span class="jfmCount" id="jfmCount"></span></div><div class="jfmTableWrap"><table class="jfmTable"><thead><tr><th>NO.</th><th>JIG ID</th><th>JIG / FIXTURE NAME</th><th>PART NO.</th><th>SIZE</th><th>LOCATION</th><th>STATUS</th><th>ATTACHMENT</th><th>MACHINE</th><th>CABINET</th><th>POSITION</th><th>MATERIAL</th><th>WEIGHT</th><th>OWNER</th><th>LAST INSPECTION</th><th>NEXT INSPECTION</th><th>NOTES</th><th>ACTION</th></tr></thead><tbody id="jfmBody"></tbody></table></div></div><div class="jfmModal" id="jfmModal"><div class="jfmCard"><h2 id="jfmModalTitle">Jig / Fixture Record</h2><div class="jfmGrid">${field('id','JIG ID')}${field('name','JIG / FIXTURE NAME')}${field('part','PART NUMBER')}${field('size','SIZE (L × W)')}${field('location','LOCATION')}${selectField('status','STATUS',['READY TO USE','IN MACHINE','FOR SETUP','INSPECTION','FOR REPAIR','OUT OF SERVICE','NOT AVAILABLE'])}${field('attachment','ATTACHMENT')}${field('machine','MACHINE')}<label>CABINET<input id="jfm_cabinet" readonly></label>${field('position','POSITION')}${field('material','MATERIAL')}${field('weight','WEIGHT')}${field('owner','OWNER / DEPARTMENT')}${field('last','LAST INSPECTION','date')}${field('next','NEXT INSPECTION','date')}<label class="span4">NOTES<textarea id="jfm_notes" rows="3"></textarea></label></div><div class="jfmModalBtns"><button onclick="jfmClose()">CANCEL</button><button class="save" onclick="jfmSave()">SAVE MASTER RECORD</button></div></div></div>`;refreshTabs();refreshFilters();render()}
 function refreshTabs(){let box=document.getElementById('jfmCabTabs');if(!box)return;let cabs=getCabs().sort((a,b)=>Number(a.number)-Number(b.number));if(!cabs.some(c=>Number(c.number)===Number(activeCab)))activeCab=Number(cabs[0]?.number||1);box.innerHTML=cabs.map(c=>`<button class="${Number(c.number)===Number(activeCab)?'active':''}" onclick="jfmSetCab(${Number(c.number)})">CAB ${Number(c.number)}</button>`).join('')+`<span class="jfmCabNote">Showing master list for CAB ${activeCab}</span>`}
 function options(key,label){let vals=[...new Set(data.filter(r=>cabNo(r.cabinet)===Number(activeCab)).map(x=>x[key]).filter(Boolean))].sort();return `<option value="">ALL ${label}</option>`+vals.map(v=>`<option>${esc(v)}</option>`).join('')}
 function refreshFilters(){[['jfmStatus','status','STATUS'],['jfmMachine','machine','MACHINE'],['jfmAttach','attachment','ATTACHMENT']].forEach(([id,k,l])=>{let e=document.getElementById(id);if(!e)return;let old=e.value;e.innerHTML=options(k,l);e.value=old})}
@@ -12495,11 +12514,11 @@ function render(){let q=(document.getElementById('jfmSearch')?.value||'').toLowe
 const fields=['id','name','part','size','location','status','attachment','machine','cabinet','position','material','weight','owner','last','next','notes'];
 function open(i){editing=i;let r=i>=0?data[i]:{status:'READY TO USE',cabinet:cabName(activeCab),location:'CABINET / RACK'};fields.forEach(k=>{let e=document.getElementById('jfm_'+k);if(e)e.value=r[k]||''});document.getElementById('jfm_cabinet').value=cabName(activeCab);document.getElementById('jfmModalTitle').textContent=i>=0?`EDIT ${r.id} — CAB ${activeCab}`:`ADD JIG / FIXTURE — CAB ${activeCab}`;document.getElementById('jfmModal').classList.add('show')}
 function close(){document.getElementById('jfmModal').classList.remove('show')}
-function saveRec(){let old=editing>=0?{cab:cabNo(data[editing].cabinet),pos:data[editing].position}:null,r={};fields.forEach(k=>r[k]=(document.getElementById('jfm_'+k)?.value||'').trim());r.cabinet=cabName(activeCab);if(!r.id){alert('Jig ID is required.');return}if(!r.name){alert('Jig / Fixture Name is required.');return}if(!r.position||Number(r.position)<1){alert('Rack position is required.');return}let c=getCabs().find(x=>Number(x.number)===Number(activeCab)),max=c?Number(c.rows)*Number(c.potsPerRow):24;if(Number(r.position)>max){alert('Position must be between 1 and '+max+' for CAB '+activeCab+'.');return}let dup=data.findIndex((x,i)=>String(x.id).toLowerCase()===r.id.toLowerCase()&&i!==editing);if(dup>=0){alert('Jig ID already exists.');return}let occupied=data.findIndex((x,i)=>cabNo(x.cabinet)===Number(activeCab)&&Number(x.position)===Number(r.position)&&i!==editing);if(occupied>=0&&!confirm('CAB '+activeCab+' position '+r.position+' already has '+data[occupied].id+'. Replace that master-list record?'))return;if(occupied>=0){data.splice(occupied,1);if(editing>occupied)editing--}if(editing>=0)data[editing]=r;else{data.push(r);editing=data.length-1}save();syncToRack(r,old?.cab,old?.pos);close();selected=-1;refreshFilters();render()}
+function saveRec(){let old=editing>=0?{cab:cabNo(data[editing].cabinet),pos:data[editing].position}:null,r={};fields.forEach(k=>r[k]=(document.getElementById('jfm_'+k)?.value||'').trim());r.cabinet=cabName(activeCab);if(!r.id){alert('Jig ID is required.');return}if(!r.name){alert('Jig / Fixture Name is required.');return}if(r.position&&Number(r.position)<1){alert('Rack position must be valid.');return}let c=getCabs().find(x=>Number(x.number)===Number(activeCab)),max=c?Number(c.rows)*Number(c.potsPerRow):24;if(r.position&&Number(r.position)>max){alert('Position must be between 1 and '+max+' for CAB '+activeCab+'.');return}let dup=data.findIndex((x,i)=>String(x.id).toLowerCase()===r.id.toLowerCase()&&i!==editing);if(dup>=0){alert('Jig ID already exists.');return}let occupied=r.position?data.findIndex((x,i)=>cabNo(x.cabinet)===Number(activeCab)&&Number(x.position)===Number(r.position)&&i!==editing):-1;if(occupied>=0&&!confirm('CAB '+activeCab+' position '+r.position+' already has '+data[occupied].id+'. Replace that master-list record?'))return;if(occupied>=0){data.splice(occupied,1);if(editing>occupied)editing--}if(editing>=0)data[editing]=r;else{data.push(r);editing=data.length-1}save();close();selected=-1;refreshFilters();render()}
 function del(i){let r=data[i];if(!r)return;if(confirm('Delete '+r.id+' from CAB '+cabNo(r.cabinet)+' master list and clear its rack position?')){let cabs=getCabs(),c=cabs.find(x=>Number(x.number)===cabNo(r.cabinet));if(c&&c.positions)delete c.positions[Number(r.position)];localStorage.setItem('ct_fixture_cabs',JSON.stringify(cabs));data.splice(i,1);selected=-1;save();try{if(typeof fixtureCabs!=='undefined')fixtureCabs=cabs;if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}refreshFilters();render()}}
 function reset(){['jfmStatus','jfmMachine','jfmAttach'].forEach(id=>{let e=document.getElementById(id);if(e)e.value=''});let q=document.getElementById('jfmSearch');if(q)q.value='';render()}
 function exp(){let rows=data.filter(r=>cabNo(r.cabinet)===Number(activeCab));let blob=new Blob([JSON.stringify(rows,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`jig_fixture_CAB_${activeCab}_master.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
-function imp(){let i=document.createElement('input');i.type='file';i.accept='.json,application/json';i.onchange=()=>{let f=i.files[0];if(!f)return;let rd=new FileReader();rd.onload=()=>{try{let x=JSON.parse(rd.result);if(!Array.isArray(x))throw 0;x=x.map(r=>({...r,cabinet:cabName(activeCab)}));data=data.filter(r=>cabNo(r.cabinet)!==Number(activeCab)).concat(x);save();x.forEach(r=>syncToRack(r,null,null));refreshFilters();render()}catch(e){alert('Invalid Jig & Fixture JSON file.')}};rd.readAsText(f)};i.click()}
+function imp(){let i=document.createElement('input');i.type='file';i.accept='.json,application/json';i.onchange=()=>{let f=i.files[0];if(!f)return;let rd=new FileReader();rd.onload=()=>{try{let x=JSON.parse(rd.result);if(!Array.isArray(x))throw 0;x=x.map(r=>({...r,cabinet:cabName(activeCab)}));data=data.filter(r=>cabNo(r.cabinet)!==Number(activeCab)).concat(x);save();refreshFilters();render()}catch(e){alert('Invalid Jig & Fixture JSON file.')}};rd.readAsText(f)};i.click()}
 window.jfmSetCab=n=>{activeCab=Number(n);selected=-1;refreshTabs();refreshFilters();render()};window.jfmRender=render;window.jfmOpen=open;window.jfmClose=close;window.jfmSave=saveRec;window.jfmSelect=i=>{selected=i;render()};window.jfmEditSelected=()=>selected<0?alert('Select a record first.'):open(selected);window.jfmDeleteSelected=()=>selected<0?alert('Select a record first.'):del(selected);window.jfmDelete=del;window.jfmReset=reset;window.jfmExport=exp;window.jfmImport=imp;window.jfmSyncRack=()=>syncFromRack(true);
 load();
 function init(){build();try{let oldSave=window.saveFixtureCabs;if(typeof oldSave==='function'&&!oldSave.__v134){let wrap=function(){oldSave();setTimeout(()=>syncFromRack(true),0)};wrap.__v134=true;window.saveFixtureCabs=wrap;saveFixtureCabs=wrap}}catch(e){}}
@@ -12954,8 +12973,8 @@ setTimeout(()=>{try{mmRefreshSetupUI();drawMachine()}catch(e){console.warn('V145
      let part=String(p.partno||'').trim(); if(!part)return;
      let wanted=`C1-JIG-${String(n+1).padStart(2,'0')}`;
      let j=js.find(x=>String(x.id||'')===wanted) || js.find(x=>cabNo(x.cabinet)===1 && String(x.part||x.partNumber||'')===part);
-     if(!j){j={id:wanted,name:`${p.partname||part} Fixture`,cabinet:'CAB 1',position:String(n+1),status:'READY TO USE',location:'CABINET / RACK',machine:'',attachment:'MACHINE TABLE',material:'Steel',weight:'',owner:'Machining',notes:'V150 synced from Program Master'};js.push(j)}
-     j.part=part;j.partNumber=part;j.name=`${p.partname||part} Fixture`;j.cabinet='CAB 1';j.position=String(n+1);
+     if(!j){j={id:wanted,name:`${p.partname||part} Fixture`,cabinet:'CAB 1',position:'',status:'',location:'',machine:'',attachment:'MACHINE TABLE',material:'Steel',weight:'',owner:'Machining',notes:'V150 synced from Program Master'};js.push(j)}
+     j.part=part;j.partNumber=part;j.name=`${p.partname||part} Fixture`;j.cabinet='CAB 1';
      p.jigs=[j.id]; changed=true;
    });
    if(changed){set(PM,ps);set(JK,js)}
@@ -12966,41 +12985,6 @@ setTimeout(()=>{try{mmRefreshSetupUI();drawMachine()}catch(e){console.warn('V145
  setTimeout(syncCab1,250);
 })();
 </script>
-<script id="v151Cab1JigRackPopulate">
-/* V151 — populate physical Jig & Fixture Rack CAB 1 from Program Master + Jig Master */
-(function(){
- const PM='hub_program_master_v85', JK='hub_jig_fixture_monitor_v134', RK='ct_fixture_cabs';
- function arr(k){try{let x=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(x)?x:[]}catch(e){return []}}
- function cabs(){try{let x=JSON.parse(localStorage.getItem(RK)||'[]');return Array.isArray(x)?x:[]}catch(e){return []}}
- function sync(){
-   let ps=arr(PM), js=arr(JK), cs=cabs();
-   let cab=cs.find(c=>Number(c.number)===1);
-   if(!cab){cab={number:1,name:'Jig & Fixture Cabinet',rows:6,potsPerRow:4,positions:{}};cs.unshift(cab)}
-   cab.rows=Math.max(Number(cab.rows)||6,6); cab.potsPerRow=Number(cab.potsPerRow)||4; cab.positions=cab.positions||{};
-   let programs=ps.filter(p=>String(p.machine||'').toUpperCase()==='MC-01');
-   programs.forEach((p,n)=>{
-     let part=String(p.partno||'').trim(); if(!part)return;
-     let jid=(Array.isArray(p.jigs)&&p.jigs[0])||`C1-JIG-${String(n+1).padStart(2,'0')}`;
-     let j=js.find(x=>String(x.id||'')===String(jid))||js.find(x=>String(x.part||x.partNumber||'')===part && /1/.test(String(x.cabinet||'')));
-     let pos=Number(j&&j.position)||n+1;
-     cab.positions[pos]={
-       id:String(jid), partNumber:part, part:part,
-       name:(j&&j.name)||((p.partname||part)+' Fixture'),
-       length:(j&&j.size&&String(j.size).split(/[×x]/)[0].trim())||'300',
-       width:(j&&j.size&&String(j.size).split(/[×x]/)[1]?.trim())||'200',
-       status:'AVAILABLE', machine:'', machineLocation:'NOT ASSIGNED', attachment:'MACHINE TABLE'
-     };
-   });
-   localStorage.setItem(RK,JSON.stringify(cs));
-   try{fixtureCabs=cs;activeFixtureCab=1;if(typeof renderFixtureTabs==='function')renderFixtureTabs();if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}
-   try{if(typeof jfmSetCab==='function')jfmSetCab(1)}catch(e){}
- }
- window.v151PopulateCab1JigRack=sync;
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(sync,450));else setTimeout(sync,450);
- document.addEventListener('click',e=>{let b=e.target.closest('button');if(b&&String(b.textContent||'').toUpperCase().includes('JIG & FIXTURE RACK'))setTimeout(sync,50)});
-})();
-</script>
-
 <script id="v153ProgramMasterJigIdSource">
 /* V153 — Program Master owns PART ID + JIG ID. Every program record contains a Jig ID. */
 (function(){
@@ -13028,16 +13012,11 @@ setTimeout(()=>{try{mmRefreshSetupUI();drawMachine()}catch(e){console.warn('V145
 
    // Rebuild Jig Master from Program Master so IDs can never disagree.
    let keep=A(JK).filter(j=>!/^C\d+-JIG-\d+$/i.test(String(j.id||'')));
-   ps.forEach(p=>{let c=cabOf(p);if(!c||!p.jigid)return;keep.push({id:p.jigid,name:`${p.partname||p.partId} Fixture`,part:p.partId,partNumber:p.partId,size:'300 × 200',location:'CABINET / RACK',status:'READY TO USE',attachment:'MACHINE TABLE',machine:'',cabinet:`CAB ${c}`,position:String(p.jigPosition),material:'Steel',weight:'',owner:'Machining',last:'',next:'',notes:`Linked directly to Program Master ${p.program}`})});
+   ps.forEach(p=>{let c=cabOf(p);if(!c||!p.jigid)return;keep.push({id:p.jigid,name:`${p.partname||p.partId} Fixture`,part:p.partId,partNumber:p.partId,size:'300 × 200',location:'',status:'',attachment:'MACHINE TABLE',machine:'',cabinet:`CAB ${c}`,position:'',material:'Steel',weight:'',owner:'Machining',last:'',next:'',notes:`Linked directly to Program Master ${p.program}`})});
    S(JK,keep);
 
-   // CAB 1: exactly 24 boxes. Program 1-21 occupy boxes 1-21. 22-24 are empty.
-   let cs=A(RK), cab=cs.find(x=>Number(x.number)===1);
-   if(!cab){cab={number:1,name:'Jig & Fixture Cabinet',rows:6,potsPerRow:4,positions:{}};cs.unshift(cab)}
-   cab.rows=6;cab.potsPerRow=4;cab.positions={};
-   ps.filter(p=>cabOf(p)===1).slice(0,21).forEach((p,i)=>{cab.positions[i+1]={id:p.jigid,partNumber:p.partId,part:p.partId,name:`${p.partname||p.partId} Fixture`,length:'300',width:'200',status:'AVAILABLE',machine:'',machineLocation:'NOT ASSIGNED',attachment:'MACHINE TABLE'}});
-   S(RK,cs);
-   try{fixtureCabs=cs;activeFixtureCab=1;renderFixtureTabs();drawFixtureRack()}catch(e){}
+   // V263: Program/Jig Master may own Jig IDs, but it must NEVER seed the physical Jig Rack.
+   // Physical rack positions are created only by the RETURN JIG TO CAB workflow.
  }
  window.v153AssignProgramJigIds=assignAll;
 
@@ -13438,6 +13417,10 @@ setTimeout(()=>{try{mmRefreshSetupUI();drawMachine()}catch(e){console.warn('V145
        else {try{let mr=(window.tmRecords||[]).find(r=>String(r.id||'').trim().toUpperCase()===x.toUpperCase());if(mr)toolId=String(mr.id||'').trim()}catch(e){}}
        let d=detect(x); if(d)kind=d;
      });
+     if(!toolId){
+       let mids=context.map(c=>String(c||'').match(/\bC\d+[-_][A-Z0-9-]+\b/i)).filter(Boolean);
+       if(mids.length)toolId=mids[mids.length-1][0].replace('_','-').toUpperCase();
+     }
      if(!toolId){let ids=context.map(c=>c.match(/\bT\d{3,}\b/i)).filter(Boolean);if(ids.length)toolId=ids[ids.length-1][0].toUpperCase()}
      if(!cab){let cs=context.map(c=>c.match(/\bCAB\s*\d+\s*[-:]\s*\d+\b/i)).filter(Boolean);if(cs.length)cab=cs[cs.length-1][0].replace(/\s+/g,'').replace(':','-').toUpperCase()}
      kind=kind||{type:'Unknown Tool',color:'blue'};
@@ -14176,6 +14159,23 @@ body.compact #cabinet .cabColorStandard{font-size:7px!important;line-height:1.05
          let z=document.createElement('div');z.className='v182RackTool';
          let loc=document.createElement('div');loc.className='v184Loc';loc.textContent='CAB'+c.number+'-'+(n+1);
          let id=document.createElement('div');id.className='v184Id';id.textContent=String(v.toolId);
+         let q=String(v.toolId||'').toUpperCase().replace(/\s+/g,'').replace(/_/g,'-'),cc='';
+         if(/-EM\d+/.test(q))cc='orange';
+         else if(/-(FM|CH|CD|SD)\d+/.test(q))cc='blue';
+         else if(/-DR\d+/.test(q))cc='green';
+         else if(/-(TP|TM)\d+/.test(q))cc='pink';
+         else if(/-(BR|SL)\d+/.test(q))cc='violet';
+         else if(/-(SC|RM)\d+/.test(q))cc='peach';
+         let bg={orange:'#f59e0b',blue:'#2563eb',green:'#22c55e',pink:'#ec4899',violet:'#8b5cf6',peach:'#ffb38a'}[cc];
+         if(bg){
+           z.style.setProperty('background',bg,'important');
+           z.style.setProperty('background-image','none','important');
+           z.style.setProperty('border-color',bg,'important');
+           let fg=(cc==='orange'||cc==='green'||cc==='peach')?'#111':'#fff';
+           z.style.setProperty('color',fg,'important');
+           loc.style.setProperty('color',fg,'important');
+           id.style.setProperty('color',fg,'important');
+         }
          z.appendChild(loc);z.appendChild(id);
          let st=p.querySelector('.status');p.insertBefore(z,st);
        }
@@ -14879,69 +14879,7 @@ body.compact #machines .v193CombinedSetupRow{gap:4px;margin-bottom:4px}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>repair(0),1000));else setTimeout(()=>repair(0),1000);
 })();
 </script>
-<script id="v204CuttingToolMonitorMasterId">
-/* V214 — Cutting Tool Monitor colour card shows only the exact Tool Master ID. */
-(function(){
- const SK='hub_machine_setup_sim_v145',AK='hub_machine_atc_sim_v145',PK='hub_program_master_v85';
- function get(k,fb){try{let v=JSON.parse(localStorage.getItem(k)||'null');return v??fb}catch(e){return fb}}
- function set(k,v){localStorage.setItem(k,JSON.stringify(v))}
- function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
- function records(){try{return Array.isArray(tmRecords)?tmRecords:[]}catch(e){return Array.isArray(window.tmRecords)?window.tmRecords:[]}}
- function master(id){let u=String(id||'').trim().toUpperCase();return records().find(r=>String(r.id||'').trim().toUpperCase()===u)||null}
- function machine(){try{let m=typeof currentMachine==='function'?currentMachine():null;return {object:m,id:String((m&&m.id)||window.machine||'')}}catch(e){return {object:null,id:String(window.machine||'')}}}
- function toolId(v){return String(v&&typeof v==='object'?(v.toolId||v.id||''):v||'').trim()}
- function assigned(p){
-   let raw=Array.isArray(p&&p.sampleToolSequence)&&p.sampleToolSequence.length?p.sampleToolSequence:(Array.isArray(p&&p.tools)?p.tools:[]);
-   return raw.map(toolId).filter(Boolean);
- }
- function location(x,r){
-   let shown=String((x&&(x.displayCab||x.cab))||'').trim();
-   if(shown)return shown.replace(/\s+/g,'').toUpperCase();
-   if(!r)return '';
-   let cab=String(r.cab||r.toolin||'').replace(/\s+/g,'').toUpperCase(),pot=Number((String(r.pot||'').match(/\d+/)||[0])[0])||0;
-   return cab+(pot?'-'+pot:'');
- }
- function repair(){
-   let m=machine(),setups=get(SK,{}),st=setups[m.id]||null,atc=get(AK,{}),list=Array.isArray(atc[m.id])?atc[m.id]:[];
-   if(!list.length)return {m,st,list:[]};
-   let programs=get(PK,[]),p=st&&(programs.find(q=>String(q.machine||'')===m.id&&String(q.program||'')===String(st.program||''))||programs.find(q=>String(q.program||'')===String(st.program||''))),ids=assigned(p||{}),changed=false;
-   list=list.map((x,n)=>{
-     if(!x)return x;let slot=Number(x.slot)||n+1,current=toolId(x.displayTool||x.id),candidate=ids[slot-1]||'';
-     let r=master(current);
-     if(!r&&candidate)r=master(candidate);
-     if(!r){r=records().find(q=>String(q.machine||'')===m.id&&String(q.tno||'').replace(/\s+/g,'').toUpperCase()==='T'+String(slot).padStart(2,'0'))||null}
-     let id=String((r&&r.id)||candidate||current).trim();
-     if(id&&id!==current)changed=true;
-     return {...x,slot:slot,id:id,displayTool:id,displayCab:location(x,r),cab:location(x,r),type:x.type||(r&&r.type)||'',name:id,desc:x.desc||(r&&r.desc)||''};
-   }).filter(Boolean);
-   if(changed){atc[m.id]=list;set(AK,atc);if(st){st.tools=list;let by=Object.fromEntries(list.map(x=>[Number(x.slot),x]));st.programTools=(Array.isArray(st.programTools)?st.programTools:[]).map((x,n)=>by[Number(x.slot)||n+1]||x);setups[m.id]=st;set(SK,setups)}}
-   return {m,st,list};
- }
- function paint(){
-   try{
-     let z=repair(),cm=z.m.object;if(!cm)return false;let by={};z.list.forEach(x=>{if(x&&Number(x.slot))by[Number(x.slot)]=x});
-     let req={};((z.st&&Array.isArray(z.st.programTools))?z.st.programTools:[]).forEach(x=>{if(x&&Number(x.slot))req[Number(x.slot)]=x});
-     let grid=document.getElementById('mgrid');if(!grid)return false;grid.innerHTML='';
-     for(let i=1;i<=Number(cm.capacity||30);i++){
-       let x=by[i],d=document.createElement('div');d.className='slot'+(x&&req[i]?' program-used':'');
-       if(!x)d.innerHTML='<div class="tn">T'+String(i).padStart(2,'0')+'</div><div class="empty">EMPTY</div>';
-       else d.innerHTML='<div class="tn">T'+String(i).padStart(2,'0')+'</div><div class="tag '+esc(x.color||'blue')+'"><b style="font-size:13px;font-weight:1000">'+esc(x.displayTool||x.id||'NO TOOL ID')+'</b></div>';
-       grid.appendChild(d);
-     }
-     return true;
-   }catch(e){console.error('V204 Tool Master ID display',e);return false}
- }
- const oldRefresh=window.ctRefreshFromMachineSetup;
- window.ctRefreshFromMachineSetup=function(){let r=typeof oldRefresh==='function'?oldRefresh.apply(this,arguments):undefined;setTimeout(paint,0);return r};
- const oldDraw=window.drawMachine;
- window.drawMachine=function(){let r=typeof oldDraw==='function'?oldDraw.apply(this,arguments):undefined;setTimeout(paint,0);return r};
- const oldLoad=window.v158LoadToolsFromProgram;
- window.v158LoadToolsFromProgram=async function(){let r=typeof oldLoad==='function'?await oldLoad.apply(this,arguments):undefined;paint();return r};
- document.addEventListener('click',e=>{let b=e.target.closest&&e.target.closest('button');if(b&&/CUTTING TOOL MONITOR|CHECK CUTTING TOOL|REFRESH FROM MACHINE SETUP|LOAD.*PROGRAM/i.test(String(b.textContent||'')))setTimeout(paint,100)},true);
- window.addEventListener('storage',e=>{if(e.key===SK||e.key===AK||e.key===PK||e.key==='hub_tool_master')setTimeout(paint,0)});
- setTimeout(paint,1200);
-})();
-</script>
+
 <script id="v205UniqueToolsPerSampleProgram">
 /* V207 — programs 1-15 on every machine receive visibly different
    six-colour Tool Master ID combinations and regenerated NC/TXT content. */
@@ -15293,45 +15231,35 @@ body.compact #machines .v193CombinedSetupRow{gap:4px;margin-bottom:4px}
 #machines .legend #v217ReturnSelectedTool:disabled{background:#3b4650!important;border-color:#596570!important;color:#9ca7af!important;cursor:not-allowed;opacity:.8}
 </style>
 <script id="v217ReturnSelectedToolToCab">
-/* V217 — select one unused WHITE tool in Cutting Tool Monitor, then return it to
-   its saved Tool Master cabinet/pot. REMOVE SELECTED TOOL remains unchanged. */
 (function(){
- const AK='hub_machine_atc_sim_v145',SK='hub_machine_setup_sim_v145',TK='hub_tool_master';
- let selected=null,selectedMachine='';
- function get(k,fb){try{let v=JSON.parse(localStorage.getItem(k)||'null');return v??fb}catch(e){return fb}}
- function set(k,v){localStorage.setItem(k,JSON.stringify(v))}
- function mid(){try{return String(mmMachineId()||'')}catch(e){try{let m=currentMachine();return String((m&&m.id)||window.machine||'')}catch(x){return String(window.machine||'')}}}
- function active(id){let st=get(SK,{})[id],s=new Set();((st&&Array.isArray(st.programTools))?st.programTools:[]).forEach((x,n)=>s.add(Number(x&&x.slot)||n+1));return s}
- function atc(id){let x=get(AK,{})[id];return Array.isArray(x)?x:[]}
- function idOf(x){return String((x&&(x.displayTool||x.id||x.toolId))||'').trim()}
- function master(tool){let u=idOf(tool).toUpperCase(),a=get(TK,[]);return a.find(r=>String(r.id||'').trim().toUpperCase()===u)||null}
- function home(r){if(!r)return null;let cab=String(r.cab||r.toolin||'').trim(),pot=Number((String(r.pot||'').match(/\d+/)||[])[0]);let m=cab.match(/CAB\s*[-#]?\s*(\d+)/i);if(!m){let z=String(r.location||'').match(/CAB\s*[-#]?\s*(\d+)\s*[-/]\s*(\d+)/i);if(z){m=[z[0],z[1]];if(!pot)pot=Number(z[2])}}return m&&pot?{cab:Number(m[1]),pot}:null}
- function cabObj(n){try{return cabinets.find(c=>Number(c.number)===Number(n))||null}catch(e){return null}}
- function vacant(c,p){if(!c||!c.positions)return false;let v=c.positions[p];if(v&&typeof v==='object'&&String(v.toolId||'').trim())return false;let st=String((v&&typeof v==='object'?v.status:v)||'NO TOOL').toUpperCase();return ['NO TOOL','EMPTY','AVAILABLE','UNASSIGNED',''].includes(st)}
- function ensure(){let legend=document.querySelector('#machines .legend');if(!legend)return null;let b=document.getElementById('v217ReturnSelectedTool');if(!b){b=document.createElement('button');b.id='v217ReturnSelectedTool';b.type='button';b.disabled=true;b.textContent='RETURN TOOL TO CAB';b.onclick=e=>{e.preventDefault();e.stopPropagation();doReturn()};let remove=document.getElementById('v213RemoveSelectedTool');if(remove&&remove.parentNode===legend)remove.after(b);else legend.appendChild(b)}return b}
- function decorate(){let id=mid(),grid=document.getElementById('mgrid'),b=ensure();if(!grid||!b)return;if(selectedMachine&&selectedMachine!==id){selected=null;selectedMachine=''}let list=atc(id),used=active(id);if(selected!==null&&!list.some(x=>x&&Number(x.slot)===selected&&!used.has(selected))){selected=null;selectedMachine=''}b.disabled=selected===null;b.textContent=selected===null?'RETURN TOOL TO CAB':'RETURN T'+String(selected).padStart(2,'0')+' TO CAB'}
- function doReturn(){let id=mid(),slot=selected;if(slot===null||selectedMachine!==id)return;let arr=atc(id),x=arr.find(t=>t&&Number(t.slot)===Number(slot));if(!x)return alert('Selected machine tool was not found.');if(active(id).has(Number(slot)))return alert('T'+String(slot).padStart(2,'0')+' is required by the current program and cannot be returned.');let r=master(x);if(!r)return alert(idOf(x)+' was not found in Tool Master.');let h=home(r);if(!h)return alert(idOf(x)+' has no saved cabinet/pot in Tool Master. Edit its CAB and POT first.');let c=cabObj(h.cab);if(!c)return alert('CAB'+h.cab+' does not exist in Cutting Tool Rack.');if(!vacant(c,h.pot))return alert('CAB'+h.cab+'-'+h.pot+' is occupied. The tool was NOT moved.');if(!confirm('RETURN '+idOf(x)+' FROM '+id+' / T'+String(slot).padStart(2,'0')+' TO CAB'+h.cab+'-'+h.pot+'?'))return;
-   c.positions[h.pot]={status:'AVAILABLE',toolId:idOf(x),type:x.type||r.type||'',color:x.color||'',sourceMachine:id,lastMachineSlot:'T'+String(slot).padStart(2,'0')};try{saveCabs()}catch(e){localStorage.setItem('ct_cabinets',JSON.stringify(cabinets))}
-   let all=get(TK,[]);all.forEach(q=>{if(String(q.id||'').trim().toUpperCase()===String(r.id||'').trim().toUpperCase()){q.machine='';q.tno='';q.toolout='';q.status='AVAILABLE';q.availability='AVAILABLE'}});set(TK,all);try{tmRecords=all}catch(e){}window.tmRecords=all;try{if(typeof tmPersist==='function')tmPersist()}catch(e){}
-   let state=get(AK,{});state[id]=arr.filter(t=>!(t&&Number(t.slot)===Number(slot)));set(AK,state);let setups=get(SK,{});if(setups[id]){setups[id].tools=(Array.isArray(setups[id].tools)?setups[id].tools:[]).filter(t=>!(t&&Number(t.slot)===Number(slot)));setups[id].lastToolReturnedAt=new Date().toLocaleString();set(SK,setups)}
-   selected=null;selectedMachine='';try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){}try{if(typeof window.drawRack==='function')window.drawRack()}catch(e){}let s=document.getElementById('ctSyncStatus');if(s)s.textContent='Returned '+idOf(x)+' to CAB'+h.cab+'-'+h.pot+'.';setTimeout(decorate,80)
+ const AK='hub_machine_atc_sim_v145',SK='hub_machine_setup_sim_v145';
+ const get=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+ const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+ function mid(){try{return String(mmMachineId()||'')}catch(e){return String(window.machine||'')}}
+ function sel(){let g=document.getElementById('mgrid'),h=g&&g.querySelector('.slot.v213SelectedTool');return h?[...g.children].indexOf(h)+1:null}
+ function home(x){let m=String((x&&(x.ncCab||x.displayCab||x.cab))||'').match(/CAB\s*[-# ]?(\d+)\s*[-:]\s*(\d+)/i);return m?{cab:+m[1],pot:+m[2],text:'CAB'+(+m[1])+'-'+(+m[2])}:null}
+ function ensure(){let l=document.querySelector('#machines .legend');if(!l)return null;let b=document.getElementById('v217ReturnSelectedTool');if(!b){b=document.createElement('button');b.id='v217ReturnSelectedTool';b.type='button';let r=document.getElementById('v213RemoveSelectedTool');r&&r.parentNode===l?r.before(b):l.appendChild(b)}b.onclick=e=>{e.preventDefault();e.stopPropagation();ret()};return b}
+ function deco(){let b=ensure();if(!b)return;let n=sel();b.disabled=n===null;b.textContent=n===null?'RETURN TOOL TO CAB':'RETURN T'+String(n).padStart(2,'0')+' TO CAB'}
+ function ret(){
+  let n=sel();if(n===null)return alert('Select a WHITE unused tool first.');
+  let id=mid(),state=get(AK,{}),a=Array.isArray(state[id])?state[id]:[],x=a.find(q=>q&&+q.slot===n);
+  if(!x)return alert('Selected tool was not found in the machine.');
+  let h=home(x);if(!h)return alert('No CAB location is assigned in the NC/TXT for T'+String(n).padStart(2,'0')+'.');
+  let c=null;try{c=cabinets.find(z=>+z.number===h.cab)||null}catch(e){}
+  if(!c)return alert('CAB'+h.cab+' does not exist in Cutting Tool Rack.');
+  c.positions=c.positions||{};let tid=String(x.displayTool||x.id||x.toolId||('T'+String(n).padStart(2,'0'))),old=c.positions[h.pot];
+  if(old&&String(old.toolId||'').trim()&&String(old.toolId).trim()!==tid)return alert(h.text+' / POT '+String(h.pot).padStart(2,'0')+' is occupied.');
+  if(!confirm('Return '+tid+' to '+h.text+' / POT '+String(h.pot).padStart(2,'0')+'?'))return;
+  c.positions[h.pot]={status:'AVAILABLE',availability:'AVAILABLE',toolId:tid,id:tid,type:x.type||'',color:x.color||'',location:h.text,cab:'CAB '+h.cab,pot:'POT '+String(h.pot).padStart(2,'0'),machine:'',machineId:''};
+  try{saveCabs()}catch(e){localStorage.setItem('ct_cabinets',JSON.stringify(cabinets))}
+  state[id]=a.filter(q=>!(q&&+q.slot===n));set(AK,state);let ss=get(SK,{}),st=ss[id]||{};if(Array.isArray(st.tools))st.tools=st.tools.filter(q=>!(q&&+q.slot===n));ss[id]=st;set(SK,ss);
+  try{drawMachine()}catch(e){}try{ctRefreshFromMachineSetup()}catch(e){}
+  try{activeCab=h.cab}catch(e){}let nav=document.querySelector('.navb[data-page="cabinet"],[data-page="cabinet"]');if(nav)nav.click();
+  setTimeout(()=>{try{activeCab=h.cab;renderCabTabs();drawRack()}catch(e){}},80);
  }
- document.addEventListener('click',function(e){
-   let box=e.target.closest&&e.target.closest('#machines #mgrid .slot');if(!box)return;
-   let grid=box.parentElement,slot=[...grid.children].indexOf(box)+1,id=mid(),tool=atc(id).find(x=>x&&Number(x.slot)===slot);
-   if(!tool||active(id).has(slot))return;
-   /* V220: follow the SAME selected/highlighted tool used by REMOVE.
-      This makes REMOVE and RETURN mutually available for one selection. */
-   setTimeout(()=>{
-     let hi=grid.querySelector('.slot.v213SelectedTool');
-     if(!hi){selected=null;selectedMachine='';}
-     else{selected=[...grid.children].indexOf(hi)+1;selectedMachine=id;}
-     decorate();
-   },20)
- },true);
- let obs=new MutationObserver(()=>setTimeout(decorate,0));function start(){let g=document.getElementById('mgrid');if(g&&!g.dataset.v217Observed){g.dataset.v217Observed='1';obs.observe(g,{childList:true})}decorate()}
- document.addEventListener('click',e=>{let b=e.target.closest&&e.target.closest('button');if(b&&/CUTTING TOOL MONITOR|CHECK CUTTING TOOL|REFRESH FROM MACHINE SETUP/i.test(String(b.textContent||'')))setTimeout(start,100)},true);
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(start,1200));else setTimeout(start,1200);
+ document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#machines #mgrid .slot'))setTimeout(deco,25)},true);
+ let o=new MutationObserver(()=>setTimeout(deco,0));function start(){let g=document.getElementById('mgrid');if(g&&!g.dataset.v234r){g.dataset.v234r='1';o.observe(g,{childList:true,subtree:true,attributes:true,attributeFilter:['class']})}deco()}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(start,500));else setTimeout(start,500);
 })();
 </script>
 
@@ -15359,4 +15287,1427 @@ body.compact #machines .v193CombinedSetupRow{gap:4px;margin-bottom:4px}
   else restoreGraphicsFirst();
 })();
 </script>
+
+<script id="v222ClearMachineAndSetupSyncFix">
+/* V222 — authoritative clear sync.
+   CLEAR MACHINE TOOLS empties only this machine's ATC display.
+   CLEAR SETUP empties ATC + loaded program/jig for this machine.
+   Master Tool/Program/Jig/Cabinet records are not deleted. */
+(function(){
+ const AK='hub_machine_atc_sim_v145', SK='hub_machine_setup_sim_v145';
+ function get(k,fb){try{let v=JSON.parse(localStorage.getItem(k)||'null');return v??fb}catch(e){return fb}}
+ function set(k,v){localStorage.setItem(k,JSON.stringify(v))}
+ function mid(){try{return String(mmMachineId()||'')}catch(e){try{let m=currentMachine();return String((m&&m.id)||window.machine||'')}catch(x){return String(window.machine||'')}}}
+ function redraw(){
+   try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}
+   try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){}
+   try{if(typeof window.mmRefreshSetupUI==='function')window.mmRefreshSetupUI()}catch(e){}
+ }
+ function detachToolMaster(id){
+   try{
+     let records=(typeof window.tmRecords!=='undefined'&&Array.isArray(window.tmRecords))?window.tmRecords:
+                 ((typeof tmRecords!=='undefined'&&Array.isArray(tmRecords))?tmRecords:null);
+     if(!records)return;
+     records.forEach(r=>{
+       if(String(r.machine||'')===id){
+         r.machine=''; r.tno=''; r.toolout='';
+         if(String(r.status||'').toUpperCase()==='IN MACHINE')r.status='UNASSIGNED';
+         if(String(r.availability||'').toUpperCase()==='IN USE')r.availability='UNASSIGNED';
+       }
+     });
+     if(typeof tmPersist==='function')tmPersist();
+   }catch(e){}
+ }
+ window.v185ClearMachineToolsOnly=function(){
+   const id=mid(), atc=get(AK,{}), count=Array.isArray(atc[id])?atc[id].filter(Boolean).length:0;
+   if(!count){redraw();alert('The current machine Cutting Tool Monitor is already empty.');return}
+   if(!confirm('CLEAR ALL '+count+' TOOL(S) FROM '+id+' CUTTING TOOL MONITOR?\n\nThis unloads the machine display only. Tool Master records are not deleted.'))return;
+   atc[id]=[]; set(AK,atc);
+   let setups=get(SK,{});
+   if(setups[id]){
+     setups[id].tools=[];
+     setups[id].programTools=[];
+     setups[id].toolSource='';
+     setups[id].machineToolsClearedAt=new Date().toLocaleString();
+     set(SK,setups);
+   }
+   detachToolMaster(id);
+   redraw();
+   setTimeout(redraw,30);
+   const sum=document.getElementById('mmLoadedSummary');
+   if(sum)sum.innerHTML='<div style="color:#ff9da5;font-weight:900">✓ '+count+' MACHINE TOOL(S) CLEARED — CUTTING TOOL MONITOR IS EMPTY</div>';
+ };
+
+ window.mmClearSetupSimulation=function(){
+   const id=mid();
+   if(!confirm('CLEAR COMPLETE SETUP FROM '+id+'?\n\nThis clears the loaded program, jig/fixture and machine tools. Master records are not deleted.'))return;
+   let atc=get(AK,{}); atc[id]=[]; set(AK,atc);
+   let setups=get(SK,{}); delete setups[id]; set(SK,setups);
+   detachToolMaster(id);
+   const ps=document.getElementById('mmProgramSelect'), fs=document.getElementById('mmFixtureSelect');
+   if(ps)ps.value=''; if(fs)fs.value='';
+   redraw();
+   setTimeout(redraw,30);
+   const sum=document.getElementById('mmLoadedSummary');
+   if(sum)sum.innerHTML='<span class="mut">NO SETUP LOADED — program, jig/fixture and machine tools cleared.</span>';
+ };
+
+ /* Rebind the existing buttons after all older version wrappers have loaded. */
+ function bind(){
+   const ct=document.getElementById('v185ClearMachineToolsBtn');
+   if(ct)ct.onclick=window.v185ClearMachineToolsOnly;
+   document.querySelectorAll('#machineStatusPage button').forEach(b=>{
+     if(/^CLEAR SETUP$/i.test(String(b.textContent||'').trim()))b.onclick=window.mmClearSetupSimulation;
+   });
+ }
+ document.addEventListener('click',e=>{
+   const b=e.target.closest&&e.target.closest('button');
+   if(b&&/MACHINE MONITOR/i.test(String(b.textContent||'')))setTimeout(bind,50);
+ },true);
+ setTimeout(bind,700);
+})();
+</script>
+
+
+<style id="v224-cab-label-style">
+.v224-cab-ref{display:block!important;font-size:9px!important;line-height:10px!important;font-weight:900!important;margin-top:2px!important;color:#08111f!important;white-space:nowrap!important}
+</style>
+<style id="v228-admin-login-style">
+/* V228: Admin-only login */
+#hubLoginRole, label[for="hubLoginRole"]{display:none!important}
+</style>
+
+<script id="v228-clean-toolmaster-and-admin-login">
+(function(){
+  const FLAG='hub_v228_exact_toolmaster_done';
+  const TOOLKEY='hub_tool_master';
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function make(cab,pot,type,prefix,n,desc){
+    const id='C'+cab+'-'+prefix+pad(n);
+    return {
+      tool:type+' #'+n,
+      type:type,
+      id:id,
+      toolId:id,
+      brand:'SAMPLE',
+      availability:'IN STOCK',
+      toolin:'CAB '+cab,
+      toolIn:100,
+      toolout:'',
+      toolOut:0,
+      desc:desc+' '+n,
+      description:desc+' '+n,
+      dia:'',
+      length:'',
+      holder:'BT40',
+      collet:'-',
+      pullstud:'PS-BT40',
+      insert:'-',
+      cab:'CAB '+cab,
+      cabinet:'CAB'+cab,
+      pot:'POT '+pad(pot),
+      position:pot,
+      location:'CAB'+cab+'-'+pot,
+      cabLocation:'CAB'+cab+'-'+pot,
+      machine:'',
+      tno:'',
+      status:'AVAILABLE'
+    };
+  }
+
+  function exactTools(){
+    const a=[];
+    let p=1;
+
+    // CAB1: exactly 30 End Mills
+    for(let i=1;i<=30;i++) a.push(make(1,p++,'End Mill','EM',i,'End Mill Sample'));
+
+    // CAB2: 40 total
+    p=1;
+    for(let i=1;i<=10;i++) a.push(make(2,p++,'Face Mill','FM',i,'Face Mill Sample'));
+    for(let i=1;i<=10;i++) a.push(make(2,p++,'Chamfer','CH',i,'Chamfer Sample'));
+    for(let i=1;i<=10;i++) a.push(make(2,p++,'Center Drill','CD',i,'Center Drill Sample'));
+    for(let i=1;i<=10;i++) a.push(make(2,p++,'Spot Drill','SD',i,'Spot Drill Sample'));
+
+    // CAB3: exactly 30 Drills
+    p=1;
+    for(let i=1;i<=30;i++) a.push(make(3,p++,'Drill','DR',i,'Drill Sample'));
+
+    // CAB4: 15 Taps + 15 Thread Mills
+    p=1;
+    for(let i=1;i<=15;i++) a.push(make(4,p++,'Tap','TP',i,'Tap Sample'));
+    for(let i=1;i<=15;i++) a.push(make(4,p++,'Thread Mill','TM',i,'Thread Mill Sample'));
+
+    // CAB5: 15 Boring + 15 Slot
+    p=1;
+    for(let i=1;i<=15;i++) a.push(make(5,p++,'Boring','BR',i,'Boring Sample'));
+    for(let i=1;i<=15;i++) a.push(make(5,p++,'Slot','SL',i,'Slot Sample'));
+
+    // CAB6: 15 Special/Customized + 15 Reamers
+    p=1;
+    for(let i=1;i<=15;i++) a.push(make(6,p++,'Special / Customized Tool','SC',i,'Special / Customized Sample'));
+    for(let i=1;i<=15;i++) a.push(make(6,p++,'Reamer','RM',i,'Reamer Sample'));
+
+    return a;
+  }
+
+  function rebuild(){
+    const tools=exactTools();
+
+    // Replace old/heaped Tool Master data completely.
+    localStorage.setItem(TOOLKEY,JSON.stringify(tools));
+
+    // Rebuild the six rack definitions so CAB6 definitely exists.
+    const racks=[
+      {number:1,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}},
+      {number:2,name:'Cutting Tool Cabinet',holder:'BT40',rows:10,potsPerRow:4,positions:{}},
+      {number:3,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}},
+      {number:4,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}},
+      {number:5,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}},
+      {number:6,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}}
+    ];
+    localStorage.setItem('ct_cabinets',JSON.stringify(racks));
+
+    // Replace live in-memory arrays too, so old rows cannot remain on screen.
+    try{
+      tmRecords=tools.map(x=>({...x}));
+      tmEditIndex=-1; tmSelected=-1;
+      if(typeof tmRender==='function') tmRender();
+    }catch(e){}
+
+    try{
+      cabinets=racks.map(x=>({...x,positions:{}}));
+      activeCab=1;
+      if(typeof saveCabs==='function') saveCabs();
+      if(typeof renderCabTabs==='function') renderCabTabs();
+      if(typeof drawRack==='function') drawRack();
+    }catch(e){}
+
+    localStorage.setItem(FLAG,'1');
+  }
+
+  // Run every time V228 opens until the exact counts are confirmed in storage.
+  function countsOK(){
+    try{
+      const a=JSON.parse(localStorage.getItem(TOOLKEY)||'[]');
+      if(!Array.isArray(a) || a.length!==190) return false;
+      const count=n=>a.filter(x=>String(x.cab||x.cabinet||'').replace(/\s+/g,'').toUpperCase()==='CAB'+n).length;
+      return count(1)===30 && count(2)===40 && count(3)===30 &&
+             count(4)===30 && count(5)===30 && count(6)===30;
+    }catch(e){ return false; }
+  }
+
+  if(localStorage.getItem(FLAG)!=='1' || !countsOK()) rebuild();
+  else {
+    // Sync current page memory with the already-correct saved list.
+    try{
+      const tools=JSON.parse(localStorage.getItem(TOOLKEY)||'[]');
+      tmRecords=tools;
+      if(typeof tmRender==='function') tmRender();
+    }catch(e){}
+  }
+
+  // LOGIN: this build is Admin login only.
+  const role=document.getElementById('hubLoginRole');
+  if(role) role.value='admin';
+
+  window.hubLogin=function(){
+    const u=(document.getElementById('hubLoginUser').value||'').trim().toLowerCase();
+    const p=document.getElementById('hubLoginPassword').value||'';
+    const a=HUB_LOGIN_ACCOUNTS[u];
+    const err=document.getElementById('hubLoginError');
+
+    if(!a || a.password!==p || a.role!=='admin'){
+      err.textContent='Incorrect admin username or password.';
+      return;
+    }
+
+    sessionStorage.setItem('hub_login_user',u);
+    sessionStorage.setItem('hub_login_role','admin');
+    document.getElementById('hubLoginGate').classList.add('hidden');
+    err.textContent='';
+    hubApplyRole(u,'admin');
+
+    // Open the normal Admin HUB immediately.
+    document.body.classList.remove('hubOperator');
+    document.body.classList.add('hubAdmin');
+    const first=document.querySelector('.navb[data-page="machines"]');
+    if(first) first.click();
+  };
+})();
+</script>
+
+
+<style id="v229-nc-source-style">
+/* V229: CAB shown in Cutting Tool Monitor comes ONLY from the editable NC/TXT. */
+.v224-cab-ref{display:none!important}
+.v229-nc-cab{
+  display:block!important;
+  width:100%!important;
+  margin:2px auto 0!important;
+  text-align:center!important;
+  font-size:9px!important;
+  line-height:10px!important;
+  font-weight:1000!important;
+  color:#08111f!important;
+  white-space:nowrap!important;
+}
+</style>
+
+<style id="v233-stable-nc-cab">
+.v224-cab-ref{display:none!important}
+#machines .v229-nc-cab{
+ display:block!important;width:100%!important;text-align:center!important;
+ margin:2px auto 0!important;font-size:9px!important;line-height:10px!important;
+ font-weight:900!important;color:#08111f!important;white-space:nowrap!important
+}
+</style>
+<script id="v234-load-confirm">
+document.addEventListener('click',function(e){let b=e.target.closest&&e.target.closest('button');if(!b||!/LOAD\s+PROGRAM.*(JIG|FIXTURE)/i.test(String(b.textContent||'')))return;if(b.dataset.v234ok==='1'){delete b.dataset.v234ok;return}if(!confirm('Load the selected Program + Fixture?\n\nThis will change the current machine setup.')){e.preventDefault();e.stopImmediatePropagation();return}b.dataset.v234ok='1'},true);
+</script>
+
+<style id="v235-cab-display">
+#machines .v235-cab{
+ display:block!important;width:100%!important;text-align:center!important;
+ margin-top:2px!important;font-size:9px!important;line-height:10px!important;
+ font-weight:900!important;color:#08111f!important;white-space:nowrap!important
+}
+</style>
+
+
+
+
+
+
+
+
+
+<style id="v242AuthoritativeStyle">
+#machines .slot.program-used{background:#b9bec3!important;border-color:#68727b!important;box-shadow:inset 0 0 0 2px #8b949c!important}
+#machines .slot:not(.program-used){background:#f4f5f6!important}
+</style>
+
+
+
+
+<style id="v257-tool-cabinet-window">
+/* V257 — Tool Cabinet details + rack enclosed in a white window */
+#cabinet .v257CabWindow{
+  background:#f7f9fc!important;
+  border:2px solid #cbd5e1!important;
+  border-radius:12px!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.28)!important;
+  overflow:hidden!important;
+  margin-top:10px!important;
+}
+#cabinet .v257CabTitlebar{
+  height:34px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 9px 0 14px;background:#eef2f7;color:#111827;
+  border-bottom:1px solid #cbd5e1;font-weight:900;font-size:13px;
+}
+#cabinet .v257CabBtns{display:flex;gap:5px}
+#cabinet .v257CabBtn{
+  width:25px;height:22px;border:1px solid #9ca3af;border-radius:5px;
+  background:#fff;color:#111827;font-weight:900;line-height:18px;padding:0;cursor:pointer
+}
+#cabinet .v257CabBody{padding:12px;background:#fff!important}
+#cabinet .v257CabBody.v257Hidden{display:none!important}
+#cabinet .v257CabWindow.v257Max{
+  position:fixed!important;inset:8px!important;z-index:99998!important;
+  margin:0!important;display:flex!important;flex-direction:column!important;
+}
+#cabinet .v257CabWindow.v257Max .v257CabBody{
+  flex:1!important;overflow:auto!important
+}
+#cabinet .v257CabWindow.v257Closed{display:none!important}
+</style>
+<script id="v257-tool-cabinet-window">
+(function(){
+ function build(){
+   let page=document.querySelector('#cabinet');
+   if(!page||page.querySelector('.v257CabWindow'))return;
+   let rack=document.querySelector('#rack');
+   if(!rack)return;
+
+   /* Find the shared content area containing the cabinet details and rack,
+      without touching cabinet tabs/edit controls above it. */
+   let common=rack.parentElement;
+   while(common&&common!==page){
+     let txt=String(common.textContent||'');
+     if(/Cutting Tool Cabinet/i.test(txt)&&common.querySelector('#rack'))break;
+     common=common.parentElement;
+   }
+   if(!common||common===page)return;
+
+   let win=document.createElement('div');win.className='v257CabWindow';
+   let bar=document.createElement('div');bar.className='v257CabTitlebar';
+   bar.innerHTML='<span>TOOL CABINET RACK</span><span class="v257CabBtns"><button class="v257CabBtn" data-a="hide">−</button><button class="v257CabBtn" data-a="max">□</button><button class="v257CabBtn" data-a="close">×</button></span>';
+   let body=document.createElement('div');body.className='v257CabBody';
+
+   common.parentNode.insertBefore(win,common);
+   win.appendChild(bar);win.appendChild(body);body.appendChild(common);
+
+   bar.addEventListener('click',function(e){
+     let b=e.target.closest('button');if(!b)return;
+     let a=b.dataset.a;
+     if(a==='hide')body.classList.toggle('v257Hidden');
+     if(a==='max'){win.classList.toggle('v257Max');b.textContent=win.classList.contains('v257Max')?'❐':'□'}
+     if(a==='close')win.classList.add('v257Closed');
+   });
+ }
+ function ensure(){
+   let page=document.querySelector('#cabinet');
+   if(page&&!page.querySelector('.v257CabWindow'))build();
+ }
+ document.addEventListener('click',function(){setTimeout(ensure,50)},true);
+ setTimeout(ensure,500);
+})();
+</script>
+
+<style id="v258-physical-jig-style">
+#machines #v258PhysicalJig{display:inline-flex;align-items:center;gap:7px;margin-left:12px;padding:5px 10px;border:1px solid #3b7899;border-radius:7px;background:#102b3b;color:#e7f7ff;font-size:11px;font-weight:900;vertical-align:middle}
+#machines #v258PhysicalJig .v258Label{color:#75d5ff;font-size:9px;letter-spacing:.4px}
+#machines #v258PhysicalJig .v258Cab{padding:2px 6px;border-radius:4px;background:#e8f3fa;color:#0b2535}
+#machines .legend #v258ReturnJig{background:#176a43!important;border-color:#46c889!important;color:#fff!important;padding:8px 14px!important;margin-left:6px}
+#machines .legend #v258ReturnJig:disabled{background:#3b4650!important;border-color:#596570!important;color:#9ca7af!important;opacity:.8}
+body.compact #machines #v258PhysicalJig{font-size:8px;padding:3px 6px;gap:4px}
+</style>
+<script id="v258-physical-jig-nc-return">
+(function(){
+ const SK='hub_machine_setup_sim_v145',PK='hub_program_master_v85',JK='hub_jig_fixture_monitor_v134',RK='ct_fixture_cabs';
+ const get=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+ const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+ function mid(){try{return String(mmMachineId()||'')}catch(e){try{let m=currentMachine();return String((m&&m.id)||window.machine||'')}catch(x){return String(window.machine||'')}}}
+ function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+ function setup(){return get(SK,{})[mid()]||{}}
+ function program(st){let a=get(PK,[]),n=String(st.program||'');return a.find(p=>String(p.program||'')===n)||null}
+ async function ncText(p){
+   if(!p)return '';
+   if(typeof p.ncText==='string'&&p.ncText.trim())return p.ncText;
+   try{if(typeof pm94get==='function'&&typeof pm94key==='function'){let s=await pm94get(pm94key(p.program,'nc')),b=s&&(s.blob||s.data||s.file);if(b&&typeof b.text==='function'){let t=await b.text();if(t.trim())return t}}}catch(e){}
+   if(typeof p.sampleNC==='string'&&p.sampleNC.trim())return p.sampleNC;
+   if(typeof p.ncfile==='string'&&/\n|\r/.test(p.ncfile))return p.ncfile;
+   try{if(typeof window.v196SampleNC==='function')return String(window.v196SampleNC(p)||'')}catch(e){}
+   return '';
+ }
+ function jigHome(text){
+   text=String(text||'');
+   let m=text.match(/\(\s*JIG\s+CABINET\s+NUMBER\s*\)\s*\(\s*CAB\s*[-# ]?0*(\d+)\s*[-:]\s*0*(\d+)\s*\)/i)
+      ||text.match(/JIG\s+CABINET\s+NUMBER[^\r\n]*?CAB\s*[-# ]?0*(\d+)\s*[-:]\s*0*(\d+)/i);
+   return m?{cab:+m[1],pos:+m[2],text:'CAB'+(+m[1])+'-'+(+m[2])}:null;
+ }
+ async function syncHome(){
+   let all=get(SK,{}),st=all[mid()];if(!st)return null;let p=program(st),h=jigHome(await ncText(p));
+   if(h){st.jigNcCab=h.text;st.jigReturnCab=h.cab;st.jigReturnPos=h.pos;all[mid()]=st;set(SK,all)}
+   return h;
+ }
+ function physical(st){let id=String(st.fixtureId||st.jigId||st.jigid||'').trim();if(!id)return null;let a=get(JK,[]),j=a.find(x=>String(x.id||'')===id)||null;return {id:id,name:(j&&j.name)||st.fixtureName||'',master:j};}
+ async function paint(){
+   let title=document.getElementById('mtitle');if(!title)return;let st=setup(),j=physical(st),h=await syncHome();st=setup();j=physical(st);
+   let b=document.getElementById('v258PhysicalJig');if(!b){b=document.createElement('span');b.id='v258PhysicalJig';title.appendChild(b)}
+   if(j)b.innerHTML='<span class="v258Label">ACTIVE JIG</span><b>'+esc(j.id)+'</b>'+(h?'<span class="v258Cab">'+esc(h.text)+'</span>':'<span class="v258Cab">NO NC CAB</span>');
+   else b.innerHTML='<span class="v258Label">ACTIVE JIG</span><b>NO JIG LOADED</b>';
+   let rb=ensureReturn();if(rb){rb.disabled=!j;rb.textContent=j?'RETURN JIG TO CAB':'RETURN JIG TO CAB'}
+ }
+ function ensureReturn(){let l=document.querySelector('#machines .legend');if(!l)return null;let b=document.getElementById('v258ReturnJig');if(!b){b=document.createElement('button');b.id='v258ReturnJig';b.type='button';b.textContent='RETURN JIG TO CAB';let tool=document.getElementById('v217ReturnSelectedTool'),rem=document.getElementById('v213RemoveSelectedTool');if(tool&&tool.parentNode===l)tool.after(b);else if(rem&&rem.parentNode===l)rem.before(b);else l.appendChild(b);b.onclick=e=>{e.preventDefault();e.stopPropagation();returnJig()}}return b}
+ async function returnJig(){
+   let id=mid(),all=get(SK,{}),st=all[id]||{},j=physical(st);if(!j)return alert('No physical jig is loaded in '+id+'.');
+   let h=await syncHome();if(!h)return alert('No (JIG CABINET NUMBER)(CABx-x) location is assigned in the current NC/TXT.');
+   let racks=get(RK,[]),c=racks.find(x=>Number(x.number)===h.cab);if(!c)return alert('Jig & Fixture CAB '+h.cab+' does not exist.');c.positions=c.positions||{};
+   let old=c.positions[h.pos];if(old&&String(old.id||'').trim()&&String(old.id).trim()!==j.id)return alert(h.text+' is occupied by '+old.id+'.');
+   if(!confirm('Return '+j.id+' to '+h.text+'?'))return;
+   racks.forEach(rc=>{Object.keys(rc.positions||{}).forEach(k=>{if(String(rc.positions[k]?.id||'')===j.id)delete rc.positions[k]})});
+   let size=String((j.master&&j.master.size)||'').match(/([\d.]+)\s*[×xX]\s*([\d.]+)/);
+   c.positions[h.pos]={...(old||{}),id:j.id,name:(j.master&&j.master.name)||j.name||'',partNumber:(j.master&&(j.master.partNumber||j.master.part))||'',length:size?size[1]:(old&&old.length)||'',width:size?size[2]:(old&&old.width)||'',status:'AVAILABLE',machine:'',machineLocation:'',attachment:(j.master&&j.master.attachment)||''};
+   set(RK,racks);try{fixtureCabs=racks;saveFixtureCabs();activeFixtureCab=h.cab;renderFixtureTabs();drawFixtureRack()}catch(e){}
+   /* V262: physical Jig Rack is independent from Jig Master. NC/TXT return location is authoritative. */
+   st.lastReturnedJig={id:j.id,cab:h.text,machine:id,program:st.program||'',part:st.partno||st.partId||st.part||'',time:new Date().toISOString()};st.fixtureId='';st.jigId='';st.jigid='';st.fixtureName='';st.fixtureCab='';st.fixturePos='';all[id]=st;set(SK,all);
+   try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){};try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){};await paint();
+   let nav=document.querySelector('.navb[data-page="fixtures"]');if(nav)nav.click();setTimeout(()=>{try{activeFixtureCab=h.cab;renderFixtureTabs();drawFixtureRack()}catch(e){}},100);
+ }
+ window.v258ReturnJigToCab=returnJig;
+ let oldDraw=window.drawMachine;window.drawMachine=function(){let r=typeof oldDraw==='function'?oldDraw.apply(this,arguments):undefined;setTimeout(paint,60);return r};
+ let oldRefresh=window.ctRefreshFromMachineSetup;window.ctRefreshFromMachineSetup=function(){let r=typeof oldRefresh==='function'?oldRefresh.apply(this,arguments):undefined;setTimeout(paint,80);return r};
+ document.addEventListener('click',e=>{let b=e.target.closest&&e.target.closest('button');if(!b)return;let t=String(b.textContent||'');if(/LOAD\s+PROGRAM.*(JIG|FIXTURE)|CUTTING TOOL MONITOR|REFRESH FROM MACHINE SETUP|MC-\d+/i.test(t))setTimeout(paint,250)},true);
+ window.addEventListener('storage',e=>{if([SK,PK,JK,RK].includes(e.key))setTimeout(paint,80)});
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(paint,1200));else setTimeout(paint,1200);
+})();
+</script>
+
+
+<style id="v259-active-jig-select-style">
+#machines #v258PhysicalJig{cursor:pointer;user-select:none}
+#machines #v258PhysicalJig.v259Selected{outline:2px solid #67dcff;box-shadow:0 0 0 2px rgba(103,220,255,.18) inset}
+</style>
+<script id="v259-active-jig-select-and-interlock">
+(function(){
+ const SK='hub_machine_setup_sim_v145';
+ const get=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+ function mid(){try{return String(mmMachineId()||'')}catch(e){try{let m=currentMachine();return String((m&&m.id)||window.machine||'')}catch(x){return String(window.machine||'')}}}
+ function active(){let st=get(SK,{})[mid()]||{};return String(st.fixtureId||st.jigId||st.jigid||'').trim()}
+ function sync(){let box=document.getElementById('v258PhysicalJig'),j=active();if(!box)return;let lab=box.querySelector('.v258Label');if(lab&&lab.textContent!=='ACTIVE JIG')lab.textContent='ACTIVE JIG';if(!j)box.classList.remove('v259Selected')}
+ document.addEventListener('click',function(e){
+   let box=e.target.closest&&e.target.closest('#v258PhysicalJig');
+   if(box){e.preventDefault();e.stopPropagation();if(active())box.classList.toggle('v259Selected');return}
+   let b=e.target.closest&&e.target.closest('button');if(!b)return;
+   let t=String(b.textContent||'');
+   if(/LOAD\s+PROGRAM.*(JIG|FIXTURE)/i.test(t)){
+     let j=active();
+     if(j){e.preventDefault();e.stopImmediatePropagation();alert('ACTIVE JIG '+j+' is still loaded.\n\nSelect ACTIVE JIG and RETURN JIG TO CAB first before loading another jig.');return false}
+   }
+ },true);
+ document.addEventListener('click',function(e){let b=e.target.closest&&e.target.closest('#v258ReturnJig');if(!b)return;let box=document.getElementById('v258PhysicalJig');if(active()&&box&&!box.classList.contains('v259Selected')){e.preventDefault();e.stopImmediatePropagation();alert('Select the ACTIVE JIG first, then press RETURN JIG TO CAB.')}},true);
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(sync,300));else setTimeout(sync,300);
+ setInterval(sync,1000);
+})();
+</script>
+
+
+<style id="v261-jig-rack-id-style">
+#fixtures .v261RackJigId{font-size:14px!important;font-weight:1000!important;color:#fff!important;text-align:center!important;line-height:1.05!important;margin:2px 0 3px!important;min-height:15px}
+body.compact #fixtures .v261RackJigId{font-size:11px!important;margin:1px 0 2px!important}
+</style>
+<script id="v261-independent-physical-jig-rack">
+(function(){
+ const RK='ct_fixture_cabs', RESET='v261_fixture_rack_initial_empty_done';
+ function read(){try{let a=JSON.parse(localStorage.getItem(RK)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
+ function write(a){localStorage.setItem(RK,JSON.stringify(a))}
+ function initialEmpty(){
+   if(localStorage.getItem(RESET)==='1')return;
+   let a=read();
+   /* Keep every cabinet and its dimensions, but start every physical pot empty. */
+   a.forEach(c=>c.positions={});
+   write(a); localStorage.setItem(RESET,'1');
+   try{fixtureCabs=a;if(typeof saveFixtureCabs==='function')saveFixtureCabs()}catch(e){}
+ }
+ function addIds(){
+   let c=null;try{c=fCab()}catch(e){} if(!c)return;
+   document.querySelectorAll('#fixtureRack .pot').forEach(p=>{
+     let pos=Number(p.dataset.fixturePos),d=(c.positions||{})[pos]||{};
+     let old=p.querySelector('.v261RackJigId'); if(old)old.remove();
+     if(!String(d.id||'').trim())return;
+     let size=p.querySelector('.fixtureRackSize'); if(!size)return;
+     let id=document.createElement('div');id.className='v261RackJigId';id.textContent=String(d.id);
+     size.insertAdjacentElement('afterend',id);
+   });
+ }
+ function install(){
+   initialEmpty();
+   try{if(typeof renderFixtureTabs==='function')renderFixtureTabs();if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}
+   addIds();
+   /* Add Jig ID after SIZE every time the rack redraws. */
+   try{
+     let base=window.drawFixtureRack;
+     if(typeof base==='function'&&!base.v261Wrapped){
+       let fn=function(){let r=base.apply(this,arguments);setTimeout(addIds,0);return r};fn.v261Wrapped=true;window.drawFixtureRack=fn;
+     }
+   }catch(e){}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(install,1300));else setTimeout(install,1300);
+ document.addEventListener('click',e=>{let b=e.target.closest&&e.target.closest('button');if(b&&/JIG\s*&\s*FIXTURE\s*RACK|RETURN\s+JIG\s+TO\s+CAB/i.test(String(b.textContent||'')))setTimeout(addIds,180)},true);
+ window.addEventListener('storage',e=>{if(e.key===RK)setTimeout(addIds,50)});
+})();
+</script>
+
+
+<style id="v262-jig-nc-editor-style">
+.v262JigCabEdit{margin:0 0 10px;padding:9px;border:1px solid #3c657e;border-radius:7px;background:#07141d;display:flex;align-items:end;gap:10px}
+.v262JigCabEdit label{display:flex;flex-direction:column;gap:4px;color:#9fc2d8;font:800 10px Arial,sans-serif;min-width:220px}
+.v262JigCabEdit input{padding:7px;border:1px solid #4c7892;border-radius:4px;background:#fff;color:#111;font:800 13px Consolas,'Courier New',monospace}
+.v262JigCabEdit span{color:#7bdcff;font:800 11px Arial,sans-serif;padding-bottom:8px}
+</style>
+<script id="v262-empty-rack-and-jig-cab-editor">
+(function(){
+ const RK='ct_fixture_cabs', RESET='v262_fixture_rack_empty_done', PM='hub_program_master_v85';
+ function get(k,d){try{let x=JSON.parse(localStorage.getItem(k)||'null');return x??d}catch(e){return d}}
+ function set(k,v){localStorage.setItem(k,JSON.stringify(v))}
+ function emptyPhysicalRackOnce(){
+   if(localStorage.getItem(RESET)==='1')return;
+   let a=get(RK,[]); if(!Array.isArray(a))a=[];
+   a.forEach(c=>{c.positions={}}); set(RK,a); localStorage.setItem(RESET,'1');
+   try{fixtureCabs=a}catch(e){};
+   try{if(typeof renderFixtureTabs==='function')renderFixtureTabs();if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}
+ }
+ function jigCab(text){let m=String(text||'').match(/\(\s*JIG\s+CABINET\s+NUMBER\s*\)\s*\(\s*(CAB\s*\d+\s*[-:]\s*\d+)\s*\)/i);return m?m[1].replace(/\s+/g,'').replace(':','-').toUpperCase():''}
+ function putJigCab(text,val){
+   text=String(text||''); val=String(val||'CAB1-1').toUpperCase().replace(/\s+/g,'').replace(':','-');
+   let line='(JIG CABINET NUMBER)('+val+')';
+   if(/\(\s*JIG\s+CABINET\s+NUMBER\s*\)\s*\([^\r\n]*\)/i.test(text))return text.replace(/\(\s*JIG\s+CABINET\s+NUMBER\s*\)\s*\([^\r\n]*\)/i,line);
+   let re=/(\(\s*JIG\s+ID[^\r\n]*\))/i;
+   if(re.test(text))return text.replace(re,'$1\n'+line);
+   let lines=text.split(/\r?\n/);let at=Math.min(2,lines.length);lines.splice(at,0,line);return lines.join('\n');
+ }
+ function migrateSamples(){
+   let a=get(PM,[]); if(!Array.isArray(a))return; let changed=false;
+   a.forEach((p,i)=>{
+     let t=String(p.ncText||p.sampleNC||'');
+     if(!t.trim() && typeof window.v196SampleNC==='function')try{t=String(window.v196SampleNC(p)||'')}catch(e){}
+     if(t.trim()&&!jigCab(t)){
+       let cab='CAB'+((i%5)+1)+'-1'; t=putJigCab(t,cab); p.ncText=t; p.sampleNC=t; changed=true;
+     }
+   }); if(changed)set(PM,a);
+ }
+ function enhanceEditor(){
+   let panel=document.querySelector('.v211ToolPanel');let ta=document.querySelector('.pmViewerBox.v211Editor .pmNcEditArea');
+   if(!panel||!ta||panel.querySelector('.v262JigCabEdit'))return;
+   let row=document.createElement('div');row.className='v262JigCabEdit';
+   row.innerHTML='<label>JIG CABINET NUMBER<input value="'+(jigCab(ta.value)||'CAB1-1')+'"></label><span>Editable physical jig return location from NC/TXT</span>';
+   let calls=panel.querySelector('.v215Calls');panel.insertBefore(row,calls||null);
+   let input=row.querySelector('input'); input.addEventListener('change',()=>{
+     ta.value=putJigCab(ta.value,input.value); input.value=jigCab(ta.value)||'CAB1-1';
+     ta.dispatchEvent(new Event('input',{bubbles:true}));
+   });
+ }
+ let base=window.pmEditNC;
+ if(typeof base==='function')window.pmEditNC=async function(){let r=await base.apply(this,arguments);setTimeout(enhanceEditor,20);return r};
+ setTimeout(()=>{emptyPhysicalRackOnce();migrateSamples()},1800);
+ document.addEventListener('click',e=>{let b=e.target.closest&&e.target.closest('button');if(b&&/NC\s*\/\s*TXT|EDIT/i.test(String(b.textContent||'')))setTimeout(enhanceEditor,250)},true);
+})();
+</script>
+
+
+<script id="v263-physical-jig-rack-cleanup">
+(function(){
+ const RK='ct_fixture_cabs', RESET='v263_physical_jig_rack_clean_once';
+ function get(){try{let a=JSON.parse(localStorage.getItem(RK)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
+ function clean(){
+   if(localStorage.getItem(RESET)==='1')return;
+   let a=get();
+   /* Remove legacy/sample/master-assigned Jig IDs from every physical rack pot. */
+   a.forEach(c=>{c.positions={}});
+   localStorage.setItem(RK,JSON.stringify(a));
+   localStorage.setItem(RESET,'1');
+   try{fixtureCabs=a;if(typeof saveFixtureCabs==='function')saveFixtureCabs()}catch(e){}
+   try{if(typeof renderFixtureTabs==='function')renderFixtureTabs();if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(clean,2300));else setTimeout(clean,2300);
+})();
+</script>
+
+
+<style id="v264-jig-master-physical-sync-style">
+/* V264 — source-of-truth patch: Jig Master starts physically unassigned. */
+#fixtureMonitor .jfmSync{color:#bfe9fa}
+</style>
+<script id="v264-jig-master-physical-sync">
+(function(){
+ const JK='hub_jig_fixture_monitor_v134', RK='ct_fixture_cabs', RESET='v264_jig_physical_state_clean_once';
+ function get(k,fb){try{let v=JSON.parse(localStorage.getItem(k)||'null');return v??fb}catch(e){return fb}}
+ function set(k,v){localStorage.setItem(k,JSON.stringify(v))}
+ function rackStatus(s){
+   const m={'AVAILABLE':'READY TO USE','IN MACHINE':'IN MACHINE','IN USE':'IN MACHINE','SET-UP':'FOR SETUP','INSPECTION':'INSPECTION','REPAIR':'FOR REPAIR','OUT OF SERVICE':'OUT OF SERVICE','MISSING':'NOT AVAILABLE'};
+   return m[String(s||'').toUpperCase()]||String(s||'');
+ }
+ function physicalMap(){
+   const out=new Map(), cabs=get(RK,[]);
+   (Array.isArray(cabs)?cabs:[]).forEach(c=>Object.entries(c.positions||{}).forEach(([pos,d])=>{
+     if(!d||!String(d.id||'').trim())return;
+     out.set(String(d.id).trim().toUpperCase(),{cab:Number(c.number),pos:String(pos),d});
+   }));
+   return out;
+ }
+ function syncMasterFromPhysicalRack(){
+   let master=get(JK,[]); if(!Array.isArray(master))master=[];
+   const map=physicalMap();
+   master.forEach(j=>{
+     const hit=map.get(String(j.id||'').trim().toUpperCase());
+     if(hit){
+       j.cabinet='CAB '+hit.cab;
+       j.position=hit.pos;
+       j.status=rackStatus(hit.d.status)||'READY TO USE';
+       j.machine=hit.d.machine||'';
+       j.location=(j.status==='IN MACHINE'&&j.machine)?j.machine:'CABINET / RACK';
+     }else{
+       j.position='';
+       j.status='';
+       j.location='';
+       j.machine='';
+     }
+   });
+   set(JK,master);
+   try{if(typeof window.jfmRender==='function')window.jfmRender()}catch(e){}
+ }
+ function cleanOnce(){
+   if(localStorage.getItem(RESET)==='1'){syncMasterFromPhysicalRack();return}
+   let racks=get(RK,[]); if(!Array.isArray(racks))racks=[];
+   racks.forEach(c=>{c.positions={}});
+   set(RK,racks);
+   let master=get(JK,[]); if(!Array.isArray(master))master=[];
+   master.forEach(j=>{j.position='';j.status='';j.location='';j.machine=''});
+   set(JK,master);
+   localStorage.setItem(RESET,'1');
+   try{fixtureCabs=racks}catch(e){}
+   try{if(typeof renderFixtureTabs==='function')renderFixtureTabs();if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}
+   try{if(typeof window.jfmRender==='function')window.jfmRender()}catch(e){}
+ }
+ function install(){
+   cleanOnce();
+   /* Any real physical rack change (return/place/remove/empty) becomes authoritative for Master LOCATION/POSITION/STATUS. */
+   try{
+     const prev=window.saveFixtureCabs;
+     if(typeof prev==='function'&&!prev.__v264){
+       const wrap=function(){let r=prev.apply(this,arguments);setTimeout(syncMasterFromPhysicalRack,0);return r};
+       wrap.__v264=true;window.saveFixtureCabs=wrap;try{saveFixtureCabs=wrap}catch(e){}
+     }
+   }catch(e){}
+   window.v264SyncJigMasterFromPhysicalRack=syncMasterFromPhysicalRack;
+   window.jfmSyncRack=syncMasterFromPhysicalRack;
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(install,2800));else setTimeout(install,2800);
+})();
+</script>
+
+
+<style id="v266-jig-reset-style">
+#fixtures .fixtureQuickActions .v265ResetJigEmpty{background:#6f2b2b!important;border-color:#c75b5b!important;color:#fff!important}
+</style>
+<script id="v266-jig-reset-and-empty-master">
+(function(){
+ const JK='hub_jig_fixture_monitor_v134', RK='ct_fixture_cabs', RESET='v265_jig_initial_empty_done';
+ function get(k,fb){try{let v=JSON.parse(localStorage.getItem(k)||'null');return v??fb}catch(e){return fb}}
+ function put(k,v){localStorage.setItem(k,JSON.stringify(v))}
+ function clearPhysicalAndMaster(){
+   let racks=get(RK,[]); if(!Array.isArray(racks))racks=[];
+   racks.forEach(c=>{c.positions={}}); put(RK,racks);
+   let master=get(JK,[]); if(!Array.isArray(master))master=[];
+   master.forEach(j=>{j.status='';j.location='';j.position='';j.machine=''}); put(JK,master);
+   try{fixtureCabs=racks}catch(e){}
+ }
+ window.v265ResetJigEmpty=function(){
+   const pos=Number(window.v103SelectedFixturePos||0);
+   if(!pos){alert('Select one jig / fixture rack position first.');return;}
+   let racks=get(RK,[]); if(!Array.isArray(racks))racks=[];
+   const cabNo=Number(window.activeFixtureCab||1);
+   const cab=racks.find(c=>Number(c.number)===cabNo);
+   if(!cab){alert('Jig cabinet not found.');return;}
+   cab.positions=cab.positions||{};
+   const old=cab.positions[pos]||null;
+   if(!old || !String(old.id||'').trim()){
+     alert('CAB '+cabNo+'-'+pos+' is already EMPTY.');return;
+   }
+   const jigId=String(old.id||'').trim();
+   if(!confirm('RESET SELECTED JIG TO EMPTY?\n\nCAB '+cabNo+'-'+pos+' / '+jigId+' will be cleared. Other jig positions will not change.'))return;
+   delete cab.positions[pos];
+   put(RK,racks);
+   let master=get(JK,[]); if(!Array.isArray(master))master=[];
+   const rec=master.find(j=>String(j.id||'').trim()===jigId);
+   if(rec){rec.status='';rec.location='';rec.position='';rec.machine='';}
+   put(JK,master);
+   try{fixtureCabs=racks}catch(e){}
+   window.v103SelectedFixturePos=null;
+   try{if(typeof drawFixtureRack==='function')drawFixtureRack();if(typeof jfmRender==='function')jfmRender()}catch(e){}
+   alert(jigId+' reset to EMPTY.');
+ };
+ function addButton(){
+   let qa=document.querySelector('#fixtures .fixtureQuickActions'); if(!qa)return;
+   if(!qa.querySelector('.v265ResetJigEmpty')){
+     let b=document.createElement('button'); b.type='button'; b.className='v265ResetJigEmpty';
+     b.textContent='RESET SELECTED JIG EMPTY'; b.onclick=window.v265ResetJigEmpty; qa.appendChild(b);
+   }
+ }
+ function firstStart(){
+   if(localStorage.getItem(RESET)!=='1'){
+     clearPhysicalAndMaster(); localStorage.setItem(RESET,'1');
+   }
+   addButton();
+   try{if(typeof renderFixtureTabs==='function')renderFixtureTabs();if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(firstStart,3200));else setTimeout(firstStart,3200);
+})();
+</script>
+\n<!-- V267: compact Tool Cabinet + Jig/Fixture rack boxes. Layout only; no data/workflow logic changed. -->\n<style id="v267CompactRackBoxes">\n/* TOOL CABINET: reduce unused space and show more pots per screen. */\n#cabinet .rack{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:5px!important;padding:6px!important;}\n#cabinet .pot{min-height:68px!important;padding:3px 4px!important;justify-content:center!important;}\n#cabinet .potTop{gap:4px!important;}\n#cabinet .cabPotNo,#cabinet .potnum{font-size:11px!important;line-height:1!important;}\n#cabinet .hole{width:27px!important;height:27px!important;border-width:5px!important;margin:1px auto!important;}\n#cabinet .v182RackTool{min-height:27px!important;margin:2px 0!important;padding:2px 3px!important;}\n#cabinet .v182RackTool .v184Loc{font-size:9px!important;line-height:1!important;}\n#cabinet .v182RackTool .v184Id{font-size:10px!important;line-height:1!important;margin-top:1px!important;}\n#cabinet .status{min-height:19px!important;margin-top:2px!important;padding:2px 3px!important;font-size:9px!important;line-height:1!important;}\n#cabinet .machineLocTag{font-size:8px!important;line-height:1!important;margin-top:1px!important;padding:1px 2px!important;}\n/* JIG & FIXTURE: four columns in normal view, shorter cards, same information. */\n#fixtures #fixtureRack{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:5px!important;padding:5px!important;}\n#fixtures #fixtureRack>.pot{grid-template-rows:20px 27px 18px 23px!important;height:88px!important;min-height:88px!important;max-height:88px!important;border-width:1px!important;border-radius:6px!important;}\n#fixtures #fixtureRack>.pot>div{padding:0 3px!important;line-height:1!important;}\n#fixtures .fixtureRackCab{font-size:11px!important;}\n#fixtures .fixtureRackSize{font-size:14px!important;}\n#fixtures .fixtureRackMachine{font-size:9px!important;}\n#fixtures .fixtureRackStatus{font-size:10px!important;}\n#fixtures .v261RackJigId{font-size:9px!important;line-height:1!important;}\n/* Fit Screen / compact mode: increase density further without changing rack data. */\nbody.compact #cabinet .rack{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:2px!important;padding:3px!important;}\nbody.compact #cabinet .pot{padding:1px 2px!important;}\nbody.compact #fixtures #fixtureRack{grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-template-rows:none!important;grid-auto-rows:minmax(68px,1fr)!important;gap:2px!important;padding:2px!important;overflow:auto!important;}\nbody.compact #fixtures #fixtureRack>.pot{height:68px!important;min-height:68px!important;max-height:68px!important;grid-template-rows:15px 20px 14px 19px!important;}\nbody.compact #fixtures .fixtureRackCab{font-size:8px!important;}\nbody.compact #fixtures .fixtureRackSize{font-size:10px!important;}\nbody.compact #fixtures .fixtureRackMachine{font-size:7px!important;}\nbody.compact #fixtures .fixtureRackStatus{font-size:8px!important;}\n@media(max-width:1000px){#cabinet .rack{grid-template-columns:repeat(4,minmax(0,1fr))!important;}#fixtures #fixtureRack{grid-template-columns:repeat(3,minmax(0,1fr))!important;}}\n@media(max-width:650px){#cabinet .rack{grid-template-columns:repeat(3,minmax(0,1fr))!important;}#fixtures #fixtureRack{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}\n</style>\n
+
+<!-- V268: Jig & Fixture rack enclosed in a white desktop-style window. UI only; rack data/workflow unchanged. -->
+<style id="v268-jig-rack-window-style">
+#fixtures .v268JigWindow{
+  background:#f7f9fc!important;
+  border:2px solid #cbd5e1!important;
+  border-radius:12px!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.28)!important;
+  overflow:hidden!important;
+  margin-top:10px!important;
+}
+#fixtures .v268JigTitlebar{
+  height:34px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;
+  padding:0 9px 0 14px!important;background:#eef2f7!important;color:#111827!important;
+  border-bottom:1px solid #cbd5e1!important;font-weight:900!important;font-size:13px!important;
+  box-sizing:border-box!important;
+}
+#fixtures .v268JigBtns{display:flex!important;gap:5px!important}
+#fixtures .v268JigBtn{
+  width:25px!important;height:22px!important;border:1px solid #9ca3af!important;border-radius:5px!important;
+  background:#fff!important;color:#111827!important;font-weight:900!important;line-height:18px!important;
+  padding:0!important;cursor:pointer!important
+}
+#fixtures .v268JigBody{padding:12px!important;background:#fff!important}
+#fixtures .v268JigBody.v268Hidden{display:none!important}
+#fixtures .v268JigWindow.v268Max{
+  position:fixed!important;inset:8px!important;z-index:99998!important;margin:0!important;
+  display:flex!important;flex-direction:column!important;background:#fff!important;
+}
+#fixtures .v268JigWindow.v268Max .v268JigBody{flex:1!important;overflow:auto!important;min-height:0!important}
+#fixtures .v268JigWindow.v268Closed{display:none!important}
+body.compact #fixtures .v268JigBody{padding:5px!important}
+</style>
+<script id="v268-jig-rack-window-script">
+(function(){
+ function buildV268JigWindow(){
+   var page=document.getElementById('fixtures');
+   if(!page||page.querySelector('.v268JigWindow'))return;
+   var rack=document.getElementById('fixtureRack');
+   if(!rack)return;
+   var common=rack.closest('.cabwrap')||rack.parentElement;
+   if(!common||common===page)return;
+
+   var win=document.createElement('div');win.className='v268JigWindow';
+   var bar=document.createElement('div');bar.className='v268JigTitlebar';
+   bar.innerHTML='<span>JIG &amp; FIXTURE RACK</span><span class="v268JigBtns"><button type="button" class="v268JigBtn" data-a="hide" title="Hide / show">−</button><button type="button" class="v268JigBtn" data-a="max" title="Maximize / restore">□</button><button type="button" class="v268JigBtn" data-a="close" title="Close">×</button></span>';
+   var body=document.createElement('div');body.className='v268JigBody';
+
+   common.parentNode.insertBefore(win,common);
+   win.appendChild(bar);win.appendChild(body);body.appendChild(common);
+
+   bar.addEventListener('click',function(e){
+     var b=e.target.closest('button');if(!b)return;
+     var a=b.dataset.a;
+     if(a==='hide'){
+       body.classList.toggle('v268Hidden');
+       b.textContent=body.classList.contains('v268Hidden')?'+':'−';
+     }
+     if(a==='max'){
+       win.classList.toggle('v268Max');
+       b.textContent=win.classList.contains('v268Max')?'❐':'□';
+     }
+     if(a==='close')win.classList.add('v268Closed');
+   });
+ }
+ function ensureV268JigWindow(){
+   var page=document.getElementById('fixtures');
+   if(page&&!page.querySelector('.v268JigWindow'))buildV268JigWindow();
+ }
+ document.addEventListener('click',function(){setTimeout(ensureV268JigWindow,50)},true);
+ setTimeout(ensureV268JigWindow,500);
+})();
+</script>
+
+
+<!-- V269: view-only Horizontal x Vertical rack layout controls for Tool + Jig racks. -->
+<style id="v269-rack-view-adjust-style">
+.v269RackViewControls{
+  display:flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;flex-wrap:wrap!important;
+  margin-top:8px!important;padding:7px 10px!important;border-top:1px solid #d7dee8!important;background:#f7f9fc!important;
+  color:#111827!important;font-size:11px!important;font-weight:900!important;box-sizing:border-box!important;
+}
+.v269RackViewControls .v269Group{display:flex!important;align-items:center!important;gap:5px!important}
+.v269RackViewControls label{font-size:10px!important;font-weight:900!important;color:#334155!important;letter-spacing:.2px!important}
+.v269RackViewControls input{
+  width:52px!important;height:25px!important;padding:2px 4px!important;box-sizing:border-box!important;text-align:center!important;
+  border:1px solid #94a3b8!important;border-radius:5px!important;background:#fff!important;color:#111827!important;font-weight:900!important;
+}
+.v269RackViewControls button{
+  height:25px!important;padding:2px 9px!important;border:1px solid #64748b!important;border-radius:5px!important;
+  background:#fff!important;color:#111827!important;font-size:10px!important;font-weight:900!important;cursor:pointer!important;
+}
+.v269RackViewControls .v269Hint{font-size:9px!important;color:#64748b!important;font-weight:700!important}
+body.compact .v269RackViewControls{margin-top:4px!important;padding:4px 7px!important;gap:7px!important}
+</style>
+<script id="v269-rack-view-adjust-script">
+(function(){
+ const KTOOL='v269_tool_rack_view', KJIG='v269_jig_rack_view';
+ const clamp=(n,a,b)=>Math.max(a,Math.min(b,parseInt(n,10)||a));
+ function read(k,def){try{return Object.assign({},def,JSON.parse(localStorage.getItem(k)||'{}'))}catch(e){return def}}
+ function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+ function applyTool(v){
+   v.h=clamp(v.h,2,16);v.v=clamp(v.v,2,20);
+   const rack=document.querySelector('#cabinet #rack, #cabinet .rack'); if(!rack)return;
+   rack.style.setProperty('grid-template-columns','repeat('+v.h+',minmax(0,1fr))','important');
+   const ph=clamp(Math.floor(500/v.v),54,100);
+   rack.querySelectorAll('.pot').forEach(p=>{p.style.setProperty('min-height',ph+'px','important');});
+ }
+ function applyJig(v){
+   v.h=clamp(v.h,2,16);v.v=clamp(v.v,2,20);
+   const rack=document.querySelector('#fixtures #fixtureRack'); if(!rack)return;
+   rack.style.setProperty('grid-template-columns','repeat('+v.h+',minmax(0,1fr))','important');
+   rack.style.setProperty('grid-auto-rows','auto','important');
+   const ph=clamp(Math.floor(500/v.v),58,105);
+   rack.querySelectorAll(':scope > .pot').forEach(p=>{
+     p.style.setProperty('height',ph+'px','important');
+     p.style.setProperty('min-height',ph+'px','important');
+     p.style.setProperty('max-height',ph+'px','important');
+     const a=Math.max(13,Math.round(ph*.21)),b=Math.max(18,Math.round(ph*.30)),c=Math.max(12,Math.round(ph*.19));
+     p.style.setProperty('grid-template-rows',a+'px '+b+'px '+c+'px '+Math.max(16,ph-a-b-c)+'px','important');
+   });
+ }
+ function makeControls(kind,host){
+   if(!host||host.querySelector(':scope > .v269RackViewControls'))return;
+   const isTool=kind==='tool', key=isTool?KTOOL:KJIG, def=isTool?{h:8,v:8}:{h:8,v:8};
+   let v=read(key,def);
+   const box=document.createElement('div');box.className='v269RackViewControls';box.dataset.kind=kind;
+   box.innerHTML='<div class="v269Group"><label>HORIZONTAL</label><input class="v269H" type="number" min="2" max="16" value="'+clamp(v.h,2,16)+'"></div>'+
+     '<div class="v269Group"><label>VERTICAL</label><input class="v269V" type="number" min="2" max="20" value="'+clamp(v.v,2,20)+'"></div>'+
+     '<button type="button" class="v269Apply">APPLY VIEW</button><button type="button" class="v269Reset">RESET</button>'+
+     '<span class="v269Hint">VIEW ONLY — rack data and locations do not change</span>';
+   host.appendChild(box);
+   function run(reset){
+     if(reset){v={h:8,v:8};box.querySelector('.v269H').value=8;box.querySelector('.v269V').value=8}
+     else v={h:clamp(box.querySelector('.v269H').value,2,16),v:clamp(box.querySelector('.v269V').value,2,20)};
+     save(key,v); (isTool?applyTool:applyJig)(v);
+   }
+   box.querySelector('.v269Apply').addEventListener('click',()=>run(false));
+   box.querySelector('.v269Reset').addEventListener('click',()=>run(true));
+   box.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')run(false)}));
+   (isTool?applyTool:applyJig)(v);
+ }
+ function ensure(){
+   const tb=document.querySelector('#cabinet .v257CabBody'); if(tb)makeControls('tool',tb);
+   const jb=document.querySelector('#fixtures .v268JigBody'); if(jb)makeControls('jig',jb);
+   const tv=read(KTOOL,{h:8,v:8}), jv=read(KJIG,{h:8,v:8}); applyTool(tv);applyJig(jv);
+ }
+ document.addEventListener('click',()=>setTimeout(ensure,80),true);
+ window.addEventListener('resize',()=>setTimeout(ensure,80));
+ setTimeout(ensure,650);setTimeout(ensure,1400);
+})();
+</script>
+<style id="v270-live-info-style">
+.hubInfoPage{padding-bottom:18px}.hubInfoCard{background:#f7fafc;color:#12202c;border:2px solid #b7c5d1;border-radius:12px;padding:12px;box-shadow:0 8px 24px #0005}.hubInfoHead{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #b9c6d0;padding-bottom:9px}.hubInfoHead h2{margin:0;color:#0c1b28}.hubInfoHead .mut{color:#526777}.hubInfoFilters{display:flex;gap:12px;flex-wrap:wrap;padding:10px 0}.hubInfoFilters label{font-weight:900;color:#203342}.hubInfoFilters select,.hubInfoFilters input{margin-left:6px;background:#fff;color:#14212b;border:1px solid #9caeba;border-radius:6px;padding:7px 9px;font-weight:800}.hubInfoTableWrap{max-height:68vh;overflow:auto;border:1px solid #aab9c5;border-radius:8px;background:white}.hubInfoTable{width:100%;border-collapse:collapse;table-layout:fixed;color:#13212d}.hubInfoTable th{position:sticky;top:0;z-index:2;background:#182631;color:#fff;padding:8px 5px;font-size:11px}.hubInfoTable td{border:1px solid #c6d0d8;padding:6px 5px;font-size:11px;font-weight:800;text-align:center}.hubInfoTable tr:nth-child(even) td{background:#edf3f7}.hubInfoTable .v270Running{background:#dff5df!important}.hubInfoTable .v270Available{color:#14712a}.hubInfoTable .v270Machine{color:#0068a8;font-weight:900}@media(max-width:850px){.hubInfoTable{min-width:900px}.hubInfoTableWrap{overflow:auto}.hubInfoFilters{display:grid;grid-template-columns:1fr}.hubInfoFilters select,.hubInfoFilters input{width:65%}}
+</style>
+<script id="v270-live-info-tabs">
+(function(){
+ const g=(k,fb)=>{try{let v=JSON.parse(localStorage.getItem(k)||'null');return v??fb}catch(e){return fb}};
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const cabNo=v=>{let m=String(v||'').match(/CAB\s*[-#]?\s*(\d+)/i)||String(v||'').match(/CAB(\d+)/i);return m?Number(m[1]):0};
+ function setups(){return g('hub_machine_setup_sim_v145',{})}
+ function atc(){return g('hub_machine_atc_sim_v145',{})}
+ function toolMaster(){let a=g('hub_tool_master',[]);return Array.isArray(a)?a:[]}
+ function toolPhysical(){let map=new Map(),cs=g('ct_cabinets',[]);(Array.isArray(cs)?cs:[]).forEach(c=>Object.entries(c.positions||{}).forEach(([p,v])=>{if(v&&typeof v==='object'){let id=String(v.id||v.toolId||v.tool||'').trim();if(id)map.set(id.toUpperCase(),{cab:Number(c.number),pot:Number(p),status:v.status||'AVAILABLE',machine:v.machine||''})}}));return map}
+ function machineToolMap(){let map=new Map(),a=atc(),ss=setups();Object.entries(a||{}).forEach(([mid,list])=>(Array.isArray(list)?list:[]).forEach((x,n)=>{if(typeof x==='string')x={id:x};let id=String(x.id||x.toolId||'').trim();if(id)map.set(id.toUpperCase(),{machine:mid,program:ss[mid]?.program||'',slot:Number(x.slot)||n+1})}));return map}
+ function fillFilter(id,nums){let el=document.getElementById(id);if(!el)return;let cur=el.value,opts=[...new Set(nums.filter(Boolean))].sort((a,b)=>a-b);el.innerHTML='<option value="">ALL CABINETS</option>'+opts.map(n=>'<option value="'+n+'">CAB '+n+'</option>').join('');if(opts.map(String).includes(cur))el.value=cur}
+ window.v270RenderToolInfo=function(){let body=document.getElementById('v270ToolInfoBody');if(!body)return;let phys=toolPhysical(),mt=machineToolMap(),rows=toolMaster().map(r=>{let id=String(r.id||r.toolId||'').trim(),p=phys.get(id.toUpperCase())||{},m=mt.get(id.toUpperCase())||{};let c=p.cab||cabNo(r.cabinet||r.toolin||r.cab||''),pot=p.pot||Number(r.position||r.pot||0)||'';return{id,type:r.type||r.tool||'',cab:c,pot,status:m.machine?'IN MACHINE':(p.status||r.status||r.availability||'AVAILABLE'),machine:m.machine||p.machine||r.machine||'',program:m.program||'',slot:m.slot||''}}).filter(r=>r.id);
+ fillFilter('v270ToolCabFilter',rows.map(r=>r.cab));let cf=document.getElementById('v270ToolCabFilter')?.value||'',q=(document.getElementById('v270ToolSearch')?.value||'').toLowerCase();rows=rows.filter(r=>(!cf||String(r.cab)===cf)&&(!q||Object.values(r).join(' ').toLowerCase().includes(q)));rows.sort((a,b)=>(a.cab-b.cab)||(Number(a.pot)-Number(b.pot))||a.id.localeCompare(b.id));body.innerHTML=rows.map(r=>'<tr><td>'+esc(r.id)+'</td><td>'+esc(r.type)+'</td><td>CAB '+esc(r.cab||'—')+'</td><td>'+esc(r.pot||'—')+'</td><td class="'+(r.machine?'v270Running':'v270Available')+'">'+esc(r.status)+'</td><td class="v270Machine">'+esc(r.machine||'—')+'</td><td>'+esc(r.program||'—')+'</td><td>'+esc(r.slot?'T'+String(r.slot).padStart(2,'0'):'—')+'</td></tr>').join('')||'<tr><td colspan="8">No cutting tool records found.</td></tr>';
+ };
+ function jigRows(){let ss=setups(),loaded=new Map();Object.entries(ss||{}).forEach(([mid,st])=>{let id=String(st?.fixtureId||st?.jigId||'').trim();if(id)loaded.set(id.toUpperCase(),{machine:mid,program:st.program||'',part:st.partno||''})});let master=g('hub_jig_fixture_monitor_v134',[]);if(!Array.isArray(master))master=[];let cabs=g('ct_fixture_cabs',[]),phys=new Map();(Array.isArray(cabs)?cabs:[]).forEach(c=>Object.entries(c.positions||{}).forEach(([p,v])=>{if(v&&typeof v==='object'){let id=String(v.id||v.jigId||'').trim();if(id)phys.set(id.toUpperCase(),{cab:Number(c.number),pos:Number(p),status:v.status||'AVAILABLE',machine:v.machine||'',name:v.name||'',part:v.partNumber||v.part||''})}}));let ids=new Set([...master.map(x=>String(x.id||x.jigId||'').trim()).filter(Boolean),...Array.from(phys.keys())]);return [...ids].map(raw=>{let key=raw.toUpperCase(),r=master.find(x=>String(x.id||x.jigId||'').toUpperCase()===key)||{},p=phys.get(key)||{},l=loaded.get(key)||{};return{id:r.id||r.jigId||raw,name:r.name||r.fixture||p.name||'',cab:p.cab||cabNo(r.cabinet||r.cab||''),pos:p.pos||Number(r.position||r.pos||0)||'',status:l.machine?'IN MACHINE':(p.status||r.status||'AVAILABLE'),machine:l.machine||p.machine||r.machine||'',program:l.program||r.program||'',part:l.part||r.partno||r.partNumber||r.part||p.part||''}})}
+ window.v270RenderJigInfo=function(){let body=document.getElementById('v270JigInfoBody');if(!body)return;let rows=jigRows();fillFilter('v270JigCabFilter',rows.map(r=>r.cab));let cf=document.getElementById('v270JigCabFilter')?.value||'',q=(document.getElementById('v270JigSearch')?.value||'').toLowerCase();rows=rows.filter(r=>(!cf||String(r.cab)===cf)&&(!q||Object.values(r).join(' ').toLowerCase().includes(q)));rows.sort((a,b)=>(a.cab-b.cab)||(Number(a.pos)-Number(b.pos))||String(a.id).localeCompare(String(b.id)));body.innerHTML=rows.map(r=>'<tr><td>'+esc(r.id)+'</td><td>'+esc(r.name||'—')+'</td><td>CAB '+esc(r.cab||'—')+'</td><td>'+esc(r.pos||'—')+'</td><td class="'+(r.machine?'v270Running':'v270Available')+'">'+esc(r.status)+'</td><td class="v270Machine">'+esc(r.machine||'—')+'</td><td>'+esc(r.program||'—')+'</td><td>'+esc(r.part||'—')+'</td></tr>').join('')||'<tr><td colspan="8">No jig / fixture records found.</td></tr>';
+ };
+ function bind(){document.querySelectorAll('.navb[data-page="cuttingToolInfo"],.navb[data-page="jigFixtureInfo"]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>{if(b.dataset.page==='cuttingToolInfo')v270RenderToolInfo();else v270RenderJigInfo()},0)));}
+ document.addEventListener('DOMContentLoaded',()=>{bind();setTimeout(()=>{v270RenderToolInfo();v270RenderJigInfo()},400)});
+ window.addEventListener('storage',()=>{let t=document.getElementById('cuttingToolInfo'),j=document.getElementById('jigFixtureInfo');if(t&&!t.classList.contains('hide'))v270RenderToolInfo();if(j&&!j.classList.contains('hide'))v270RenderJigInfo()});
+ setInterval(()=>{let t=document.getElementById('cuttingToolInfo'),j=document.getElementById('jigFixtureInfo');if(t&&!t.classList.contains('hide'))v270RenderToolInfo();if(j&&!j.classList.contains('hide'))v270RenderJigInfo()},1500);
+})();
+</script>
+\n<!-- V271 FIX: move V270 info pages to direct MAIN children so existing HUB navigation can display them. -->\n<script id="v271-info-page-placement-fix">\n(function(){\n function fixInfoPages(){\n   var main=document.querySelector('main');\n   if(!main)return;\n   ['cuttingToolInfo','jigFixtureInfo'].forEach(function(id){\n     var p=document.getElementById(id);\n     if(p && p.parentElement!==main) main.appendChild(p);\n   });\n   document.querySelectorAll('.navb[data-page="cuttingToolInfo"],.navb[data-page="jigFixtureInfo"]').forEach(function(b){\n     if(b.dataset.v271Bound==='1')return; b.dataset.v271Bound='1';\n     b.addEventListener('click',function(){\n       setTimeout(function(){\n         var id=b.getAttribute('data-page');\n         var p=document.getElementById(id);\n         if(p){p.classList.remove('hide'); p.style.display='block';}\n         try{ if(id==='cuttingToolInfo'&&window.v270RenderToolInfo) window.v270RenderToolInfo(); }catch(e){}\n         try{ if(id==='jigFixtureInfo'&&window.v270RenderJigInfo) window.v270RenderJigInfo(); }catch(e){}\n       },30);\n     },true);\n   });\n }\n if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){fixInfoPages();setTimeout(fixInfoPages,250)});\n else {fixInfoPages();setTimeout(fixInfoPages,250)}\n})();\n</script>\n
+<style id="v272-info-rebuild-style">
+#cuttingToolInfo.v272Info,#jigFixtureInfo.v272Info{display:block;padding:12px;box-sizing:border-box;color:#10202d}
+#cuttingToolInfo.v272Info.hide,#jigFixtureInfo.v272Info.hide{display:none!important}
+.v272Card{background:#fff;border:2px solid #b9c8d4;border-radius:10px;padding:12px;min-height:520px;box-shadow:0 6px 18px #0004}
+.v272Head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #cbd5df;padding-bottom:9px}.v272Head h2{margin:0;color:#132735}
+.v272Filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 0}.v272Filters select,.v272Filters input,.v272Filters button{height:30px;border:1px solid #91a5b4;border-radius:5px;background:#fff;color:#142530;font-weight:800;padding:4px 8px}
+.v272Wrap{overflow:auto;max-height:68vh;border:1px solid #aebdc8}.v272Table{width:100%;min-width:900px;border-collapse:collapse;table-layout:fixed}.v272Table th{position:sticky;top:0;background:#172733;color:#fff;padding:8px 4px;font-size:11px}.v272Table td{border:1px solid #c7d1d9;padding:6px 4px;text-align:center;font-size:11px;font-weight:800;color:#172733}.v272Table tr:nth-child(even) td{background:#eef4f7}.v272Run{background:#dff4df!important;color:#126528!important}.v272Empty{padding:30px!important;color:#64748b!important}
+</style>
+<script id="v272-info-rebuild-script">
+(function(){
+ const j=(k,d)=>{try{let x=JSON.parse(localStorage.getItem(k)||'null');return x==null?d:x}catch(e){return d}};
+ const e=x=>String(x??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
+ const cab=x=>{let m=String(x||'').match(/CAB\s*[-#]?\s*(\d+)/i);return m?+m[1]:0};
+ function shell(id,title,sub,heads){let old=document.getElementById(id);if(old)old.remove();let main=document.querySelector('main');if(!main)return null;let q=document.createElement('section');q.id=id;q.className='hide v272Info';q.innerHTML='<div class="v272Card"><div class="v272Head"><div><h2>'+title+'</h2><div>'+sub+'</div></div><button class="v272Refresh">REFRESH</button></div><div class="v272Filters"><label>Cabinet <select class="v272Cab"><option value="">ALL CABINETS</option></select></label><label>Search <input class="v272Search" placeholder="Search ID / machine / program"></label><span class="v272Count"></span></div><div class="v272Wrap"><table class="v272Table"><thead><tr>'+heads.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody></tbody></table></div></div>';main.appendChild(q);return q}
+ let tp,jp;
+ function toolRows(){let master=j('hub_tool_master',[]);if(!Array.isArray(master))master=[];let setups=j('hub_machine_setup_sim_v145',{}),atc=j('hub_machine_atc_sim_v145',{}),mm=new Map();Object.entries(atc||{}).forEach(([m,a])=>(Array.isArray(a)?a:[]).forEach((x,i)=>{let id=String((x&&typeof x==='object'?(x.id||x.toolId):x)||'').trim();if(id)mm.set(id.toUpperCase(),{machine:m,program:setups[m]?.program||'',atc:(x&&x.slot)||i+1})}));let phys=new Map();let cs=j('ct_cabinets',[]);if(Array.isArray(cs))cs.forEach(c=>Object.entries(c.positions||{}).forEach(([p,x])=>{let id=String(x&&typeof x==='object'?(x.id||x.toolId||x.tool):x||'').trim();if(id)phys.set(id.toUpperCase(),{cab:+c.number||cab(c.name),pot:+p,status:x.status||'AVAILABLE'})}));return master.map(r=>{let id=String(r.id||r.toolId||r.toolID||'').trim(),p=phys.get(id.toUpperCase())||{},m=mm.get(id.toUpperCase())||{};return{id,type:r.type||r.toolType||r.tool||'',cab:p.cab||cab(r.cabinet||r.cab||r.location),pos:p.pot||r.position||r.pot||'',status:m.machine?'IN MACHINE':(p.status||r.status||'AVAILABLE'),machine:m.machine||r.machine||'',program:m.program||r.program||'',atc:m.atc||''}}).filter(x=>x.id)}
+ function jigRows(){let master=j('hub_jig_fixture_monitor_v134',[]);if(!Array.isArray(master))master=[];let setups=j('hub_machine_setup_sim_v145',{}),lm=new Map();Object.entries(setups||{}).forEach(([m,s])=>{let id=String(s?.fixtureId||s?.jigId||s?.jigid||'').trim();if(id)lm.set(id.toUpperCase(),{machine:m,program:s.program||'',part:s.partno||s.part||''})});let phys=new Map(),cs=j('ct_fixture_cabs',[]);if(Array.isArray(cs))cs.forEach(c=>Object.entries(c.positions||{}).forEach(([p,x])=>{let id=String(x&&typeof x==='object'?(x.id||x.jigId):x||'').trim();if(id)phys.set(id.toUpperCase(),{cab:+c.number||cab(c.name),pos:+p,status:x.status||'AVAILABLE',name:x.name||''})}));let ids=new Set(master.map(x=>String(x.id||x.jigId||'').trim()).filter(Boolean));phys.forEach((v,k)=>ids.add(k));return [...ids].map(id=>{let r=master.find(x=>String(x.id||x.jigId||'').toUpperCase()===id.toUpperCase())||{},p=phys.get(id.toUpperCase())||{},m=lm.get(id.toUpperCase())||{};return{id:r.id||r.jigId||id,name:r.name||r.fixture||p.name||'',cab:p.cab||cab(r.cabinet||r.cab),pos:p.pos||r.position||'',status:m.machine?'IN MACHINE':(p.status||r.status||'AVAILABLE'),machine:m.machine||r.machine||'',program:m.program||r.program||'',part:m.part||r.partno||r.partNumber||r.part||''}})}
+ function render(page,rows,kind){if(!page)return;let sel=page.querySelector('.v272Cab'),q=page.querySelector('.v272Search').value.toLowerCase(),cur=sel.value;let nums=[...new Set(rows.map(x=>x.cab).filter(Boolean))].sort((a,b)=>a-b);sel.innerHTML='<option value="">ALL CABINETS</option>'+nums.map(n=>'<option value="'+n+'">CAB '+n+'</option>').join('');if(nums.map(String).includes(cur))sel.value=cur;let cf=sel.value;rows=rows.filter(x=>(!cf||String(x.cab)===cf)&&(!q||Object.values(x).join(' ').toLowerCase().includes(q)));page.querySelector('.v272Count').textContent=rows.length+' RECORDS';let b=page.querySelector('tbody');if(kind==='tool')b.innerHTML=rows.map(r=>'<tr><td>'+e(r.id)+'</td><td>'+e(r.type||'—')+'</td><td>CAB '+e(r.cab||'—')+'</td><td>'+e(r.pos||'—')+'</td><td class="'+(r.machine?'v272Run':'')+'">'+e(r.status)+'</td><td>'+e(r.machine||'—')+'</td><td>'+e(r.program||'—')+'</td><td>'+e(r.atc?('T'+String(r.atc).padStart(2,'0')):'—')+'</td></tr>').join('');else b.innerHTML=rows.map(r=>'<tr><td>'+e(r.id)+'</td><td>'+e(r.name||'—')+'</td><td>CAB '+e(r.cab||'—')+'</td><td>'+e(r.pos||'—')+'</td><td class="'+(r.machine?'v272Run':'')+'">'+e(r.status)+'</td><td>'+e(r.machine||'—')+'</td><td>'+e(r.program||'—')+'</td><td>'+e(r.part||'—')+'</td></tr>').join('');if(!rows.length)b.innerHTML='<tr><td class="v272Empty" colspan="8">No records found in the current HUB data.</td></tr>'}
+ function rt(){render(tp,toolRows(),'tool')} function rj(){render(jp,jigRows(),'jig')}
+ function init(){tp=shell('cuttingToolInfo','CUTTING TOOL INFO','Synchronized with Tool Rack and machine/program status.',['TOOL ID','TOOL TYPE','CABINET','POT','STATUS','MACHINE','PROGRAM','ATC']);jp=shell('jigFixtureInfo','JIG & FIXTURE INFO','Synchronized with Jig Rack and machine/program status.',['JIG ID','JIG / FIXTURE','CABINET','POSITION','STATUS','MACHINE','PROGRAM','PART ID']);[[tp,rt],[jp,rj]].forEach(([p,f])=>{if(!p)return;p.querySelector('.v272Refresh').onclick=f;p.querySelector('.v272Cab').onchange=f;p.querySelector('.v272Search').oninput=f});document.querySelectorAll('.navb[data-page="cuttingToolInfo"],.navb[data-page="jigFixtureInfo"]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>{b.dataset.page==='cuttingToolInfo'?rt():rj()},10)));rt();rj()}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,100));else setTimeout(init,100);
+ setInterval(()=>{if(tp&&!tp.classList.contains('hide'))rt();if(jp&&!jp.classList.contains('hide'))rj()},1500);
+})();
+</script>
+<style id="v274Style">
+.v274Tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.v274Tabs button{padding:9px 14px;font-weight:800}.v274Tabs button.active{outline:2px solid #35a7ff}
+.v274Win{background:#fff;color:#17202a;border:2px solid #d5dbe3;border-radius:10px;box-shadow:0 8px 25px #0005;overflow:hidden;min-height:180px}.v274Win.max{position:fixed;inset:8px;z-index:99999;overflow:auto}.v274Head{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:#f2f4f7;border-bottom:1px solid #ccd3dc}.v274Head h3{margin:0;color:#17202a}.v274Ctrls{display:flex;gap:6px}.v274Ctrls button{min-width:38px;padding:5px 9px}.v274Body{padding:10px}.v274Body.hidden{display:none}.v274Table{width:100%;border-collapse:collapse;font-size:13px}.v274Table th,.v274Table td{border:1px solid #cbd3dc;padding:7px;text-align:left}.v274Table th{background:#e8edf3}.v274Empty{padding:35px;text-align:center;color:#65717e;font-weight:700}.v274Permanent{background:#173d68!important;color:#fff!important;border-color:#2f6fa8!important}
+</style>
+<script id="v274PermanentCabinetInfo">
+(function(){
+ const TK='hub_v274_permanent_tool_positions', JK='hub_v274_permanent_jig_positions';
+ const get=(k)=>{try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}};
+ const put=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+ const esc=x=>String(x??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ const key=(cab,pos)=>String(cab)+':'+String(pos);
+ function toolCabs(){try{return Array.isArray(cabinets)?cabinets:[]}catch(e){return []}}
+ function jigCabs(){try{return Array.isArray(fixtureCabs)?fixtureCabs:[]}catch(e){return []}}
+ function machineToolMap(){let z={};try{let a=JSON.parse(localStorage.getItem('hub_machine_atc_sim_v145')||'{}');Object.entries(a||{}).forEach(([m,arr])=>(arr||[]).forEach(x=>{let id=String(x?.displayTool||x?.toolId||x?.id||'').trim();if(id)z[id.toUpperCase()]={machine:m,program:x.program||'',atc:x.slot||x.atc||''}}))}catch(e){}return z}
+ function machineJigMap(){let z={};try{let a=JSON.parse(localStorage.getItem('hub_machine_setup_sim_v145')||'{}');Object.entries(a||{}).forEach(([m,x])=>{let id=String(x?.fixtureId||x?.jigId||x?.jigid||'').trim();if(id)z[id.toUpperCase()]={machine:m,program:x.program||'',part:x.partno||x.part||''}})}catch(e){}return z}
+ function lastProgramContext(kind,obj){let id=String(obj?.toolId||obj?.id||obj?.jigId||'').trim().toUpperCase(),best=null;
+ try{
+  let setups=JSON.parse(localStorage.getItem('hub_machine_setup_sim_v145')||'{}');
+  Object.entries(setups||{}).forEach(([machine,st])=>{
+   let hit=false;
+   if(kind==='tool') hit=(Array.isArray(st?.tools)?st.tools:[]).some(t=>String(t?.id||t?.toolId||t||'').trim().toUpperCase()===id);
+   else hit=String(st?.fixtureId||st?.jigId||st?.jigid||'').trim().toUpperCase()===id || String(st?.lastReturnedJig?.id||'').trim().toUpperCase()===id;
+   if(!hit)return;
+   let when=Date.parse(st?.lastReturnedJig?.time||st?.loadedAt||st?.toolsLoadedAt||0)||0;
+   let ctx={machine,program:st?.lastReturnedJig?.program||st?.program||'',part:st?.lastReturnedJig?.part||st?.partno||st?.partId||st?.part||'',when};
+   if(!best||when>=best.when)best=ctx;
+  });
+ }catch(e){}
+ /* If the jig/tool has already been returned and the active setup no longer carries it,
+    recover its assigned Machine / Program / Part ID from Program Master. */
+ if(!best || !best.program){
+  try{
+   let pm=JSON.parse(localStorage.getItem('hub_program_master_v85')||'[]');
+   if(Array.isArray(pm)) pm.forEach(p=>{
+    let hit=false;
+    if(kind==='jig'){
+     let ids=[p?.jigid,p?.jigId,p?.fixtureId].concat(Array.isArray(p?.jigs)?p.jigs:[]).map(v=>String(v||'').trim().toUpperCase());
+     hit=ids.includes(id);
+    }else{
+     let ids=[];
+     (Array.isArray(p?.tools)?p.tools:[]).forEach(t=>ids.push(String(t?.id||t?.toolId||t||'').trim().toUpperCase()));
+     (Array.isArray(p?.programTools)?p.programTools:[]).forEach(t=>ids.push(String(t?.id||t?.toolId||t||'').trim().toUpperCase()));
+     (Array.isArray(p?.sampleToolSequence)?p.sampleToolSequence:[]).forEach(t=>ids.push(String(t?.toolId||t?.id||t||'').trim().toUpperCase()));
+     hit=ids.includes(id);
+    }
+    if(hit && (!best || !best.program)) best={machine:String(p?.machine||''),program:String(p?.program||''),part:String(p?.partId||p?.partno||p?.part||''),when:0};
+   });
+  }catch(e){}
+ }
+ return best||{machine:'',program:'',part:'',when:0}
+}
+ function mark(kind,cab,pos,obj){let k=kind==='tool'?TK:JK,d=get(k),ctx=lastProgramContext(kind,obj);d[key(cab,pos)]={cab:+cab,pos:+pos,id:String(obj?.toolId||obj?.id||obj?.jigId||'').trim(),machine:ctx.machine||'',program:ctx.program||'',part:ctx.part||'',saved:new Date().toISOString()};put(k,d);render(kind);}
+ function unmark(kind,cab,pos){let k=kind==='tool'?TK:JK,d=get(k);delete d[key(cab,pos)];put(k,d);render(kind)}
+ window.v274SetPermanentTool=function(cab,pos){let c=toolCabs().find(x=>+x.number===+cab),x=c?.positions?.[pos];if(!x||!String(x.toolId||x.id||'').trim())return alert('This pot has no tool. Return/put the tool in this rack position first.');mark('tool',cab,pos,x);alert('Permanent tool location saved: CAB'+cab+'-'+pos);};
+ window.v274SetPermanentJig=function(cab,pos){let c=jigCabs().find(x=>+x.number===+cab),x=c?.positions?.[pos];if(!x||!String(x.id||x.jigId||'').trim())return alert('This position has no jig/fixture. Put the jig in this rack position first.');mark('jig',cab,pos,x);alert('Permanent jig location saved: CAB'+cab+'-'+pos);};
+ function enhanceModals(){
+  if(typeof window.potInfo==='function'&&!window.potInfo._v274){let old=window.potInfo;window.potInfo=function(p,i){old.apply(this,arguments);let c;try{c=currentCab()}catch(e){};if(!c)return;let b=document.createElement('button');b.className='v274Permanent';b.textContent='★ SET PERMANENT POSITION';b.onclick=()=>v274SetPermanentTool(c.number,i);actions.appendChild(b)};window.potInfo._v274=1}
+  if(typeof window.editFixturePos==='function'&&!window.editFixturePos._v274){let old=window.editFixturePos;window.editFixturePos=function(i){old.apply(this,arguments);let c;try{c=fCab()}catch(e){};if(!c)return;let b=document.createElement('button');b.className='v274Permanent';b.textContent='★ SET PERMANENT POSITION';b.onclick=()=>{let id=document.getElementById('fixID')?.value.trim();if(id){c.positions[i]=c.positions[i]||{};c.positions[i].id=id;c.positions[i].length=document.getElementById('fixLength')?.value||c.positions[i].length;c.positions[i].width=document.getElementById('fixWidth')?.value||c.positions[i].width;c.positions[i].status=document.getElementById('fixStatus')?.value||c.positions[i].status;try{saveFixtureCabs()}catch(e){}}v274SetPermanentJig(c.number,i)};actions.appendChild(b)};window.editFixturePos._v274=1}
+ }
+ function setupPage(kind){let id=kind==='tool'?'cuttingToolInfo':'jigFixtureInfo',p=document.getElementById(id);if(!p)return null;p.innerHTML='<div class="hubPageToolbar"><button class="hubFitScreenBtn" onclick="toggleCompactView()">Fit Screen</button><button class="hubFullScreenBtn" onclick="toggleHubFullscreen()">Full Screen</button></div><div class="v274Tabs"></div><div class="v274Host"></div>';return p}
+ let active={tool:null,jig:null};
+ function render(kind){let p=document.getElementById(kind==='tool'?'cuttingToolInfo':'jigFixtureInfo');if(!p)return;let cabs=kind==='tool'?toolCabs():jigCabs(), marks=get(kind==='tool'?TK:JK);if(!active[kind]||!cabs.some(c=>+c.number===+active[kind]))active[kind]=cabs[0]?.number||1;let tabs=p.querySelector('.v274Tabs'),host=p.querySelector('.v274Host');tabs.innerHTML='';cabs.forEach(c=>{let b=document.createElement('button');b.textContent='CABINET #'+c.number;if(+c.number===+active[kind])b.classList.add('active');b.onclick=()=>{active[kind]=c.number;render(kind)};tabs.appendChild(b)});let c=cabs.find(x=>+x.number===+active[kind]);if(!c){host.innerHTML='<div class="v274Empty">No cabinet available.</div>';return}let mm=kind==='tool'?machineToolMap():machineJigMap(), rows=[];Object.entries(marks).forEach(([k,m])=>{if(+m.cab!==+c.number)return;let x=c.positions?.[m.pos];if(!x)return;let id=String(kind==='tool'?(x.toolId||x.id||m.id):(x.id||x.jigId||m.id)||'').trim();if(!id)return;let run=mm[id.toUpperCase()]||{};rows.push({pos:+m.pos,id,status:(x.status||x.availability||'AVAILABLE'),machine:run.machine||m.machine||'',program:run.program||m.program||'',atc:run.atc||'',part:run.part||m.part||'',type:x.type||'',size:(x.length&&x.width)?x.length+' × '+x.width+' mm':''})});rows.sort((a,b)=>a.pos-b.pos);
+ let title=(kind==='tool'?'CUTTING TOOL INFO':'JIG & FIXTURE INFO')+' • CABINET #'+c.number;let head=kind==='tool'?'<th>POT</th><th>TOOL ID</th><th>TYPE</th><th>STATUS</th><th>MACHINE</th><th>PROGRAM</th><th>PART ID</th><th>ATC</th><th></th>':'<th>POSITION</th><th>JIG ID</th><th>SIZE</th><th>STATUS</th><th>MACHINE</th><th>PROGRAM</th><th>PART ID</th><th></th>';let body=rows.map(r=>kind==='tool'?'<tr><td>'+r.pos+'</td><td>'+esc(r.id)+'</td><td>'+esc(r.type||'—')+'</td><td>'+esc(r.status)+'</td><td>'+esc(r.machine||'—')+'</td><td>'+esc(r.program||'—')+'</td><td>'+esc(r.part||'—')+'</td><td>'+esc(r.atc?('T'+String(r.atc).padStart(2,'0')):'—')+'</td><td><button onclick="v274Forget(\'tool\','+c.number+','+r.pos+')">CLEAR HOME</button></td></tr>':'<tr><td>'+r.pos+'</td><td>'+esc(r.id)+'</td><td>'+esc(r.size||'—')+'</td><td>'+esc(r.status)+'</td><td>'+esc(r.machine||'—')+'</td><td>'+esc(r.program||'—')+'</td><td>'+esc(r.part||'—')+'</td><td><button onclick="v274Forget(\'jig\','+c.number+','+r.pos+')">CLEAR HOME</button></td></tr>').join('');
+ host.innerHTML='<div class="v274Win" id="v274_'+kind+'_'+c.number+'"><div class="v274Head"><h3>'+title+'</h3><div class="v274Ctrls"><button data-act="hide">—</button><button data-act="max">□</button><button data-act="close">×</button></div></div><div class="v274Body">'+(rows.length?'<table class="v274Table"><thead><tr>'+head+'</tr></thead><tbody>'+body+'</tbody></table>':'<div class="v274Empty">EMPTY — no permanent rack positions assigned in this cabinet yet.</div>')+'</div></div>';let w=host.querySelector('.v274Win'),bd=w.querySelector('.v274Body');w.querySelector('[data-act=hide]').onclick=()=>bd.classList.toggle('hidden');w.querySelector('[data-act=max]').onclick=()=>w.classList.toggle('max');w.querySelector('[data-act=close]').onclick=()=>{w.style.display='none'};
+ }
+ window.v274Forget=(kind,cab,pos)=>{if(confirm('Clear this permanent home assignment?'))unmark(kind,cab,pos)};
+ function init(){setupPage('tool');setupPage('jig');enhanceModals();document.querySelectorAll('.navb[data-page="cuttingToolInfo"],.navb[data-page="jigFixtureInfo"]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>render(b.dataset.page==='cuttingToolInfo'?'tool':'jig'),30)));render('tool');render('jig');setInterval(()=>{let a=document.getElementById('cuttingToolInfo'),b=document.getElementById('jigFixtureInfo');if(a&&!a.classList.contains('hide'))render('tool');if(b&&!b.classList.contains('hide'))render('jig')},1800)}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,250));else setTimeout(init,250);
+})();
+</script>
+<!-- V275: rack-to-info permanent/empty location controls. Adds UI only at rack window bottoms; Info Hub remains driven by permanent rack status. -->
+<style id="v275RackInfoLocationStyle">
+.v275LocControls{display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;flex-wrap:wrap!important;margin-top:7px!important;padding:7px 9px!important;border:1px solid #b8c4cf!important;border-radius:7px!important;background:#f7fafc!important;color:#17202a!important}
+.v275LocControls button{height:29px!important;padding:3px 14px!important;border-radius:6px!important;font-size:11px!important;font-weight:900!important;cursor:pointer!important}
+.v275PermanentBtn{background:#173d68!important;color:#fff!important;border:1px solid #2f6fa8!important}
+.v275EmptyBtn{background:#fff!important;color:#7b2630!important;border:1px solid #b85a65!important}
+.v275LocHint{font-size:10px!important;font-weight:800!important;color:#536475!important}
+.v275RackSelected{outline:3px solid #35a7ff!important;outline-offset:-3px!important;box-shadow:inset 0 0 0 1px #fff!important}
+</style>
+<script id="v275RackInfoLocationScript">
+(function(){
+ let sel={tool:null,jig:null};
+ const $=(q,r=document)=>r.querySelector(q);
+ const $$=(q,r=document)=>Array.from(r.querySelectorAll(q));
+ function cabTool(){try{return currentCab()}catch(e){return null}}
+ function cabJig(){try{return fCab()}catch(e){return null}}
+ function toolPots(){return $$('#cabinet #rack .pot, #cabinet .rack .pot')}
+ function jigPots(){return $$('#fixtures #fixtureRack > .pot')}
+ function clearSel(kind){(kind==='tool'?toolPots():jigPots()).forEach(x=>x.classList.remove('v275RackSelected'))}
+ function choose(kind,el,idx){clearSel(kind);el.classList.add('v275RackSelected');sel[kind]=idx;updateHint(kind)}
+ function updateHint(kind){let box=$('.v275LocControls[data-kind="'+kind+'"]');if(!box)return;let c=kind==='tool'?cabTool():cabJig(),i=sel[kind],h=$('.v275LocHint',box);h.textContent=(c&&i!=null)?('SELECTED: CAB'+c.number+'-'+i):'SELECT A RACK POSITION FIRST'}
+ function bindPots(){
+  toolPots().forEach((p,n)=>{if(p.dataset.v275Bound)return;p.dataset.v275Bound='1';p.addEventListener('click',()=>choose('tool',p,n+1),true)});
+  jigPots().forEach((p,n)=>{if(p.dataset.v275Bound)return;p.dataset.v275Bound='1';p.addEventListener('click',()=>choose('jig',p,n+1),true)});
+ }
+ function clearPermanent(kind,cab,pos){let k=kind==='tool'?'hub_v274_permanent_tool_positions':'hub_v274_permanent_jig_positions';try{let d=JSON.parse(localStorage.getItem(k)||'{}');delete d[String(cab)+':'+String(pos)];localStorage.setItem(k,JSON.stringify(d));}catch(e){}
+  try{if(typeof window.v274Forget==='function'){/* storage already updated; avoid confirm */}}catch(e){}
+  try{let page=document.getElementById(kind==='tool'?'cuttingToolInfo':'jigFixtureInfo');if(page){let b=document.querySelector('.navb[data-page="'+(kind==='tool'?'cuttingToolInfo':'jigFixtureInfo')+'"]');/* V274 interval will redraw */}}catch(e){}
+ }
+ function act(kind,mode){let c=kind==='tool'?cabTool():cabJig(),i=sel[kind];if(!c||i==null)return alert('Select one '+(kind==='tool'?'tool':'jig / fixture')+' rack position first.');
+  if(mode==='permanent'){
+   if(kind==='tool'){if(typeof window.v274SetPermanentTool==='function')window.v274SetPermanentTool(c.number,i)}
+   else {if(typeof window.v274SetPermanentJig==='function')window.v274SetPermanentJig(c.number,i)}
+  }else{
+   clearPermanent(kind,c.number,i);alert('Permanent assignment cleared: CAB'+c.number+'-'+i+' is now EMPTY in the Info Hub.');
+  }
+ }
+ function controls(kind,host){if(!host||host.querySelector(':scope > .v275LocControls'))return;let b=document.createElement('div');b.className='v275LocControls';b.dataset.kind=kind;b.innerHTML='<button type="button" class="v275PermanentBtn">PERMANENT LOCATION</button><button type="button" class="v275EmptyBtn">EMPTY LOCATION</button><span class="v275LocHint">SELECT A RACK POSITION FIRST</span>';host.appendChild(b);$('.v275PermanentBtn',b).onclick=()=>act(kind,'permanent');$('.v275EmptyBtn',b).onclick=()=>act(kind,'empty')}
+ function ensure(){let tb=$('#cabinet .v257CabBody'),jb=$('#fixtures .v268JigBody');controls('tool',tb);controls('jig',jb);bindPots();updateHint('tool');updateHint('jig')}
+ document.addEventListener('click',()=>setTimeout(ensure,60),true);window.addEventListener('resize',()=>setTimeout(ensure,60));setInterval(ensure,900);setTimeout(ensure,300);setTimeout(ensure,1000);
+})();
+</script>
+<!-- V277: FIXED permanent Info context. Permanent-location records recover Machine / Program / Part ID from last returned setup or Program Master assignment. Existing V275 behavior preserved. -->
+
+<!-- V278: Tool Rack permanent/empty controls hardened + tool last-program context capture. Jig V277 behavior untouched. -->
+<script id="v278ToolPermanentLocationFix">
+(function(){
+ const TK='hub_v274_permanent_tool_positions', SK='hub_machine_setup_sim_v145';
+ const read=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+ const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+ const q=(s,r=document)=>r.querySelector(s), qa=(s,r=document)=>Array.from(r.querySelectorAll(s));
+ let selected=null;
+ function cab(){try{return currentCab()}catch(e){return null}}
+ function pots(){return qa('#cabinet #rack .pot, #cabinet .rack .pot')}
+ function infoContext(toolId){
+   let id=String(toolId||'').trim().toUpperCase(), best=null, setups=read(SK,{});
+   Object.entries(setups||{}).forEach(([machine,st])=>{
+     let hit=(Array.isArray(st?.tools)?st.tools:[]).some(t=>String(t?.id||t?.toolId||t?.displayTool||t||'').trim().toUpperCase()===id);
+     let atc=read('hub_machine_atc_sim_v145',{})?.[machine]||[];
+     let ahit=(Array.isArray(atc)?atc:[]).some(t=>String(t?.displayTool||t?.toolId||t?.id||'').trim().toUpperCase()===id);
+     if(!hit&&!ahit)return;
+     let when=Date.parse(st?.loadedAt||st?.toolsLoadedAt||0)||0;
+     let x={machine,program:st?.program||'',part:st?.partno||st?.partId||st?.part||'',when};
+     if(!best||when>=best.when)best=x;
+   });
+   return best||{machine:'',program:'',part:'',when:0};
+ }
+ function mark(){
+   let c=cab(); if(!c||selected==null)return alert('Select one tool rack position first.');
+   let x=c.positions?.[selected]; let id=String(x?.toolId||x?.id||'').trim();
+   if(!id)return alert('This pot has no tool. Return/put the tool in this rack position first.');
+   let ctx=infoContext(id), d=read(TK,{});
+   /* Prefer the existing V277 context resolver/marker when available, then enrich only missing tool context. */
+   if(typeof window.v274SetPermanentTool==='function') window.v274SetPermanentTool(c.number,selected);
+   d=read(TK,{});
+   let k=String(c.number)+':'+String(selected), rec=d[k]||{cab:+c.number,pos:+selected,id};
+   rec.id=id; rec.cab=+c.number; rec.pos=+selected;
+   if(ctx.machine)rec.machine=ctx.machine;if(ctx.program)rec.program=ctx.program;if(ctx.part)rec.part=ctx.part;
+   rec.saved=new Date().toISOString();d[k]=rec;write(TK,d);
+ }
+ function empty(){
+   let c=cab();if(!c||selected==null)return alert('Select one tool rack position first.');
+   let d=read(TK,{}),k=String(c.number)+':'+String(selected);delete d[k];write(TK,d);
+   alert('Permanent assignment cleared: CAB'+c.number+'-'+selected+' is now EMPTY in the Cutting Tool Info.');
+ }
+ function select(p,n){
+   pots().forEach(x=>x.classList.remove('v278ToolSelected'));
+   p.classList.add('v278ToolSelected');selected=n;hint();
+ }
+ function hint(){
+   let h=q('#v278ToolLocHint'),c=cab();if(h)h.textContent=(c&&selected!=null)?('SELECTED: CAB'+c.number+'-'+selected):'SELECT A TOOL RACK POSITION FIRST';
+ }
+ function bind(){
+   pots().forEach((p,n)=>{if(p.dataset.v278ToolBound)return;p.dataset.v278ToolBound='1';p.addEventListener('click',()=>select(p,n+1),true)});
+ }
+ function ensure(){
+   let host=q('#cabinet .v257CabBody');if(!host)return;
+   /* V275 may already have a generic tool control. Replace it with a guaranteed Tool Rack control at the bottom. */
+   qa('.v275LocControls[data-kind="tool"]',host).forEach(x=>x.remove());
+   let box=q('#v278ToolLocControls',host);
+   if(!box){box=document.createElement('div');box.id='v278ToolLocControls';box.className='v275LocControls';box.innerHTML='<button type="button" class="v275PermanentBtn">PERMANENT LOCATION</button><button type="button" class="v275EmptyBtn">EMPTY LOCATION</button><span id="v278ToolLocHint" class="v275LocHint">SELECT A TOOL RACK POSITION FIRST</span>';host.appendChild(box);q('.v275PermanentBtn',box).onclick=mark;q('.v275EmptyBtn',box).onclick=empty;}
+   else if(box!==host.lastElementChild)host.appendChild(box);
+   bind();hint();
+ }
+ document.addEventListener('click',()=>setTimeout(ensure,70),true);
+ window.addEventListener('resize',()=>setTimeout(ensure,70));
+ setInterval(ensure,900);setTimeout(ensure,250);setTimeout(ensure,1100);
+})();
+</script>
+<style id="v278ToolPermanentLocationStyle">
+#cabinet .v278ToolSelected{outline:3px solid #35a7ff!important;outline-offset:-3px!important;box-shadow:inset 0 0 0 1px #fff!important}
+#cabinet #v278ToolLocControls{order:9999;width:auto}
+</style>
+
+<!-- V278 checkpoint: V277 jig workflow preserved; Tool Rack permanent/empty controls fixed. -->
+
+<!-- V279: live permanent-tool status + independent Machine Monitor windows. V278 rack/jig behavior preserved. -->
+<style id="v279MachineWindowsStyle" media="not all">
+#machines .v279MachineWindow{background:#fff;color:#17202a;border:2px solid #d5dbe3;border-radius:10px;box-shadow:0 8px 25px #0005;overflow:hidden;margin-top:10px}
+#machines .v279MachineWindow.v279Max{position:fixed;inset:8px;z-index:100000;overflow:auto;margin:0}
+#machines .v279MachineBar{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#f2f4f7;border-bottom:1px solid #ccd3dc;font-weight:900}
+#machines .v279MachineBtns{display:flex;gap:6px}
+#machines .v279MachineBtns button{min-width:38px;height:28px;padding:2px 8px;border:1px solid #9ba8b5;border-radius:6px;background:#fff;color:#17202a;font-weight:900;cursor:pointer}
+#machines .v279MachineBody{padding:10px}
+#machines .v279MachineBody.v279Hidden{display:none}
+#machines .v279MachineOpen{display:none;margin:10px 0;padding:7px 13px;font-weight:900}
+</style>
+<script id="v279LiveToolStatusMachineWindows_DISABLED" type="text/plain">
+(function(){
+ const TK='hub_v274_permanent_tool_positions', AK='hub_machine_atc_sim_v145', SK='hub_machine_setup_sim_v145';
+ const read=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+ function currentId(){try{let c=currentMachine();return String(c?.id||'')}catch(e){return String(window.machine||'')}}
+ function toolMap(){
+   let z={},atc=read(AK,{}),setups=read(SK,{});
+   Object.entries(atc||{}).forEach(([m,a])=>(Array.isArray(a)?a:[]).forEach((x,n)=>{
+     let id=String(x?.displayTool||x?.toolId||x?.id||'').trim();if(!id)return;
+     let st=setups[m]||{};z[id.toUpperCase()]={machine:m,program:x?.program||st.program||'',part:x?.partId||x?.part||st.partno||st.partId||st.part||'',atc:x?.slot||x?.atc||n+1};
+   }));
+   Object.entries(setups||{}).forEach(([m,st])=>(Array.isArray(st?.tools)?st.tools:[]).forEach((x,n)=>{
+     let id=String(x?.displayTool||x?.toolId||x?.id||x||'').trim();if(id&&!z[id.toUpperCase()])z[id.toUpperCase()]={machine:m,program:st.program||'',part:st.partno||st.partId||st.part||'',atc:x?.slot||x?.atc||n+1};
+   }));
+   return z;
+ }
+ /* Keep permanent rack record, but status is derived live from current ATC/setup every refresh. */
+ function refreshInfo(){
+   let marks=read(TK,{}),map=toolMap();
+   document.querySelectorAll('#cuttingToolInfo .v274Table tbody tr').forEach(tr=>{
+     let cells=tr.querySelectorAll('td');if(cells.length<7)return;
+     let id=String(cells[1]?.textContent||'').trim().toUpperCase(),run=map[id];
+     if(run){cells[3].textContent='IN MACHINE';cells[4].textContent=run.machine||'';cells[5].textContent=run.program||'';cells[6].textContent=run.part||cells[6].textContent||'';if(cells[7])cells[7].textContent=run.atc||''}
+     else cells[3].textContent='AVAILABLE';
+   });
+ }
+ function ensureWindow(){
+   let sec=document.getElementById('machines'),board=document.getElementById('v194MachineBoard');if(!sec||!board)return;
+   let win=document.getElementById('v279MachineWindow');
+   if(!win){
+     win=document.createElement('div');win.id='v279MachineWindow';win.className='v279MachineWindow';
+     let bar=document.createElement('div');bar.className='v279MachineBar';
+     bar.innerHTML='<span id="v279MachineCaption">MACHINE MONITOR</span><span class="v279MachineBtns"><button type="button" data-a="hide" title="Hide / show">−</button><button type="button" data-a="max" title="Maximize / restore">□</button><button type="button" data-a="close" title="Close">×</button></span>';
+     let body=document.createElement('div');body.className='v279MachineBody';
+     board.parentNode.insertBefore(win,board);win.appendChild(bar);win.appendChild(body);body.appendChild(board);
+     let open=document.getElementById('v194Open');if(open){open.classList.add('v279MachineOpen');open.textContent='OPEN MACHINE MONITOR';}
+     bar.onclick=e=>{let b=e.target.closest('button');if(!b)return;let a=b.dataset.a;
+       if(a==='hide'){body.classList.toggle('v279Hidden');b.textContent=body.classList.contains('v279Hidden')?'+':'−'}
+       if(a==='max'){win.classList.toggle('v279Max');b.textContent=win.classList.contains('v279Max')?'❐':'□'}
+       if(a==='close'){win.style.display='none';if(open)open.style.display='inline-block'}
+     };
+     if(open)open.addEventListener('click',()=>{win.style.display='block';open.style.display='none'},true);
+   }
+   let cap=document.getElementById('v279MachineCaption'),id=currentId();if(cap)cap.textContent=(id?id+' • ':'')+'MACHINE MONITOR';
+ }
+ function tick(){ensureWindow();refreshInfo()}
+ document.addEventListener('click',()=>setTimeout(tick,100),true);
+ window.addEventListener('storage',e=>{if([TK,AK,SK].includes(e.key))setTimeout(tick,50)});
+ setInterval(tick,900);setTimeout(tick,300);setTimeout(tick,1200);
+})();
+</script>
+<!-- V279 checkpoint: Cutting Tool Info status follows live machine ATC/setup; Machine Monitor enclosed with Hide/Maximize/Close. -->
+
+
+<!-- V280: Correct Machine Monitor enclosure (machineStatusPage), preserving V279 live tool status. -->
+<style id="v280MachineStatusWindowStyle" media="not all">
+#machineStatusPage .v280MMWin{background:#fff;color:#17202a;border:2px solid #d5dbe3;border-radius:10px;box-shadow:0 8px 25px #0005;overflow:hidden;margin-top:10px}
+#machineStatusPage .v280MMWin.v280Max{position:fixed;inset:8px;z-index:100001;overflow:auto;margin:0}
+#machineStatusPage .v280MMBar{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:#f2f4f7;border-bottom:1px solid #ccd3dc;font-weight:900}
+#machineStatusPage .v280MMBtns{display:flex;gap:6px}
+#machineStatusPage .v280MMBtns button{min-width:38px;height:29px;padding:2px 9px;border:1px solid #9ba8b5;border-radius:6px;background:#fff;color:#17202a;font-weight:900;cursor:pointer}
+#machineStatusPage .v280MMBody{padding:10px}
+#machineStatusPage .v280MMBody.v280Hidden{display:none}
+#machineStatusPage .v280MMOpen{display:none;margin:10px 0;padding:7px 14px;font-weight:900}
+</style>
+<script id="v280MachineStatusWindow_DISABLED" type="text/plain">
+(function(){
+ function currentLabel(){
+   try{let m=typeof currentMachine==='function'?currentMachine():null;if(m)return String(m.id||'')+(m.name?' | '+m.name:'')}catch(e){}
+   let a=document.querySelector('#statusMachineTabs button.active');return a?String(a.textContent||'').trim():'MACHINE';
+ }
+ function ensure(){
+   let page=document.getElementById('machineStatusPage');if(!page)return;
+   let win=document.getElementById('v280MMWin');
+   if(!win){
+     let toolbar=page.querySelector(':scope > .hubPageToolbar'), top=page.querySelector(':scope > .top');
+     let direct=Array.from(page.children).filter(x=>x!==toolbar && x!==top && !x.classList.contains('v280MMOpen'));
+     win=document.createElement('div');win.id='v280MMWin';win.className='v280MMWin';
+     let bar=document.createElement('div');bar.className='v280MMBar';bar.innerHTML='<span id="v280MMCaption">MACHINE MONITOR</span><span class="v280MMBtns"><button type="button" data-a="hide" title="Hide / show">−</button><button type="button" data-a="max" title="Maximize / restore">□</button><button type="button" data-a="close" title="Close">×</button></span>';
+     let body=document.createElement('div');body.className='v280MMBody';
+     let open=document.createElement('button');open.type='button';open.className='v280MMOpen';open.textContent='OPEN MACHINE MONITOR';
+     (top||toolbar||page.firstChild)?.after(open);
+     open.after(win);win.appendChild(bar);win.appendChild(body);direct.forEach(x=>body.appendChild(x));
+     bar.onclick=e=>{let b=e.target.closest('button');if(!b)return;let a=b.dataset.a;
+       if(a==='hide'){body.classList.toggle('v280Hidden');b.textContent=body.classList.contains('v280Hidden')?'+':'−'}
+       if(a==='max'){win.classList.toggle('v280Max');b.textContent=win.classList.contains('v280Max')?'❐':'□'}
+       if(a==='close'){win.style.display='none';open.style.display='inline-block'}
+     };
+     open.onclick=()=>{win.style.display='block';open.style.display='none'};
+   }
+   let cap=document.getElementById('v280MMCaption');if(cap)cap.textContent=currentLabel()+' • MACHINE MONITOR';
+ }
+ document.addEventListener('click',()=>setTimeout(ensure,70),true);
+ setInterval(ensure,900);setTimeout(ensure,250);setTimeout(ensure,1100);
+})();
+</script>
+<!-- V280 checkpoint: actual Machine Monitor page enclosed; V279 live Tool Info status retained. -->
+
+
+<!-- V282: Original Machine Monitor preserved; enclosure only, matching Cutting Tool Monitor window style. -->
+<style id="v282MMStyle">
+#machineStatusPage .v282MMWindow{background:#fff;color:#17202a;border:2px solid #d5dbe3;border-radius:10px;box-shadow:0 8px 25px #0005;overflow:hidden;margin-top:10px}
+#machineStatusPage .v282MMWindow.v282Max{position:fixed;inset:8px;z-index:100010;overflow:auto;margin:0}
+#machineStatusPage .v282MMBar{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#f2f4f7;border-bottom:1px solid #ccd3dc;font-weight:900}
+#machineStatusPage .v282MMBtns{display:flex;gap:6px}
+#machineStatusPage .v282MMBtns button{min-width:36px;height:28px;padding:2px 8px;border:1px solid #9ba8b5;border-radius:6px;background:#fff;color:#17202a;font-weight:900}
+#machineStatusPage .v282MMBody{padding:10px}
+#machineStatusPage .v282MMBody.v282Hidden{display:none}
+#machineStatusPage .v282Open{display:none;margin:8px 0;padding:7px 13px;font-weight:900}
+</style>
+<script id="v282MMEnclosureOnly">
+(function(){
+ function label(){
+   let a=document.querySelector('#statusMachineTabs button.active');
+   return a?String(a.textContent||'').trim():'MACHINE MONITOR';
+ }
+ function ensure(){
+   let page=document.getElementById('machineStatusPage'); if(!page)return;
+   let win=document.getElementById('v282MMWindow');
+   if(!win){
+     let toolbar=page.querySelector(':scope > .hubPageToolbar'), top=page.querySelector(':scope > .top');
+     /* Preserve the original panels exactly; only move them inside a white shell. */
+     let original=Array.from(page.children).filter(x=>x!==toolbar&&x!==top&&!x.classList.contains('v282Open'));
+     win=document.createElement('div');win.id='v282MMWindow';win.className='v282MMWindow';
+     let bar=document.createElement('div');bar.className='v282MMBar';
+     bar.innerHTML='<span id="v282MMCaption">MACHINE MONITOR</span><span class="v282MMBtns"><button data-a="hide" title="Hide">−</button><button data-a="max" title="Maximize / Restore">□</button><button data-a="close" title="Close">×</button></span>';
+     let body=document.createElement('div');body.className='v282MMBody';
+     let open=document.createElement('button');open.className='v282Open';open.textContent='OPEN MACHINE MONITOR';
+     (top||toolbar).after(open);open.after(win);win.append(bar,body);original.forEach(x=>body.appendChild(x));
+     bar.addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;
+       if(b.dataset.a==='hide'){body.classList.toggle('v282Hidden');b.textContent=body.classList.contains('v282Hidden')?'+':'−'}
+       if(b.dataset.a==='max'){win.classList.toggle('v282Max');b.textContent=win.classList.contains('v282Max')?'❐':'□'}
+       if(b.dataset.a==='close'){win.style.display='none';open.style.display='inline-block'}
+     });
+     open.onclick=()=>{win.style.display='block';open.style.display='none'};
+   }
+   let c=document.getElementById('v282MMCaption');if(c)c.textContent=label()+' • MACHINE MONITOR';
+ }
+ document.addEventListener('click',()=>setTimeout(ensure,60),true);
+ setInterval(ensure,900);setTimeout(ensure,250);setTimeout(ensure,1100);
+})();
+</script>
+<script id="v282LiveToolInfoStatusOnly_DISABLED_V286" type="text/plain">
+(function(){
+ const AK='hub_machine_atc_sim_v145',SK='hub_machine_setup_sim_v145';
+ const read=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+ function run(){
+   let z={},a=read(AK,{}),ss=read(SK,{});
+   Object.entries(a||{}).forEach(([m,arr])=>(Array.isArray(arr)?arr:[]).forEach((x,n)=>{let id=String(x?.displayTool||x?.toolId||x?.id||'').trim();if(!id)return;let st=ss[m]||{};z[id.toUpperCase()]={machine:m,program:x?.program||st.program||'',part:x?.partId||x?.part||st.partno||st.partId||st.part||'',atc:x?.slot||x?.atc||n+1}}));
+   document.querySelectorAll('#cuttingToolInfo .v274Table tbody tr').forEach(tr=>{let c=tr.querySelectorAll('td');if(c.length<7)return;let x=z[String(c[1]?.textContent||'').trim().toUpperCase()];c[3].textContent=x?'IN MACHINE':'AVAILABLE';if(x){c[4].textContent=x.machine||'';c[5].textContent=x.program||'';c[6].textContent=x.part||c[6].textContent||'';if(c[7])c[7].textContent=x.atc||''}});
+ }
+ setInterval(run,900);document.addEventListener('click',()=>setTimeout(run,100),true);setTimeout(run,500);
+})();
+</script>
+<!-- V282 checkpoint: original Machine Monitor UI/behavior unchanged; white enclosure only. -->
+
+
+<!-- V283: Machine selection tabs remain outside the enclosure, matching Cutting Tool Monitor. -->
+<style id="v283MachineTabsOutsideStyle">
+#machineStatusPage #statusMachineTabs{margin:8px 0 6px}
+</style>
+<script id="v283MachineTabsOutside">
+(function(){
+ function fix(){
+   let page=document.getElementById('machineStatusPage'),
+       win=document.getElementById('v282MMWindow'),
+       body=win&&win.querySelector('.v282MMBody'),
+       tabs=document.getElementById('statusMachineTabs');
+   if(!page||!win||!body||!tabs)return;
+   let panel=tabs.closest('.panel');
+   if(!panel)return;
+   /* Create an outside selector row once, then move only the original tabs there.
+      The original machine status/setup panels remain unchanged inside the window. */
+   let holder=document.getElementById('v283MachineSelectorOutside');
+   if(!holder){
+     holder=document.createElement('div');holder.id='v283MachineSelectorOutside';
+     holder.style.cssText='margin:8px 0 6px;';
+     win.parentNode.insertBefore(holder,win);
+   }
+   if(tabs.parentNode!==holder) holder.appendChild(tabs);
+   /* Remove the now-empty leading panel only if it contains no actual controls/content besides whitespace/br. */
+   let meaningful=Array.from(panel.children).filter(x=>x!==tabs && x.tagName!=='BR');
+   if(!meaningful.length) panel.style.display='none';
+ }
+ document.addEventListener('click',()=>setTimeout(fix,60),true);
+ setInterval(fix,900);setTimeout(fix,250);setTimeout(fix,1100);
+})();
+</script>
+<!-- V283 checkpoint: machine tabs outside white Machine Monitor enclosure; V282 behavior otherwise unchanged. -->
+
+
+<!-- V284: Cutting Tool Info live STATUS follows physical location. Rack presence has priority over stale ATC/setup data. -->
+<script id="v284ToolStatusRackPriority_DISABLED_V286" type="text/plain">
+(function(){
+ const AK='hub_machine_atc_sim_v145';
+ const read=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+ function rackToolIds(){
+   let ids=new Set();
+   try{
+     let cabs=(typeof cabinets!=='undefined'&&Array.isArray(cabinets))?cabinets:[];
+     cabs.forEach(c=>(Array.isArray(c?.positions)?c.positions:[]).forEach(p=>{
+       let id=String(p?.toolId||p?.id||'').trim().toUpperCase(); if(id)ids.add(id);
+     }));
+   }catch(e){}
+   return ids;
+ }
+ function machineMap(){
+   let z={},a=read(AK,{});
+   Object.entries(a||{}).forEach(([m,arr])=>(Array.isArray(arr)?arr:[]).forEach((x,n)=>{
+     let id=String(x?.displayTool||x?.toolId||x?.id||'').trim().toUpperCase();
+     if(id)z[id]={machine:m,program:x?.program||'',part:x?.partId||x?.part||'',atc:x?.slot||x?.atc||n+1};
+   }));
+   return z;
+ }
+ function refresh(){
+   let rack=rackToolIds(), mach=machineMap();
+   document.querySelectorAll('#cuttingToolInfo .v274Table tbody tr').forEach(tr=>{
+     let c=tr.querySelectorAll('td'); if(c.length<7)return;
+     let id=String(c[1]?.textContent||'').trim().toUpperCase(), inRack=rack.has(id), run=mach[id];
+     if(inRack){
+       c[3].textContent='AVAILABLE';
+       /* Keep last-used Machine / Program / Part ID history already stored by the Info record. */
+       if(c[7]) c[7].textContent='';
+     }else if(run){
+       c[3].textContent='IN MACHINE';
+       c[4].textContent=run.machine||c[4].textContent||'';
+       if(run.program)c[5].textContent=run.program;
+       if(run.part)c[6].textContent=run.part;
+       if(c[7])c[7].textContent=run.atc||'';
+     }
+   });
+ }
+ document.addEventListener('click',()=>setTimeout(refresh,120),true);
+ window.addEventListener('storage',()=>setTimeout(refresh,80));
+ setInterval(refresh,700);
+ setTimeout(refresh,300);setTimeout(refresh,1200);
+})();
+</script>
+<!-- V284 checkpoint: Tool in rack = AVAILABLE; tool absent from rack and present in machine ATC = IN MACHINE. V283 UI preserved. -->
+
+
+<!-- V285: FIX - use the app's real ct_cabinets rack data. Physical rack presence overrides stale machine records. -->
+<script id="v285ActualRackStatusFix">
+(function(){
+ function read(k,f){try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}}
+ function rackMap(){
+   let map=new Map(), cabs=read('ct_cabinets',[]);
+   (Array.isArray(cabs)?cabs:[]).forEach(c=>{
+     let pos=c&&c.positions||{};
+     Object.keys(pos).forEach(k=>{
+       let v=pos[k], id='';
+       if(v&&typeof v==='object') id=String(v.toolId||v.id||'').trim().toUpperCase();
+       /* A real occupied rack pot is identified by its Tool ID, regardless of stale status text. */
+       if(id) map.set(id,{cab:Number(c.number)||'',pot:Number(k)||k});
+     });
+   });
+   return map;
+ }
+ function machineMap(){
+   let z={},a=read('hub_machine_atc_sim_v145',{}),ss=read('hub_machine_setup_sim_v145',{});
+   Object.entries(a||{}).forEach(([m,arr])=>(Array.isArray(arr)?arr:[]).forEach((x,n)=>{
+     let id=String(x?.displayTool||x?.toolId||x?.id||'').trim().toUpperCase();if(!id)return;
+     let st=ss[m]||{};z[id]={machine:m,program:x?.program||st.program||'',part:x?.partId||x?.part||st.partno||st.partId||st.part||'',atc:x?.slot||x?.atc||n+1};
+   }));
+   return z;
+ }
+ function refresh(){
+   let rack=rackMap(),mach=machineMap();
+   document.querySelectorAll('#cuttingToolInfo .v274Table tbody tr').forEach(tr=>{
+     let c=tr.querySelectorAll('td');if(c.length<7)return;
+     let id=String(c[1]?.textContent||'').trim().toUpperCase(),home=rack.get(id),run=mach[id];
+     if(home){
+       c[3].textContent='AVAILABLE';
+       /* Machine/Program/Part ID remain as last-used history. ATC must be blank while physically in rack. */
+       if(c[7])c[7].textContent='';
+     }else if(run){
+       c[3].textContent='IN MACHINE';
+       c[4].textContent=run.machine||'';
+       if(run.program)c[5].textContent=run.program;
+       if(run.part)c[6].textContent=run.part;
+       if(c[7])c[7].textContent=run.atc||'';
+     }
+   });
+ }
+ document.addEventListener('click',()=>setTimeout(refresh,100),true);
+ window.addEventListener('storage',e=>{if(['ct_cabinets','hub_machine_atc_sim_v145','hub_machine_setup_sim_v145'].includes(e.key))setTimeout(refresh,50)});
+ setInterval(refresh,800);setTimeout(refresh,200);setTimeout(refresh,900);
+})();
+</script>
+<!-- V285 checkpoint: ct_cabinets occupied pot = AVAILABLE, even if stale ATC data still exists. V284/V283 UI unchanged. -->
+
+<!-- V286 checkpoint: removed competing V282/V284 Tool Info status timers; V285 actual ct_cabinets rack logic is the single status source. -->
+<!-- V288: V274 visible Tool Info renderer now respects rack status first; no renderer/status fighting and no blank page. -->
 </body></html>
