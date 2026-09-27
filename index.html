@@ -13004,10 +13004,11 @@ setTimeout(()=>{try{mmRefreshSetupUI();drawMachine()}catch(e){console.warn('V145
      let n=counters[c];
      p.partId=String(p.partno||p.partId||`P${c}-${String(n).padStart(3,'0')}`);
      p.partno=p.partId;
-     p.jigid=`C${c}-JIG-${String(n).padStart(2,'0')}`;
+     // V290: preserve the Jig ID already attached to this exact program record.
+     if(!String(p.jigid||'').trim()) p.jigid=(Array.isArray(p.jigs)&&p.jigs[0])?String(p.jigs[0]):`C${c}-JIG-${String(n).padStart(2,'0')}`;
      p.jigs=[p.jigid];
-     p.jigCabinet=`CAB ${c}`;
-     p.jigPosition=n;
+     if(!p.jigCabinet)p.jigCabinet=`CAB ${c}`;
+     if(!p.jigPosition)p.jigPosition=n;
    });
    S(PM,ps);
 
@@ -16712,4 +16713,320 @@ body.compact .v269RackViewControls{margin-top:4px!important;padding:4px 7px!impo
 <!-- V286 checkpoint: removed competing V282/V284 Tool Info status timers; V285 actual ct_cabinets rack logic is the single status source. -->
 <!-- V288: V274 visible Tool Info renderer now respects rack status first; no renderer/status fighting and no blank page. -->
 <!-- V289: disabled legacy V216 session-based recovery replay so live localStorage changes persist across new browser sessions. -->
+\n<script id="v289ProgramMasterPerMachine">\n/* V289 — Program Masterlist is machine-specific.\n   The currently selected machine owns the visible/add/edit/delete/duplicate records.\n   Existing Program Master data and storage key are preserved. */\n(function(){\n  function pmActiveMachineId(){\n    try{let m=typeof currentMachine==='function'?currentMachine():null;if(m&&m.id)return String(m.id).trim().toUpperCase()}catch(e){}\n    try{if(window.machine)return String(window.machine).trim().toUpperCase()}catch(e){}\n    return '';\n  }\n  function sameMachine(p,id){return String((p&&p.machine)||'').trim().toUpperCase()===String(id||'').trim().toUpperCase()}\n  function esc(v){return typeof pmEsc==='function'?pmEsc(v):String(v??'')}\n\n  window.pmRender=function(){\n    let all=pmData(),id=pmActiveMachineId(),q=(document.getElementById('pmSearch')?.value||'').toLowerCase(),sf=document.getElementById('pmStatusFilter')?.value||'';\n    let rows=all.map((x,i)=>({x,i})).filter(o=>{let x=o.x;return(!id||sameMachine(x,id))&&(!q||Object.values(x).join(' ').toLowerCase().includes(q))&&(!sf||x.status===sf)});\n    let body=document.getElementById('pmBody');if(!body)return;\n    body.innerHTML=rows.map((o,n)=>{let x=o.x,i=o.i;return `<tr data-pm-index="${i}" class="${i===pmSelected?'pmSelected':''}" onclick="pmSelect(${i})"><td>${n+1}</td><td><b>${esc(x.program)}</b></td><td>${esc(x.partno)}</td><td>${esc(x.partname)}</td><td>${esc(x.customer)}</td><td>${esc(x.machine)}</td><td>${esc(x.rev)}</td><td>${esc(x.material)}</td><td>${esc(x.programmer)}</td><td>${esc(x.lastrev)}</td><td><span class="pmStatus ${pmStatusClass(x.status)}">${esc(x.status)}</span></td><td><button class="pmToolBtn" onclick="event.stopPropagation();pmShowTools(${i})">TOOLS (${(x.tools||[]).length})</button></td><td><div class="pmFileBtns"><button class="pmFileBtn" onclick="event.stopPropagation();pmOpenSampleFile(${i},'nc')">NC</button><button class="pmFileBtn setup" onclick="event.stopPropagation();pmOpenSampleFile(${i},'setup')">SETUP</button><button class="pmFileBtn dwg" onclick="event.stopPropagation();pmOpenSampleFile(${i},'drawing')">DWG</button></div></td><td><button class="pmAction" onclick="event.stopPropagation();pmOpen(${i})">EDIT</button></td></tr>`}).join('');\n    let c=document.getElementById('pmCount');if(c)c.textContent=`${id||'NO MACHINE'} • ${rows.length} program${rows.length===1?'':'s'}`;\n    let mf=document.getElementById('pmMachineFilter');if(mf){mf.innerHTML=`<option value="${esc(id)}">${esc(id||'Select Machine')}</option>`;mf.value=id;mf.disabled=true;mf.title='Program Master follows the selected machine';}\n    if(pmSelected>=0&&!sameMachine(all[pmSelected],id))pmSelected=-1;\n  };\n\n  const baseOpen=window.pmOpen;\n  window.pmOpen=function(i){\n    let id=pmActiveMachineId();\n    if(!id)return alert('Select a machine first.');\n    if(i>=0){let a=pmData();if(!a[i]||!sameMachine(a[i],id))return alert('This program belongs to another machine.');}\n    baseOpen(i);\n    let el=document.getElementById('pm_machine');if(el){el.value=id;el.readOnly=true;el.title='Machine is controlled by the selected machine tab';}\n    let rule=document.getElementById('pmOwnershipRule');if(rule)rule.textContent='PROGRAM OWNER: '+id+' — this record is stored only for the selected machine.';\n  };\n\n  window.pmSave=function(){\n    let id=pmActiveMachineId();if(!id)return alert('Select a machine first.');\n    let a=pmData(),x={};\n    ['program','partno','partname','customer','machine','rev','material','programmer','created','lastrev','status','ncfile','setupfile','drawing','notes'].forEach(k=>{let e=document.getElementById('pm_'+k);x[k]=e?e.value.trim():''});\n    x.machine=id;x.program=pmNormalizeProgramNumber(x.program);x.tools=[...pmToolChecks.querySelectorAll('input:checked')].map(e=>e.value);\n    if(!x.program)return alert('Program Number is required. Example: O1001');\n    if(!/^O\\d+$/i.test(x.program))return alert('Use a CNC program number such as O1001.');\n    let duplicate=a.findIndex((p,i)=>i!==pmEditing&&sameMachine(p,id)&&pmNormalizeProgramNumber(p.program)===x.program);\n    if(duplicate>=0)return alert('Program Number '+x.program+' already exists in '+id+'.');\n    if(pmEditing>=0){if(!a[pmEditing]||!sameMachine(a[pmEditing],id))return alert('Cannot edit a program owned by another machine.');a[pmEditing]=x;}\n    else{a.push(x);pmSelected=a.length-1;}\n    pmSet(a);pmClose();pmRender();\n    try{if(typeof mmRefreshSetupUI==='function')mmRefreshSetupUI()}catch(e){}\n  };\n\n  window.pmDeleteSelected=function(){\n    let id=pmActiveMachineId(),a=pmData();if(pmSelected<0||!a[pmSelected]||!sameMachine(a[pmSelected],id))return alert('Select a '+id+' program first.');\n    let p=a[pmSelected];if(confirm('Delete '+p.program+' from '+id+'?')){a.splice(pmSelected,1);pmSet(a);pmSelected=-1;pmRender();try{if(typeof mmRefreshSetupUI==='function')mmRefreshSetupUI()}catch(e){}}\n  };\n\n  window.pmDuplicateSelected=function(){\n    let id=pmActiveMachineId(),a=pmData();if(pmSelected<0||!a[pmSelected]||!sameMachine(a[pmSelected],id))return alert('Select a '+id+' program first.');\n    let c=JSON.parse(JSON.stringify(a[pmSelected])),own=a.filter(p=>sameMachine(p,id));c.program=pmNextProgramNumber(own,c.program);c.machine=id;c.rev='';c.status='TRIAL';a.splice(pmSelected+1,0,c);pmSet(a);pmSelected++;pmRender();\n  };\n\n  window.pmResetFilters=function(){let s=document.getElementById('pmSearch'),st=document.getElementById('pmStatusFilter');if(s)s.value='';if(st)st.value='';pmRender()};\n\n  document.addEventListener('click',function(e){\n    if(e.target.closest('#statusMachineTabs button')||e.target.closest('[data-machine]'))setTimeout(()=>{try{pmRender()}catch(_){}},30);\n  },true);\n  setTimeout(()=>{try{pmRender()}catch(_){}},500);\n})();\n</script>\n\n<script id="v290ProgramMasterMachineAndJigLock">\n(function(){\n function id(){try{return String(pmEnsureActiveMachine()||'').trim().toUpperCase()}catch(e){try{return String(pmActiveMachine||machine||'').trim().toUpperCase()}catch(_){return ''}}}\n const same=(p,m)=>String(p&&p.machine||'').trim().toUpperCase()===String(m||'').trim().toUpperCase();\n const E=v=>typeof pmEsc==='function'?pmEsc(v):String(v??'');\n window.v153AssignProgramJigIds=function(){};\n window.pmRender=function(){let a=pmData(),m=id(),q=(document.getElementById('pmSearch')?.value||'').toLowerCase(),sf=document.getElementById('pmStatusFilter')?.value||'';let rows=a.map((x,i)=>({x,i})).filter(o=>same(o.x,m)&&(!q||Object.values(o.x).join(' ').toLowerCase().includes(q))&&(!sf||o.x.status===sf));let b=document.getElementById('pmBody');if(!b)return;try{pmRenderMachineTabs()}catch(e){}b.innerHTML=rows.map((o,n)=>{let x=o.x,i=o.i;return `<tr data-pm-index="${i}" class="${i===pmSelected?'pmSelected':''}" onclick="pmSelect(${i})"><td>${n+1}</td><td><b>${E(x.program)}</b></td><td><b>${E(x.partno)}</b></td><td><b>${E(x.jigid||(x.jigs||[])[0]||'')}</b></td><td>${E(x.partname)}</td><td>${E(x.customer)}</td><td><b>${E(x.machine)}</b></td><td>${E(x.rev)}</td><td>${E(x.material)}</td><td>${E(x.programmer)}</td><td>${E(x.lastrev)}</td><td><span class="pmStatus ${pmStatusClass(x.status)}">${E(x.status)}</span></td><td><button class="pmToolBtn" onclick="event.stopPropagation();pmShowTools(${i})">TOOLS (${(x.tools||[]).length})</button></td><td><div class="pmFileBtns"><button class="pmFileBtn" onclick="event.stopPropagation();pmOpenSampleFile(${i},'nc')">NC</button><button class="pmFileBtn setup" onclick="event.stopPropagation();pmOpenSampleFile(${i},'setup')">SETUP</button><button class="pmFileBtn dwg" onclick="event.stopPropagation();pmOpenSampleFile(${i},'drawing')">DWG</button></div></td><td><button class="pmAction" onclick="event.stopPropagation();pmOpen(${i})">EDIT</button></td></tr>`}).join('');let c=document.getElementById('pmCount');if(c)c.textContent=`${m} • Showing ${rows.length} programs`;if(pmSelected>=0&&!same(a[pmSelected],m))pmSelected=-1};\n const op=window.pmOpen;window.pmOpen=function(i){let m=id();if(!m)return alert('Select a machine first.');if(i>=0){let a=pmData();if(!a[i]||!same(a[i],m))return alert('This program belongs to another machine.')}op(i);let e=document.getElementById('pm_machine');if(e){e.value=m;e.readOnly=true}};\n window.pmSave=function(){let m=id();if(!m)return alert('Select a machine first.');let a=pmData(),old=pmEditing>=0?a[pmEditing]:null,x={};['program','partno','partname','customer','machine','rev','material','programmer','created','lastrev','status','ncfile','setupfile','drawing','notes'].forEach(k=>{let e=document.getElementById('pm_'+k);x[k]=e?e.value.trim():''});x.machine=m;x.program=pmNormalizeProgramNumber(x.program);x.tools=[...pmToolChecks.querySelectorAll('input:checked')].map(e=>e.value);x.jigid=old?(old.jigid||(old.jigs||[])[0]||''):'';x.jigs=x.jigid?[x.jigid]:[];if(old){x.jigCabinet=old.jigCabinet||'';x.jigPosition=old.jigPosition||''}if(!x.program)return alert('Program Number is required. Example: O1001');if(!/^O\\d+$/i.test(x.program))return alert('Use a CNC program number such as O1001.');let d=a.findIndex((p,i)=>i!==pmEditing&&same(p,m)&&pmNormalizeProgramNumber(p.program)===x.program);if(d>=0)return alert('Program Number '+x.program+' already exists in '+m+'.');if(pmEditing>=0){if(!old||!same(old,m))return alert('Cannot edit another machine program.');a[pmEditing]=x}else{a.push(x);pmSelected=a.length-1}pmSet(a);pmClose();pmRender();try{mmRefreshSetupUI()}catch(e){}};\n window.pmDeleteSelected=function(){let m=id(),a=pmData();if(pmSelected<0||!a[pmSelected]||!same(a[pmSelected],m))return alert('Select a '+m+' program first.');let p=a[pmSelected];if(confirm('Delete '+p.program+' from '+m+'?')){a.splice(pmSelected,1);pmSet(a);pmSelected=-1;pmRender();try{mmRefreshSetupUI()}catch(e){}}};\n setTimeout(()=>{try{pmRender()}catch(e){}},700);\n})();\n</script>\n
+<style id="v291ProgramMasterCleanToolbar">
+#programMaster #pmMachineFilter,#programMaster #pmStatusFilter,#programMaster .pmToolbar button{display:none!important}
+#programMaster .pmToolbar{display:flex!important;justify-content:flex-end!important;align-items:center!important}
+#programMaster #pmSearch{display:block!important;min-width:280px!important;max-width:520px!important;width:38vw!important}
+</style>
+<script id="v291ProgramOwnershipFinal">
+/* V291 — FINAL Program Master ownership rule:
+   C1 -> MC-01, C2 -> MC-02, C3 -> MC-03, etc.
+   Each machine tab displays and changes ONLY its own records.
+   Jig ID stays attached to its program record and is never renumbered on delete. */
+(function(){
+ const norm=v=>String(v||'').trim().toUpperCase();
+ const same=(p,m)=>norm(p&&p.machine)===norm(m);
+ const E=v=>typeof pmEsc==='function'?pmEsc(v):String(v??'');
+ function selectedMachine(){
+   try{if(typeof pmActiveMachine!=='undefined'&&pmActiveMachine)return norm(pmActiveMachine)}catch(e){}
+   try{return norm(pmEnsureActiveMachine())}catch(e){}
+   return 'MC-01';
+ }
+ function ownerFromRecord(p){
+   let vals=[p&&p.jigid].concat(Array.isArray(p&&p.jigs)?p.jigs:[],Array.isArray(p&&p.tools)?p.tools:[],[p&&p.partno]);
+   for(const v of vals){let m=norm(v).match(/^C(\d+)(?:-|\b)/);if(m)return 'MC-'+String(+m[1]).padStart(2,'0')}
+   return norm(p&&p.machine);
+ }
+ function repairOwnershipOnce(){
+   let key='hub_v291_program_owner_repaired',a=pmData(),changed=false;
+   /* Run on each loaded dataset, but only change a record when its C-prefix proves ownership. */
+   for(const p of a){let own=ownerFromRecord(p);if(own&&/^MC-\d+$/.test(own)&&norm(p.machine)!==own){p.machine=own;changed=true}}
+   if(changed)pmSet(a);
+   try{localStorage.setItem(key,'1')}catch(e){}
+ }
+ window.pmSwitchMachine=function(machineId){
+   pmActiveMachine=norm(machineId);pmSelected=-1;pmEditing=-1;
+   try{pmRenderMachineTabs()}catch(e){};pmRender();
+ };
+ window.pmRender=function(){
+   let a=pmData(),m=selectedMachine(),q=(document.getElementById('pmSearch')?.value||'').toLowerCase();
+   let rows=a.map((x,i)=>({x,i})).filter(o=>same(o.x,m)&&(!q||Object.values(o.x).join(' ').toLowerCase().includes(q)));
+   let b=document.getElementById('pmBody');if(!b)return;
+   try{pmRenderMachineTabs()}catch(e){}
+   b.innerHTML=rows.map((o,n)=>{let x=o.x,i=o.i;return `<tr data-pm-index="${i}" class="${i===pmSelected?'pmSelected':''}" onclick="pmSelect(${i})"><td>${n+1}</td><td><b>${E(x.program)}</b></td><td><b>${E(x.partno)}</b></td><td><b>${E(x.jigid||(x.jigs||[])[0]||'')}</b></td><td>${E(x.partname)}</td><td>${E(x.customer)}</td><td><b>${E(x.machine)}</b></td><td>${E(x.rev)}</td><td>${E(x.material)}</td><td>${E(x.programmer)}</td><td>${E(x.lastrev)}</td><td><span class="pmStatus ${pmStatusClass(x.status)}">${E(x.status)}</span></td><td><button class="pmToolBtn" onclick="event.stopPropagation();pmShowTools(${i})">TOOLS (${(x.tools||[]).length})</button></td><td><div class="pmFileBtns"><button class="pmFileBtn" onclick="event.stopPropagation();pmOpenSampleFile(${i},'nc')">NC</button><button class="pmFileBtn setup" onclick="event.stopPropagation();pmOpenSampleFile(${i},'setup')">SETUP</button><button class="pmFileBtn dwg" onclick="event.stopPropagation();pmOpenSampleFile(${i},'drawing')">DWG</button></div></td><td><button class="pmAction" onclick="event.stopPropagation();pmOpen(${i})">EDIT</button></td></tr>`}).join('');
+   let c=document.getElementById('pmCount');if(c)c.textContent=`${m} • Showing ${rows.length} program${rows.length===1?'':'s'}`;
+   if(pmSelected>=0&&!same(a[pmSelected],m))pmSelected=-1;
+ };
+ const priorOpen=window.pmOpen;
+ window.pmOpen=function(i){let m=selectedMachine(),a=pmData();if(i>=0&&(!a[i]||!same(a[i],m)))return alert('This program belongs to another machine.');priorOpen(i);let e=document.getElementById('pm_machine');if(e){e.value=m;e.readOnly=true}};
+ window.pmSave=function(){
+   let m=selectedMachine(),a=pmData(),old=pmEditing>=0?a[pmEditing]:null,x={};
+   ['program','partno','partname','customer','machine','rev','material','programmer','created','lastrev','status','ncfile','setupfile','drawing','notes'].forEach(k=>{let e=document.getElementById('pm_'+k);x[k]=e?e.value.trim():''});
+   x.machine=m;x.program=pmNormalizeProgramNumber(x.program);x.tools=[...pmToolChecks.querySelectorAll('input:checked')].map(e=>e.value);
+   /* Jig ownership is part of the program record. Never generate, renumber, or shift it here. */
+   x.jigid=old?(old.jigid||(old.jigs||[])[0]||''):'';x.jigs=x.jigid?[x.jigid]:[];
+   if(old){x.jigCabinet=old.jigCabinet||'';x.jigPosition=old.jigPosition||''}
+   if(!x.program)return alert('Program Number is required. Example: O1001');if(!/^O\d+$/i.test(x.program))return alert('Use a CNC program number such as O1001.');
+   let d=a.findIndex((p,i)=>i!==pmEditing&&same(p,m)&&pmNormalizeProgramNumber(p.program)===x.program);if(d>=0)return alert('Program Number '+x.program+' already exists in '+m+'.');
+   if(pmEditing>=0){if(!old||!same(old,m))return alert('Cannot edit another machine program.');a[pmEditing]=x}else{a.push(x);pmSelected=a.length-1}
+   pmSet(a);pmClose();pmRender();try{mmRefreshSetupUI()}catch(e){}
+ };
+ window.pmDeleteSelected=function(){let m=selectedMachine(),a=pmData();if(pmSelected<0||!a[pmSelected]||!same(a[pmSelected],m))return alert('Select a '+m+' program first.');let p=a[pmSelected];if(confirm('Delete '+p.program+' from '+m+' only?')){a.splice(pmSelected,1);pmSet(a);pmSelected=-1;pmRender();try{mmRefreshSetupUI()}catch(e){}}};
+ window.pmDuplicateSelected=function(){let m=selectedMachine(),a=pmData();if(pmSelected<0||!a[pmSelected]||!same(a[pmSelected],m))return alert('Select a '+m+' program first.');let c=JSON.parse(JSON.stringify(a[pmSelected])),own=a.filter(p=>same(p,m));c.program=pmNextProgramNumber(own,c.program);c.machine=m;c.rev='';c.status='TRIAL';/* preserve jig ID with duplicated record unless user later edits assignment elsewhere */a.splice(pmSelected+1,0,c);pmSet(a);pmSelected++;pmRender()};
+ function cleanToolbar(){let t=document.querySelector('#programMaster .pmToolbar');if(!t)return;let s=document.getElementById('pmSearch');if(s){s.placeholder='Search...';t.appendChild(s)}}
+ repairOwnershipOnce();cleanToolbar();setTimeout(()=>{repairOwnershipOnce();cleanToolbar();pmRender()},250);
+})();
+</script>
+
+<script id="v292EditableProgramJigId">
+/* V292 — Jig ID is editable for Add, Edit and Duplicate.
+   The value is saved with that program record and is not auto-renumbered. */
+(function(){
+  function selectedMachine(){
+    try{return String(pmEnsureActiveMachine()||'').trim().toUpperCase()}catch(e){}
+    try{return String(window.pmActiveMachine||window.machine||'').trim().toUpperCase()}catch(e){}
+    return '';
+  }
+  function same(p,m){return String(p&&p.machine||'').trim().toUpperCase()===String(m||'').trim().toUpperCase()}
+
+  const openPrev=window.pmOpen;
+  window.pmOpen=function(i){
+    openPrev(i);
+    setTimeout(function(){
+      let part=document.getElementById('pm_partno');
+      let lab=document.getElementById('v153JigField');
+      if(!lab && part){
+        lab=document.createElement('label');lab.id='v153JigField';
+        lab.innerHTML='Jig ID<input id="pm_jigid" style="font-weight:900;color:#45b7ff" placeholder="Example: C1-JIG-01">';
+        part.closest('label').after(lab);
+      }
+      let jig=document.getElementById('pm_jigid');
+      if(jig){
+        jig.readOnly=false;jig.disabled=false;
+        jig.removeAttribute('readonly');jig.removeAttribute('disabled');
+        let a=pmData(),x=i>=0?a[i]:null;
+        jig.value=x?(x.jigid||(x.jigs||[])[0]||''):'';
+        jig.placeholder='Enter Jig ID';
+        jig.title='Editable Jig ID for this program only';
+      }
+    },0);
+  };
+
+  window.pmSave=function(){
+    let m=selectedMachine();if(!m)return alert('Select a machine first.');
+    let a=pmData(),old=pmEditing>=0?a[pmEditing]:null,x={};
+    ['program','partno','partname','customer','machine','rev','material','programmer','created','lastrev','status','ncfile','setupfile','drawing','notes'].forEach(k=>{let e=document.getElementById('pm_'+k);x[k]=e?e.value.trim():''});
+    x.machine=m;x.program=pmNormalizeProgramNumber(x.program);
+    x.tools=[...pmToolChecks.querySelectorAll('input:checked')].map(e=>e.value);
+    let je=document.getElementById('pm_jigid');
+    x.jigid=je?je.value.trim():(old?(old.jigid||(old.jigs||[])[0]||''):'');
+    x.jigs=x.jigid?[x.jigid]:[];
+    if(old){x.jigCabinet=old.jigCabinet||'';x.jigPosition=old.jigPosition||''}
+    if(!x.program)return alert('Program Number is required. Example: O1001');
+    if(!/^O\d+$/i.test(x.program))return alert('Use a CNC program number such as O1001.');
+    let d=a.findIndex((p,i)=>i!==pmEditing&&same(p,m)&&pmNormalizeProgramNumber(p.program)===x.program);
+    if(d>=0)return alert('Program Number '+x.program+' already exists in '+m+'.');
+    if(pmEditing>=0){if(!old||!same(old,m))return alert('Cannot edit another machine program.');a[pmEditing]=x}
+    else{a.push(x);pmSelected=a.length-1}
+    pmSet(a);pmClose();pmRender();try{if(typeof mmRefreshSetupUI==='function')mmRefreshSetupUI()}catch(e){}
+  };
+
+  window.pmDuplicateSelected=function(){
+    let m=selectedMachine(),a=pmData();
+    if(pmSelected<0||!a[pmSelected]||!same(a[pmSelected],m))return alert('Select a '+m+' program first.');
+    let c=JSON.parse(JSON.stringify(a[pmSelected])),own=a.filter(p=>same(p,m));
+    c.program=pmNextProgramNumber(own,c.program);c.machine=m;c.rev='';c.status='TRIAL';
+    a.splice(pmSelected+1,0,c);pmSet(a);pmSelected++;
+    pmRender();
+    /* Open duplicated record immediately so Program Number and Jig ID can be edited before continuing. */
+    pmOpen(pmSelected);
+  };
+})();
+</script>
+
+<style id="v293ProgramDragReorderStyle">
+#programMaster #pmBody tr[draggable="true"]{cursor:grab}
+#programMaster #pmBody tr[draggable="true"]:active{cursor:grabbing}
+#programMaster #pmBody tr.v293Dragging{opacity:.42;outline:2px dashed #43c7ff!important}
+#programMaster #pmBody tr.v293DropBefore{box-shadow:inset 0 3px 0 #39c77a}
+#programMaster #pmBody tr.v293DropAfter{box-shadow:inset 0 -3px 0 #39c77a}
+</style>
+<script id="v293ProgramDragReorder">
+/* V293 — Program Master manual row order, saved per machine.
+   Dragging changes only row position. Program Number, Part ID and Jig ID are untouched. */
+(function(){
+ const norm=v=>String(v||'').trim().toUpperCase();
+ let dragIndex=-1, dropIndex=-1, dropAfter=false;
+ function machine(){try{return norm(pmEnsureActiveMachine())}catch(e){} try{return norm(pmActiveMachine)}catch(e){} return ''}
+ function same(p,m){return norm(p&&p.machine)===norm(m)}
+ function clearMarks(){document.querySelectorAll('#programMaster #pmBody tr').forEach(r=>r.classList.remove('v293Dragging','v293DropBefore','v293DropAfter'))}
+ function enable(){
+   document.querySelectorAll('#programMaster #pmBody tr[data-pm-index]').forEach(r=>{
+     r.draggable=true;r.title='Drag up or down to arrange this machine program list';
+     r.ondragstart=e=>{dragIndex=Number(r.dataset.pmIndex);dropIndex=-1;r.classList.add('v293Dragging');e.dataTransfer.effectAllowed='move';try{e.dataTransfer.setData('text/plain',String(dragIndex))}catch(x){}};
+     r.ondragover=e=>{e.preventDefault();if(dragIndex<0)return;e.dataTransfer.dropEffect='move';document.querySelectorAll('#programMaster #pmBody tr').forEach(x=>x.classList.remove('v293DropBefore','v293DropAfter'));let rect=r.getBoundingClientRect();dropAfter=e.clientY>rect.top+rect.height/2;dropIndex=Number(r.dataset.pmIndex);r.classList.add(dropAfter?'v293DropAfter':'v293DropBefore')};
+     r.ondrop=e=>{e.preventDefault();commit()};
+     r.ondragend=()=>{clearMarks();dragIndex=-1;dropIndex=-1};
+   });
+ }
+ function commit(){
+   let m=machine(),a=pmData();
+   if(dragIndex<0||dropIndex<0||dragIndex===dropIndex||!a[dragIndex]||!a[dropIndex]||!same(a[dragIndex],m)||!same(a[dropIndex],m)){clearMarks();return}
+   /* Reorder only this machine's records, then put them back into the same machine-owned slots in global storage. */
+   let slots=[];a.forEach((p,i)=>{if(same(p,m))slots.push(i)});
+   let machineRows=slots.map(i=>a[i]);
+   let from=slots.indexOf(dragIndex),to=slots.indexOf(dropIndex);if(from<0||to<0)return;
+   let moved=machineRows.splice(from,1)[0];
+   if(dropAfter && from>to) to++; else if(!dropAfter && from<to) to--;
+   to=Math.max(0,Math.min(machineRows.length,to+(dropAfter&&from<=to?1:0)));
+   machineRows.splice(to,0,moved);
+   slots.forEach((slot,i)=>a[slot]=machineRows[i]);
+   pmSet(a);pmSelected=slots[to];clearMarks();dragIndex=-1;dropIndex=-1;pmRender();
+   try{if(typeof mmRefreshSetupUI==='function')mmRefreshSetupUI()}catch(e){}
+ }
+ const oldRender=window.pmRender;
+ window.pmRender=function(){let z=oldRender.apply(this,arguments);setTimeout(enable,0);return z};
+ document.addEventListener('DOMContentLoaded',()=>setTimeout(enable,300));
+ setTimeout(enable,600);
+})();
+</script>
+
+
+
+<!-- V295: V293 BASE preserved. Program Master is the source of truth for Jig & Fixture Master display. -->
+<style id="v295JigMasterSearchOnly">
+#fixtureMonitor .jfmFilters select,#fixtureMonitor .jfmFilters button{display:none!important}
+#fixtureMonitor .jfmFilters{justify-content:flex-end!important}
+</style>
+<script id="v295ProgramMainJigSync">
+(function(){
+ const PM='hub_program_master_v85', JM='hub_jig_fixture_monitor_v134';
+ const norm=v=>String(v||'').trim();
+ const upper=v=>norm(v).toUpperCase();
+ function arr(k){try{let a=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
+ function cabFromJig(id){let m=upper(id).match(/^C\s*0*(\d+)(?:-|\s|JIG|$)/);return m?Number(m[1]):0}
+ function sync(){
+   let programs=arr(PM), old=arr(JM), byId=new Map(old.map(x=>[upper(x.id||x.jigId),x]));
+   let seen=new Set(), next=[];
+   for(const p of programs){
+     let jid=norm(p.jigid||(Array.isArray(p.jigs)?p.jigs[0]:''));
+     if(!jid)continue;
+     let key=upper(jid);if(seen.has(key))continue;seen.add(key);
+     let prev=byId.get(key)||{}, cab=cabFromJig(jid);
+     next.push(Object.assign({},prev,{
+       id:jid,
+       name:norm(p.partname)||prev.name||('Fixture for '+norm(p.program)),
+       part:norm(p.partno)||prev.part||'',
+       cabinet:cab?('CAB '+cab):(prev.cabinet||''),
+       machine:norm(p.machine)||prev.machine||'',
+       program:norm(p.program)||'',
+       notes:prev.notes||('Linked to Program Master '+norm(p.program))
+     }));
+   }
+   let before=JSON.stringify(old), after=JSON.stringify(next);
+   if(before!==after){try{localStorage.setItem(JM,after)}catch(e){console.warn('V295 Jig sync save failed',e)}}
+   try{if(typeof window.jfmRender==='function')window.jfmRender()}catch(e){}
+   try{if(typeof window.mmRefreshSetupUI==='function')window.mmRefreshSetupUI()}catch(e){}
+ }
+ window.v295SyncJigMasterFromPrograms=sync;
+ function wrap(name){let old=window[name];if(typeof old!=='function'||old.__v295)return;let f=function(){let r=old.apply(this,arguments);setTimeout(sync,0);return r};f.__v295=true;window[name]=f}
+ ['pmSave','pmDeleteSelected','pmDuplicateSelected'].forEach(wrap);
+ /* Reordering changes no Jig IDs, but keeping sync after it is harmless and keeps display aligned. */
+ let oldSet=window.pmSet;if(typeof oldSet==='function'&&!oldSet.__v295){let f=function(){let r=oldSet.apply(this,arguments);setTimeout(sync,0);return r};f.__v295=true;window.pmSet=f}
+ function cleanJigFilters(){
+   let box=document.querySelector('#fixtureMonitor .jfmFilters');if(!box)return;
+   box.querySelectorAll('select,button').forEach(e=>e.style.display='none');
+ }
+ document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{sync();cleanJigFilters()},700));
+ setTimeout(()=>{sync();cleanJigFilters()},1000);
+})();
+</script>
+
+
+<!-- V296 CORRECTED: Jig & Fixture Masterlist vertical scroll fix only. Program Master V293 behavior untouched. -->
+<style id="v296JigMasterScrollFixStyle">
+#fixtureMonitor .jfmTableWrap{
+  overflow-x:auto!important;
+  overflow-y:auto!important;
+  min-height:180px;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+</style>
+<script id="v296JigMasterScrollFix">
+(function(){
+ function fitJigMasterScroll(){
+   const wrap=document.querySelector('#fixtureMonitor .jfmTableWrap');
+   if(!wrap)return;
+   const r=wrap.getBoundingClientRect();
+   /* Keep the bottom of the Jig Master scroll area above the visible browser edge/taskbar. */
+   const bottomGap=18;
+   const available=Math.max(180,Math.floor(window.innerHeight-r.top-bottomGap));
+   wrap.style.height=available+'px';
+   wrap.style.maxHeight=available+'px';
+   wrap.style.overflowY='auto';
+ }
+ const oldRender=window.jfmRender;
+ if(typeof oldRender==='function'&&!oldRender.__v296JigScroll){
+   const f=function(){
+     const wrap=document.querySelector('#fixtureMonitor .jfmTableWrap');
+     const oldTop=wrap?wrap.scrollTop:0;
+     const z=oldRender.apply(this,arguments);
+     requestAnimationFrame(function(){fitJigMasterScroll();const w=document.querySelector('#fixtureMonitor .jfmTableWrap');if(w)w.scrollTop=oldTop});
+     return z;
+   };
+   f.__v296JigScroll=true;window.jfmRender=f;
+ }
+ window.addEventListener('resize',fitJigMasterScroll);
+ document.addEventListener('click',function(e){
+   if(e.target&&e.target.closest&&e.target.closest('[data-hub="fixtureMonitor"],#hubFixtureMonitor,#fixtureMonitor'))setTimeout(fitJigMasterScroll,60);
+ },true);
+ document.addEventListener('DOMContentLoaded',()=>setTimeout(fitJigMasterScroll,800));
+ setTimeout(fitJigMasterScroll,1000);
+ window.v296FitJigMasterScroll=fitJigMasterScroll;
+})();
+</script>
+
+<style id="v297JigMasterScreenControlsStyle">
+#fixtureMonitor.jfm-v297-fit .jfmShell{padding:5px 7px!important}
+#fixtureMonitor.jfm-v297-fit .jfmTitle p{display:none!important}
+#fixtureMonitor.jfm-v297-fit .jfmHead{gap:6px!important;margin-bottom:4px!important}
+#fixtureMonitor.jfm-v297-fit .jfmTableWrap{max-height:calc(100vh - 120px)!important;height:calc(100vh - 120px)!important;overflow:auto!important}
+#fixtureMonitor.jfm-v297-fit .jfmTable{font-size:9px!important}
+#fixtureMonitor.jfm-v297-fit .jfmTable th,#fixtureMonitor.jfm-v297-fit .jfmTable td{padding:5px!important}
+#fixtureMonitor.jfm-v297-full{position:fixed!important;inset:0!important;z-index:2147483000!important;display:block!important;background:#10202a!important;overflow:hidden!important}
+#fixtureMonitor.jfm-v297-full .jfmShell{height:100vh!important;max-height:100vh!important;box-sizing:border-box!important;padding:6px 8px!important;overflow:hidden!important}
+#fixtureMonitor.jfm-v297-full .jfmTitle p{display:none!important}
+#fixtureMonitor.jfm-v297-full .jfmHead{gap:6px!important;margin-bottom:4px!important}
+#fixtureMonitor.jfm-v297-full .jfmTableWrap{height:calc(100vh - 125px)!important;max-height:calc(100vh - 125px)!important;overflow:auto!important}
+body.jfm-v297-full-body{overflow:hidden!important}
+</style>
+<script id="v297JigMasterScreenControls">
+(function(){
+ function sec(){return document.getElementById('fixtureMonitor')}
+ function ensure(){
+   var s=sec(); if(!s)return;
+   var a=s.querySelector('.jfmActions'); if(!a)return;
+   var old=[].slice.call(a.querySelectorAll('button')).find(function(b){return /FIT SCREEN/i.test(b.textContent||'')});
+   if(old){old.setAttribute('onclick','jfmV297Fit()');old.id='jfmV297FitBtn';}
+   else if(!document.getElementById('jfmV297FitBtn')){var f=document.createElement('button');f.id='jfmV297FitBtn';f.textContent='FIT SCREEN';f.onclick=jfmV297Fit;a.appendChild(f)}
+   if(!document.getElementById('jfmV297FullBtn')){var b=document.createElement('button');b.id='jfmV297FullBtn';b.textContent='FULLSCREEN';b.onclick=jfmV297Full;a.appendChild(b)}
+ }
+ window.jfmV297Fit=function(){var s=sec();if(!s)return;s.classList.toggle('jfm-v297-fit');var b=document.getElementById('jfmV297FitBtn');if(b)b.textContent=s.classList.contains('jfm-v297-fit')?'NORMAL SCREEN':'FIT SCREEN';setTimeout(function(){var w=s.querySelector('.jfmTableWrap');if(w)w.scrollTop=Math.min(w.scrollTop,w.scrollHeight-w.clientHeight)},0)};
+ window.jfmV297Full=function(){var s=sec();if(!s)return;var on=!s.classList.contains('jfm-v297-full');s.classList.toggle('jfm-v297-full',on);document.body.classList.toggle('jfm-v297-full-body',on);var b=document.getElementById('jfmV297FullBtn');if(b)b.textContent=on?'EXIT FULLSCREEN':'FULLSCREEN'};
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var s=sec();if(s&&s.classList.contains('jfm-v297-full'))jfmV297Full()}});
+ var mo=new MutationObserver(function(){ensure()});
+ document.addEventListener('DOMContentLoaded',function(){ensure();var s=sec();if(s)mo.observe(s,{childList:true,subtree:true})});
+ setTimeout(ensure,500);setTimeout(ensure,1500);
+})();
+</script>
 </body></html>
+<!-- V298: Tool Master filter bar simplified to Search only. Functional filter elements remain in DOM for compatibility. -->
+<style id="v298ToolMasterSearchOnly">
+#master .tmFilterBar > select,
+#master .tmFilterBar > .tmReset { display:none !important; }
+#master .tmFilterBar { display:flex !important; align-items:center !important; gap:8px !important; }
+#master .tmFilterBar .tmSearchBox { display:flex !important; flex:1 1 100% !important; width:100% !important; max-width:none !important; }
+#master .tmFilterBar .tmSearchBox input { width:100% !important; }
+</style>
