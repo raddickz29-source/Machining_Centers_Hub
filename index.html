@@ -17619,6 +17619,101 @@ body.compact #machineStatusPage .v300Program{height:240px;font-size:9px}
  }else setTimeout(install,600);
 })();
 </script>
+
+<style id="v328LoginAccountsFixStyle">
+/* Keep the V291 account manager above the HOME graphic and V326 settings layer. */
+#v291AccountModal{z-index:2147483647!important}
+#v291AccountModal.show{display:flex!important}
+</style>
+<script id="v328SavedAccountsLoginAndAccessFix">
+(function(){
+ const KEY='hub_v291_accounts';
+
+ function loadAccounts(){
+   try{
+     let a=JSON.parse(localStorage.getItem(KEY)||'null');
+     if(a&&typeof a==='object')return a;
+   }catch(e){}
+   return {
+     admin:{password:'admin123',role:'admin'},
+     operator:{password:'operator123',role:'operator'}
+   };
+ }
+
+ /* Replace ONLY login validation so V291 saved Admin/Operator accounts
+    are authoritative instead of the old hard-coded V61 accounts. */
+ function loginFromSavedAccounts(){
+   const ue=document.getElementById('hubLoginUser'),
+         pe=document.getElementById('hubLoginPassword'),
+         re=document.getElementById('hubLoginRole'),
+         er=document.getElementById('hubLoginError');
+   const u=((ue&&ue.value)||'').trim().toLowerCase(),
+         p=(pe&&pe.value)||'',
+         requested=(re&&re.value)||'operator',
+         a=loadAccounts()[u];
+
+   if(!a||a.password!==p||a.role!==requested){
+     if(er)er.textContent='Incorrect username, password or role.';
+     return;
+   }
+
+   sessionStorage.setItem('hub_login_user',u);
+   sessionStorage.setItem('hub_login_role',a.role);
+   const gate=document.getElementById('hubLoginGate');
+   if(gate)gate.classList.add('hidden');
+   if(er)er.textContent='';
+   if(typeof window.hubApplyRole==='function')window.hubApplyRole(u,a.role);
+ }
+ window.hubLogin=loginFromSavedAccounts;
+
+ function wireAccounts(){
+   const b=document.getElementById('v326Accounts');
+   if(!b||b.__v328)return;
+   b.__v328=true;
+   b.onclick=function(e){
+     e.preventDefault();e.stopPropagation();
+
+     /* Hide Settings visually but DO NOT run its close/navigation logic. */
+     const ov=document.getElementById('v326AdminOverlay');
+     if(ov)ov.classList.remove('show');
+
+     /* Keep HOME behind the modal. */
+     const home=document.getElementById('hubLaunchScreen');
+     if(home)home.classList.remove('hide');
+
+     if(typeof window.v291OpenLoginSettings==='function'){
+       window.v291OpenLoginSettings();
+       const m=document.getElementById('v291AccountModal');
+       if(m){
+         m.classList.add('show');
+         m.style.zIndex='2147483647';
+       }
+     }else alert('Login / Operator Accounts unavailable.');
+   };
+ }
+
+ /* When V291 account manager closes, simply reveal HOME. */
+ function wireAccountClose(){
+   const c=document.getElementById('v291Close');
+   if(!c||c.__v328)return;
+   c.__v328=true;
+   c.addEventListener('click',function(){
+     setTimeout(()=>{
+       const home=document.getElementById('hubLaunchScreen');
+       if(home)home.classList.remove('hide');
+       const gate=document.getElementById('hubLoginGate');
+       if(gate)gate.classList.add('hidden');
+       document.body.classList.add('hubHomePending');
+     },0);
+   });
+ }
+
+ function install(){wireAccounts();wireAccountClose()}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(install,900),{once:true});
+ else setTimeout(install,900);
+ setInterval(install,1500);
+})();
+</script>
 </body></html>
 <!-- V298: Tool Master filter bar simplified to Search only. Functional filter elements remain in DOM for compatibility. -->
 <style id="v298ToolMasterSearchOnly">
