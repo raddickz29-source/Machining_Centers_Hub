@@ -17714,6 +17714,79 @@ body.compact #machineStatusPage .v300Program{height:240px;font-size:9px}
  setInterval(install,1500);
 })();
 </script>
+
+
+<!-- V329: Jig permanent-location live sync + first-loaded-program active tool color reconciliation. -->
+<script id="v329JigInfoAndFirstProgramColorSync">
+(function(){
+ if(window.__v329SyncFix)return; window.__v329SyncFix=true;
+ const JK='hub_v274_permanent_jig_positions', RK='ct_fixture_cabs',
+       SK='hub_machine_setup_sim_v145', AK='hub_machine_atc_sim_v145',
+       PULSE='hub_live_sync_pulse';
+ const read=(k,f)=>{try{let v=JSON.parse(localStorage.getItem(k)||'null');return v??f}catch(e){return f}};
+ const write=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}};
+ function machineId(){try{let c=typeof currentMachine==='function'?currentMachine():null;return String((c&&c.id)||window.machine||'')}catch(e){return String(window.machine||'')}}
+ function norm(v){return String(v||'').trim().toUpperCase()}
+ function colorFor(x){
+   let text=[x&&x.type,x&&x.name,x&&x.desc,x&&x.programComment,x&&x.displayTool,x&&x.id].filter(Boolean).join(' ');
+   try{if(typeof window.hubToolColorStandard==='function')return String(window.hubToolColorStandard(text)||'blue').toLowerCase()}catch(e){}
+   text=text.toLowerCase().replace(/[_-]+/g,' ');
+   if(/thread\s*mill|threadmill|\btap\b/.test(text))return 'pink';
+   if(/end\s*mill|endmill/.test(text))return 'orange';
+   if(/face\s*mill|facemill|chamfer|center\s*drill|centre\s*drill|spot\s*drill/.test(text))return 'blue';
+   if(/boring|\bbore\b|\bslot\b/.test(text))return 'violet';
+   if(/reamer|ream|special|custom/.test(text))return 'peach';
+   if(/\bdrill\b|drilling/.test(text))return 'green';
+   return String((x&&x.color)||'blue').toLowerCase();
+ }
+ function reconcileProgramColors(){
+   let mid=machineId(), ss=read(SK,{}), st=ss[mid]; if(!mid||!st)return false;
+   let req=Array.isArray(st.programTools)?st.programTools:[]; if(!req.length)return false;
+   let aa=read(AK,{}), list=Array.isArray(aa[mid])?aa[mid]:[]; if(!list.length)return false;
+   let changed=false;
+   list=list.map((x,n)=>{
+     if(!x||typeof x!=='object')return x;
+     let slot=Number(x.slot)||n+1, id=norm(x.displayTool||x.toolId||x.id);
+     let r=req.find(q=>(Number(q&&q.slot)||0)===slot && (!id||norm(q.displayTool||q.toolId||q.id)===id));
+     if(!r)r=req.find(q=>id&&norm(q.displayTool||q.toolId||q.id)===id);
+     if(!r)return x;
+     let c=String(r.color||colorFor(r)||'blue').toLowerCase();
+     if(String(x.color||'').toLowerCase()!==c){changed=true;return {...x,color:c,type:r.type||x.type||'',programComment:r.programComment||x.programComment||''}}
+     return x;
+   });
+   if(changed){aa[mid]=list;write(AK,aa)}
+   try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}
+   return changed;
+ }
+ function reloadJigRackCache(){
+   let fresh=read(RK,[]); if(!Array.isArray(fresh))return;
+   try{if(typeof fixtureCabs!=='undefined')fixtureCabs=fresh}catch(e){}
+ }
+ function refreshJigInfo(){
+   reloadJigRackCache();
+   try{if(typeof window.v303RenderInfo==='function')window.v303RenderInfo('jig')}catch(e){}
+ }
+ function pulse(type){try{localStorage.setItem(PULSE,JSON.stringify({type:type,at:Date.now()}))}catch(e){}}
+ /* Permanent/Empty buttons already write canonical storage. Send a live-window pulse and redraw after them. */
+ document.addEventListener('click',function(e){
+   let b=e.target.closest&&e.target.closest('button'); if(!b)return;
+   let t=String(b.textContent||'').trim().toUpperCase();
+   if((t==='PERMANENT LOCATION'||t==='EMPTY LOCATION') && b.closest('#fixtures')){
+     setTimeout(function(){pulse('jig-info-permanent-sync');refreshJigInfo()},120);
+   }
+   if(/LOAD\s+PROGRAM.*(JIG|FIXTURE)|LOAD\s+PROGRAM\s*\+\s*FIXTURE|CUTTING TOOL MONITOR|CHECK CUTTING TOOL MONITOR/.test(t)){
+     setTimeout(reconcileProgramColors,120);setTimeout(reconcileProgramColors,500);
+   }
+ },true);
+ window.addEventListener('storage',function(e){
+   if(e.storageArea!==localStorage)return;
+   if(e.key===JK||e.key===RK||e.key===PULSE)setTimeout(refreshJigInfo,70);
+   if(e.key===SK||e.key===AK)setTimeout(reconcileProgramColors,80);
+ });
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(refreshJigInfo,1000);setTimeout(reconcileProgramColors,1100)});
+ else {setTimeout(refreshJigInfo,1000);setTimeout(reconcileProgramColors,1100)}
+})();
+</script>
 </body></html>
 <!-- V298: Tool Master filter bar simplified to Search only. Functional filter elements remain in DOM for compatibility. -->
 <style id="v298ToolMasterSearchOnly">
