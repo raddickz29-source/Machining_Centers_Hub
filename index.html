@@ -12520,7 +12520,7 @@ function del(i){let r=data[i];if(!r)return;if(confirm('Delete '+r.id+' from CAB 
 function reset(){['jfmStatus','jfmMachine','jfmAttach'].forEach(id=>{let e=document.getElementById(id);if(e)e.value=''});let q=document.getElementById('jfmSearch');if(q)q.value='';render()}
 function exp(){let rows=data.filter(r=>cabNo(r.cabinet)===Number(activeCab));let blob=new Blob([JSON.stringify(rows,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`jig_fixture_CAB_${activeCab}_master.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
 function imp(){let i=document.createElement('input');i.type='file';i.accept='.json,application/json';i.onchange=()=>{let f=i.files[0];if(!f)return;let rd=new FileReader();rd.onload=()=>{try{let x=JSON.parse(rd.result);if(!Array.isArray(x))throw 0;x=x.map(r=>({...r,cabinet:cabName(activeCab)}));data=data.filter(r=>cabNo(r.cabinet)!==Number(activeCab)).concat(x);save();refreshFilters();render()}catch(e){alert('Invalid Jig & Fixture JSON file.')}};rd.readAsText(f)};i.click()}
-window.jfmSetCab=n=>{activeCab=Number(n);selected=-1;refreshTabs();refreshFilters();render()};window.jfmRender=render;window.jfmOpen=open;window.jfmClose=close;window.jfmSave=saveRec;window.jfmSelect=i=>{selected=i;render()};window.jfmEditSelected=()=>selected<0?alert('Select a record first.'):open(selected);window.jfmDeleteSelected=()=>selected<0?alert('Select a record first.'):del(selected);window.jfmDelete=del;window.jfmReset=reset;window.jfmExport=exp;window.jfmImport=imp;window.jfmSyncRack=()=>syncFromRack(true);
+window.jfmSetCab=n=>{activeCab=Number(n);selected=-1;refreshTabs();refreshFilters();render()};window.jfmRender=render;window.jfmOpen=open;window.jfmClose=close;window.jfmSave=saveRec;window.jfmSelect=i=>{selected=i;render()};window.jfmEditSelected=()=>selected<0?alert('Select a record first.'):open(selected);window.jfmDeleteSelected=()=>selected<0?alert('Select a record first.'):del(selected);window.jfmDelete=del;window.jfmReset=reset;window.jfmExport=exp;window.jfmImport=imp;window.jfmSyncRack=()=>syncFromRack(true);window.jfmReloadFromStorage=function(){load();selected=-1;refreshTabs();refreshFilters();render();};
 load();
 function init(){build();try{let oldSave=window.saveFixtureCabs;if(typeof oldSave==='function'&&!oldSave.__v134){let wrap=function(){oldSave();setTimeout(()=>syncFromRack(true),0)};wrap.__v134=true;window.saveFixtureCabs=wrap;saveFixtureCabs=wrap}}catch(e){}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,0));else setTimeout(init,0);
@@ -16926,7 +16926,7 @@ body.compact .v269RackViewControls{margin-top:4px!important;padding:4px 7px!impo
    }
    let before=JSON.stringify(old), after=JSON.stringify(next);
    if(before!==after){try{localStorage.setItem(JM,after)}catch(e){console.warn('V295 Jig sync save failed',e)}}
-   try{if(typeof window.jfmRender==='function')window.jfmRender()}catch(e){}
+   try{if(typeof window.jfmReloadFromStorage==='function')window.jfmReloadFromStorage();else if(typeof window.jfmRender==='function')window.jfmRender()}catch(e){}
    try{if(typeof window.mmRefreshSetupUI==='function')window.mmRefreshSetupUI()}catch(e){}
  }
  window.v295SyncJigMasterFromPrograms=sync;
@@ -17019,6 +17019,30 @@ body.jfm-v297-full-body{overflow:hidden!important}
  var mo=new MutationObserver(function(){ensure()});
  document.addEventListener('DOMContentLoaded',function(){ensure();var s=sec();if(s)mo.observe(s,{childList:true,subtree:true})});
  setTimeout(ensure,500);setTimeout(ensure,1500);
+})();
+</script>
+
+<!-- V299: Program Master -> Jig Master live-memory synchronization + manual refresh. -->
+<script id="v299ProgramJigLiveSyncRefresh">
+(function(){
+ function addRefresh(){
+   var a=document.querySelector('#fixtureMonitor .jfmActions');
+   if(!a||document.getElementById('jfmV299RefreshBtn'))return;
+   var b=document.createElement('button');
+   b.id='jfmV299RefreshBtn'; b.textContent='↻ REFRESH'; b.title='Refresh Jig Master from current Program Master';
+   b.onclick=function(){
+     try{if(typeof window.v295SyncJigMasterFromPrograms==='function')window.v295SyncJigMasterFromPrograms();}
+     catch(e){console.warn('V299 Jig refresh failed',e)}
+     setTimeout(function(){try{if(typeof window.jfmReloadFromStorage==='function')window.jfmReloadFromStorage();}catch(e){}},0);
+   };
+   var first=a.firstElementChild; if(first)a.insertBefore(b,first); else a.appendChild(b);
+ }
+ document.addEventListener('DOMContentLoaded',function(){setTimeout(addRefresh,900)});
+ document.addEventListener('click',function(e){
+   var n=e.target.closest&&e.target.closest('[data-page="fixtureMonitor"],button[onclick*="fixtureMonitor"]');
+   if(n)setTimeout(function(){try{if(typeof window.v295SyncJigMasterFromPrograms==='function')window.v295SyncJigMasterFromPrograms();}catch(e){} addRefresh();},50);
+ },true);
+ setTimeout(addRefresh,1200);
 })();
 </script>
 </body></html>
