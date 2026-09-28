@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0061)https://machining-centers-hub-rodney.raddickz29.chatgpt.site/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Machining Centers HUB V289</title>
+<title>Machining Centers HUB V291</title>
 <meta name="description" content="CNC cutting-tool, program, jig and fixture monitoring hub.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23081620'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%2317aeea' stroke-width='6'/%3E%3Cpath d='M28 13h8v11h-8zM28 40h8v11h-8zM13 28h11v8H13zM40 28h11v8H40z' fill='%2376d8ff'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23ff9f1a'/%3E%3C/svg%3E">
 <style>
@@ -9886,7 +9886,7 @@ body.compact #machines .v188LoadedJig .jig{font-size:10px}
  <td><span class="tmAvailability instock">IN STOCK</span></td><td><b>100</b></td><td class="tmOut"><b>0</b></td><td>SPT-20 Customized Tool Ø80</td><td>80.00</td><td>245</td><td>BT40-SPT-20</td><td>ER32</td><td>PS-BT40</td><td>-</td>
  <td class="tmRowActions"><button onclick="event.stopPropagation();tmOpen(14310)">✎</button><button class="trash" onclick="event.stopPropagation();tmDelete(14310)">🗑</button></td></tr></tbody></table></div>
     <div class="tmBottomBar"><div id="tmCount">Showing 2860 of 14831 tools</div><div class="tmLegend"><span class="green"></span>Drill <span class="orange"></span>End Mill <span class="blue"></span>Face/Chamfer/Center/Spot <span class="pink"></span>Tap/Thread Mill <span class="violet"></span>Boring/Slot <span class="peach"></span>Special/Reamer</div></div>
-   <section id="cuttingToolInfo" class="hide hubInfoPage"><div class="hubPageToolbar"><button class="hubFitScreenBtn" onclick="toggleCompactView()">Fit Screen</button><button class="hubFullScreenBtn" onclick="toggleHubFullscreen()">Full Screen</button></div><div class="hubInfoCard"><div class="hubInfoHead"><div><h2>CUTTING TOOL INFO</h2><div class="mut">Live synchronized view of Tool Rack, cabinet status and loaded machine/program.</div></div><button onclick="v270RenderToolInfo()">REFRESH</button></div><div class="hubInfoFilters"><label>Cabinet <select id="v270ToolCabFilter" onchange="v270RenderToolInfo()"><option value="">ALL CABINETS</option></select></label><label>Search <input id="v270ToolSearch" oninput="v270RenderToolInfo()" placeholder="Tool ID / machine / program"></label></div><div class="hubInfoTableWrap"><table class="hubInfoTable"><thead><tr><th>TOOL ID</th><th>TOOL TYPE</th><th>CABINET</th><th>POT</th><th>STATUS</th><th>MACHINE</th><th>PROGRAM</th><th>ATC</th></tr></thead><tbody id="v270ToolInfoBody"></tbody></table></div></div></section>
+   <section id="cuttingToolInfo" class="hide hubInfoPage"><div class="hubPageToolbar"><button class="hubFitScreenBtn" onclick="toggleCompactView()">Fit Screen</button><button class="hubFullScreenBtn" onclick="toggleHubFullscreen()">Full Screen</button></div><div class="hubInfoCard"><div class="hubInfoHead"><div><h2>CUTTING TOOL INFO</h2><div class="mut">Live synchronized view of Tool Rack, cabinet status and loaded machine/program.</div></div><button onclick="v270RenderToolInfo()">REFRESH</button></div><div class="hubInfoFilters"><label>Cabinet <select id="v270ToolCabFilter" onchange="v270RenderToolInfo()"><option value="">ALL CABINETS</option></select></label><label>Search <input id="v270ToolSearch" oninput="v270RenderToolInfo()" placeholder="Tool ID / machine / program"></label></div><div class="hubInfoTableWrap"><table class="hubInfoTable"><thead><tr><th>TOOL ID</th><th>TOOL TYPE</th><th>CABINET</th><th>POT</th><th>STATUS</th><th>MACHINE</th><th>PROGRAM</th></tr></thead><tbody id="v270ToolInfoBody"></tbody></table></div></div></section>
 <section id="jigFixtureInfo" class="hide hubInfoPage"><div class="hubPageToolbar"><button class="hubFitScreenBtn" onclick="toggleCompactView()">Fit Screen</button><button class="hubFullScreenBtn" onclick="toggleHubFullscreen()">Full Screen</button></div><div class="hubInfoCard"><div class="hubInfoHead"><div><h2>JIG &amp; FIXTURE INFO</h2><div class="mut">Live synchronized view of Jig Rack, cabinet status and loaded machine/program.</div></div><button onclick="v270RenderJigInfo()">REFRESH</button></div><div class="hubInfoFilters"><label>Cabinet <select id="v270JigCabFilter" onchange="v270RenderJigInfo()"><option value="">ALL CABINETS</option></select></label><label>Search <input id="v270JigSearch" oninput="v270RenderJigInfo()" placeholder="Jig ID / machine / program"></label></div><div class="hubInfoTableWrap"><table class="hubInfoTable"><thead><tr><th>JIG ID</th><th>JIG / FIXTURE</th><th>CABINET</th><th>POSITION</th><th>STATUS</th><th>MACHINE</th><th>PROGRAM</th><th>PART ID</th></tr></thead><tbody id="v270JigInfoBody"></tbody></table></div></div></section>
 </main>
   </div>
@@ -12729,7 +12729,8 @@ setTimeout(()=>{pmRenderMachineTabs();},0);
     }catch(e){ console.error('V141 sample load',e); }
   }
   // Run on every load to fill only missing quantities; never deletes or overwrites user records.
-  setTimeout(loadSamples,0);
+  // V306: disabled automatic V141 sample expansion. Tool Master is user/master-data controlled.
+  // setTimeout(loadSamples,0);
 })();
 </script>
 
@@ -15256,7 +15257,9 @@ body.compact #machines .v193CombinedSetupRow{gap:4px;margin-bottom:4px}
   try{saveCabs()}catch(e){localStorage.setItem('ct_cabinets',JSON.stringify(cabinets))}
   state[id]=a.filter(q=>!(q&&+q.slot===n));set(AK,state);let ss=get(SK,{}),st=ss[id]||{};if(Array.isArray(st.tools))st.tools=st.tools.filter(q=>!(q&&+q.slot===n));ss[id]=st;set(SK,ss);
   try{drawMachine()}catch(e){}try{ctRefreshFromMachineSetup()}catch(e){}
-  try{activeCab=h.cab}catch(e){}let nav=document.querySelector('.navb[data-page="cabinet"],[data-page="cabinet"]');if(nav)nav.click();
+  /* V296: stay in Cutting Tool Monitor. Update Tool Rack in background and notify the other window. */
+  try{activeCab=h.cab}catch(e){}
+  try{localStorage.setItem('hub_live_sync_pulse',JSON.stringify({type:'tool-return',machine:id,at:Date.now()}))}catch(e){}
   setTimeout(()=>{try{activeCab=h.cab;renderCabTabs();drawRack()}catch(e){}},80);
  }
  document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#machines #mgrid .slot'))setTimeout(deco,25)},true);
@@ -15379,166 +15382,8 @@ body.compact #machines .v193CombinedSetupRow{gap:4px;margin-bottom:4px}
 #hubLoginRole, label[for="hubLoginRole"]{display:none!important}
 </style>
 
-<script id="v228-clean-toolmaster-and-admin-login">
-(function(){
-  const FLAG='hub_v228_exact_toolmaster_done';
-  const TOOLKEY='hub_tool_master';
+<!-- V291 removed obsolete admin-only login override -->
 
-  function pad(n){ return String(n).padStart(2,'0'); }
-  function make(cab,pot,type,prefix,n,desc){
-    const id='C'+cab+'-'+prefix+pad(n);
-    return {
-      tool:type+' #'+n,
-      type:type,
-      id:id,
-      toolId:id,
-      brand:'SAMPLE',
-      availability:'IN STOCK',
-      toolin:'CAB '+cab,
-      toolIn:100,
-      toolout:'',
-      toolOut:0,
-      desc:desc+' '+n,
-      description:desc+' '+n,
-      dia:'',
-      length:'',
-      holder:'BT40',
-      collet:'-',
-      pullstud:'PS-BT40',
-      insert:'-',
-      cab:'CAB '+cab,
-      cabinet:'CAB'+cab,
-      pot:'POT '+pad(pot),
-      position:pot,
-      location:'CAB'+cab+'-'+pot,
-      cabLocation:'CAB'+cab+'-'+pot,
-      machine:'',
-      tno:'',
-      status:'AVAILABLE'
-    };
-  }
-
-  function exactTools(){
-    const a=[];
-    let p=1;
-
-    // CAB1: exactly 30 End Mills
-    for(let i=1;i<=30;i++) a.push(make(1,p++,'End Mill','EM',i,'End Mill Sample'));
-
-    // CAB2: 40 total
-    p=1;
-    for(let i=1;i<=10;i++) a.push(make(2,p++,'Face Mill','FM',i,'Face Mill Sample'));
-    for(let i=1;i<=10;i++) a.push(make(2,p++,'Chamfer','CH',i,'Chamfer Sample'));
-    for(let i=1;i<=10;i++) a.push(make(2,p++,'Center Drill','CD',i,'Center Drill Sample'));
-    for(let i=1;i<=10;i++) a.push(make(2,p++,'Spot Drill','SD',i,'Spot Drill Sample'));
-
-    // CAB3: exactly 30 Drills
-    p=1;
-    for(let i=1;i<=30;i++) a.push(make(3,p++,'Drill','DR',i,'Drill Sample'));
-
-    // CAB4: 15 Taps + 15 Thread Mills
-    p=1;
-    for(let i=1;i<=15;i++) a.push(make(4,p++,'Tap','TP',i,'Tap Sample'));
-    for(let i=1;i<=15;i++) a.push(make(4,p++,'Thread Mill','TM',i,'Thread Mill Sample'));
-
-    // CAB5: 15 Boring + 15 Slot
-    p=1;
-    for(let i=1;i<=15;i++) a.push(make(5,p++,'Boring','BR',i,'Boring Sample'));
-    for(let i=1;i<=15;i++) a.push(make(5,p++,'Slot','SL',i,'Slot Sample'));
-
-    // CAB6: 15 Special/Customized + 15 Reamers
-    p=1;
-    for(let i=1;i<=15;i++) a.push(make(6,p++,'Special / Customized Tool','SC',i,'Special / Customized Sample'));
-    for(let i=1;i<=15;i++) a.push(make(6,p++,'Reamer','RM',i,'Reamer Sample'));
-
-    return a;
-  }
-
-  function rebuild(){
-    const tools=exactTools();
-
-    // Replace old/heaped Tool Master data completely.
-    localStorage.setItem(TOOLKEY,JSON.stringify(tools));
-
-    // Rebuild the six rack definitions so CAB6 definitely exists.
-    const racks=[
-      {number:1,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}},
-      {number:2,name:'Cutting Tool Cabinet',holder:'BT40',rows:10,potsPerRow:4,positions:{}},
-      {number:3,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}},
-      {number:4,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}},
-      {number:5,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}},
-      {number:6,name:'Cutting Tool Cabinet',holder:'BT40',rows:8,potsPerRow:4,positions:{}}
-    ];
-    localStorage.setItem('ct_cabinets',JSON.stringify(racks));
-
-    // Replace live in-memory arrays too, so old rows cannot remain on screen.
-    try{
-      tmRecords=tools.map(x=>({...x}));
-      tmEditIndex=-1; tmSelected=-1;
-      if(typeof tmRender==='function') tmRender();
-    }catch(e){}
-
-    try{
-      cabinets=racks.map(x=>({...x,positions:{}}));
-      activeCab=1;
-      if(typeof saveCabs==='function') saveCabs();
-      if(typeof renderCabTabs==='function') renderCabTabs();
-      if(typeof drawRack==='function') drawRack();
-    }catch(e){}
-
-    localStorage.setItem(FLAG,'1');
-  }
-
-  // Run every time V228 opens until the exact counts are confirmed in storage.
-  function countsOK(){
-    try{
-      const a=JSON.parse(localStorage.getItem(TOOLKEY)||'[]');
-      if(!Array.isArray(a) || a.length!==190) return false;
-      const count=n=>a.filter(x=>String(x.cab||x.cabinet||'').replace(/\s+/g,'').toUpperCase()==='CAB'+n).length;
-      return count(1)===30 && count(2)===40 && count(3)===30 &&
-             count(4)===30 && count(5)===30 && count(6)===30;
-    }catch(e){ return false; }
-  }
-
-  if(localStorage.getItem(FLAG)!=='1' || !countsOK()) rebuild();
-  else {
-    // Sync current page memory with the already-correct saved list.
-    try{
-      const tools=JSON.parse(localStorage.getItem(TOOLKEY)||'[]');
-      tmRecords=tools;
-      if(typeof tmRender==='function') tmRender();
-    }catch(e){}
-  }
-
-  // LOGIN: this build is Admin login only.
-  const role=document.getElementById('hubLoginRole');
-  if(role) role.value='admin';
-
-  window.hubLogin=function(){
-    const u=(document.getElementById('hubLoginUser').value||'').trim().toLowerCase();
-    const p=document.getElementById('hubLoginPassword').value||'';
-    const a=HUB_LOGIN_ACCOUNTS[u];
-    const err=document.getElementById('hubLoginError');
-
-    if(!a || a.password!==p || a.role!=='admin'){
-      err.textContent='Incorrect admin username or password.';
-      return;
-    }
-
-    sessionStorage.setItem('hub_login_user',u);
-    sessionStorage.setItem('hub_login_role','admin');
-    document.getElementById('hubLoginGate').classList.add('hidden');
-    err.textContent='';
-    hubApplyRole(u,'admin');
-
-    // Open the normal Admin HUB immediately.
-    document.body.classList.remove('hubOperator');
-    document.body.classList.add('hubAdmin');
-    const first=document.querySelector('.navb[data-page="machines"]');
-    if(first) first.click();
-  };
-})();
-</script>
 
 
 <style id="v229-nc-source-style">
@@ -15726,7 +15571,9 @@ body.compact #machines #v258PhysicalJig{font-size:8px;padding:3px 6px;gap:4px}
    /* V262: physical Jig Rack is independent from Jig Master. NC/TXT return location is authoritative. */
    st.lastReturnedJig={id:j.id,cab:h.text,machine:id,program:st.program||'',part:st.partno||st.partId||st.part||'',time:new Date().toISOString()};st.fixtureId='';st.jigId='';st.jigid='';st.fixtureName='';st.fixtureCab='';st.fixturePos='';all[id]=st;set(SK,all);
    try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){};try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){};await paint();
-   let nav=document.querySelector('.navb[data-page="fixtures"]');if(nav)nav.click();setTimeout(()=>{try{activeFixtureCab=h.cab;renderFixtureTabs();drawFixtureRack()}catch(e){}},100);
+   /* V296: stay in Cutting Tool Monitor. Update Jig Rack in background and notify the other window. */
+   try{localStorage.setItem('hub_live_sync_pulse',JSON.stringify({type:'jig-return',machine:id,at:Date.now()}))}catch(e){}
+   setTimeout(()=>{try{activeFixtureCab=h.cab;renderFixtureTabs();drawFixtureRack()}catch(e){}},100);
  }
  window.v258ReturnJigToCab=returnJig;
  let oldDraw=window.drawMachine;window.drawMachine=function(){let r=typeof oldDraw==='function'?oldDraw.apply(this,arguments):undefined;setTimeout(paint,60);return r};
@@ -16186,7 +16033,7 @@ body.compact .v269RackViewControls{margin-top:4px!important;padding:4px 7px!impo
  function machineToolMap(){let map=new Map(),a=atc(),ss=setups();Object.entries(a||{}).forEach(([mid,list])=>(Array.isArray(list)?list:[]).forEach((x,n)=>{if(typeof x==='string')x={id:x};let id=String(x.id||x.toolId||'').trim();if(id)map.set(id.toUpperCase(),{machine:mid,program:ss[mid]?.program||'',slot:Number(x.slot)||n+1})}));return map}
  function fillFilter(id,nums){let el=document.getElementById(id);if(!el)return;let cur=el.value,opts=[...new Set(nums.filter(Boolean))].sort((a,b)=>a-b);el.innerHTML='<option value="">ALL CABINETS</option>'+opts.map(n=>'<option value="'+n+'">CAB '+n+'</option>').join('');if(opts.map(String).includes(cur))el.value=cur}
  window.v270RenderToolInfo=function(){let body=document.getElementById('v270ToolInfoBody');if(!body)return;let phys=toolPhysical(),mt=machineToolMap(),rows=toolMaster().map(r=>{let id=String(r.id||r.toolId||'').trim(),p=phys.get(id.toUpperCase())||{},m=mt.get(id.toUpperCase())||{};let c=p.cab||cabNo(r.cabinet||r.toolin||r.cab||''),pot=p.pot||Number(r.position||r.pot||0)||'';return{id,type:r.type||r.tool||'',cab:c,pot,status:m.machine?'IN MACHINE':(p.status||r.status||r.availability||'AVAILABLE'),machine:m.machine||p.machine||r.machine||'',program:m.program||'',slot:m.slot||''}}).filter(r=>r.id);
- fillFilter('v270ToolCabFilter',rows.map(r=>r.cab));let cf=document.getElementById('v270ToolCabFilter')?.value||'',q=(document.getElementById('v270ToolSearch')?.value||'').toLowerCase();rows=rows.filter(r=>(!cf||String(r.cab)===cf)&&(!q||Object.values(r).join(' ').toLowerCase().includes(q)));rows.sort((a,b)=>(a.cab-b.cab)||(Number(a.pot)-Number(b.pot))||a.id.localeCompare(b.id));body.innerHTML=rows.map(r=>'<tr><td>'+esc(r.id)+'</td><td>'+esc(r.type)+'</td><td>CAB '+esc(r.cab||'—')+'</td><td>'+esc(r.pot||'—')+'</td><td class="'+(r.machine?'v270Running':'v270Available')+'">'+esc(r.status)+'</td><td class="v270Machine">'+esc(r.machine||'—')+'</td><td>'+esc(r.program||'—')+'</td><td>'+esc(r.slot?'T'+String(r.slot).padStart(2,'0'):'—')+'</td></tr>').join('')||'<tr><td colspan="8">No cutting tool records found.</td></tr>';
+ fillFilter('v270ToolCabFilter',rows.map(r=>r.cab));let cf=document.getElementById('v270ToolCabFilter')?.value||'',q=(document.getElementById('v270ToolSearch')?.value||'').toLowerCase();rows=rows.filter(r=>(!cf||String(r.cab)===cf)&&(!q||Object.values(r).join(' ').toLowerCase().includes(q)));rows.sort((a,b)=>(a.cab-b.cab)||(Number(a.pot)-Number(b.pot))||a.id.localeCompare(b.id));body.innerHTML=rows.map(r=>'<tr><td>'+esc(r.id)+'</td><td>'+esc(r.type)+'</td><td>CAB '+esc(r.cab||'—')+'</td><td>'+esc(r.pot||'—')+'</td><td class="'+(r.machine?'v270Running':'v270Available')+'">'+esc(r.status)+'</td><td class="v270Machine">'+esc(r.machine||'—')+'</td><td>'+esc(r.program||'—')+'</td></tr>').join('')||'<tr><td colspan="7">No cutting tool records found.</td></tr>';
  };
  function jigRows(){let ss=setups(),loaded=new Map();Object.entries(ss||{}).forEach(([mid,st])=>{let id=String(st?.fixtureId||st?.jigId||'').trim();if(id)loaded.set(id.toUpperCase(),{machine:mid,program:st.program||'',part:st.partno||''})});let master=g('hub_jig_fixture_monitor_v134',[]);if(!Array.isArray(master))master=[];let cabs=g('ct_fixture_cabs',[]),phys=new Map();(Array.isArray(cabs)?cabs:[]).forEach(c=>Object.entries(c.positions||{}).forEach(([p,v])=>{if(v&&typeof v==='object'){let id=String(v.id||v.jigId||'').trim();if(id)phys.set(id.toUpperCase(),{cab:Number(c.number),pos:Number(p),status:v.status||'AVAILABLE',machine:v.machine||'',name:v.name||'',part:v.partNumber||v.part||''})}}));let ids=new Set([...master.map(x=>String(x.id||x.jigId||'').trim()).filter(Boolean),...Array.from(phys.keys())]);return [...ids].map(raw=>{let key=raw.toUpperCase(),r=master.find(x=>String(x.id||x.jigId||'').toUpperCase()===key)||{},p=phys.get(key)||{},l=loaded.get(key)||{};return{id:r.id||r.jigId||raw,name:r.name||r.fixture||p.name||'',cab:p.cab||cabNo(r.cabinet||r.cab||''),pos:p.pos||Number(r.position||r.pos||0)||'',status:l.machine?'IN MACHINE':(p.status||r.status||'AVAILABLE'),machine:l.machine||p.machine||r.machine||'',program:l.program||r.program||'',part:l.part||r.partno||r.partNumber||r.part||p.part||''}})}
  window.v270RenderJigInfo=function(){let body=document.getElementById('v270JigInfoBody');if(!body)return;let rows=jigRows();fillFilter('v270JigCabFilter',rows.map(r=>r.cab));let cf=document.getElementById('v270JigCabFilter')?.value||'',q=(document.getElementById('v270JigSearch')?.value||'').toLowerCase();rows=rows.filter(r=>(!cf||String(r.cab)===cf)&&(!q||Object.values(r).join(' ').toLowerCase().includes(q)));rows.sort((a,b)=>(a.cab-b.cab)||(Number(a.pos)-Number(b.pos))||String(a.id).localeCompare(String(b.id)));body.innerHTML=rows.map(r=>'<tr><td>'+esc(r.id)+'</td><td>'+esc(r.name||'—')+'</td><td>CAB '+esc(r.cab||'—')+'</td><td>'+esc(r.pos||'—')+'</td><td class="'+(r.machine?'v270Running':'v270Available')+'">'+esc(r.status)+'</td><td class="v270Machine">'+esc(r.machine||'—')+'</td><td>'+esc(r.program||'—')+'</td><td>'+esc(r.part||'—')+'</td></tr>').join('')||'<tr><td colspan="8">No jig / fixture records found.</td></tr>';
@@ -16288,7 +16135,7 @@ body.compact .v269RackViewControls{margin-top:4px!important;padding:4px 7px!impo
  host.innerHTML='<div class="v274Win" id="v274_'+kind+'_'+c.number+'"><div class="v274Head"><h3>'+title+'</h3><div class="v274Ctrls"><button data-act="hide">—</button><button data-act="max">□</button><button data-act="close">×</button></div></div><div class="v274Body">'+(rows.length?'<table class="v274Table"><thead><tr>'+head+'</tr></thead><tbody>'+body+'</tbody></table>':'<div class="v274Empty">EMPTY — no permanent rack positions assigned in this cabinet yet.</div>')+'</div></div>';let w=host.querySelector('.v274Win'),bd=w.querySelector('.v274Body');w.querySelector('[data-act=hide]').onclick=()=>bd.classList.toggle('hidden');w.querySelector('[data-act=max]').onclick=()=>w.classList.toggle('max');w.querySelector('[data-act=close]').onclick=()=>{w.style.display='none'};
  }
  window.v274Forget=(kind,cab,pos)=>{if(confirm('Clear this permanent home assignment?'))unmark(kind,cab,pos)};
- function init(){setupPage('tool');setupPage('jig');enhanceModals();document.querySelectorAll('.navb[data-page="cuttingToolInfo"],.navb[data-page="jigFixtureInfo"]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>render(b.dataset.page==='cuttingToolInfo'?'tool':'jig'),30)));render('tool');render('jig');setInterval(()=>{let a=document.getElementById('cuttingToolInfo'),b=document.getElementById('jigFixtureInfo');if(a&&!a.classList.contains('hide'))render('tool');if(b&&!b.classList.contains('hide'))render('jig')},1800)}
+ function init(){setupPage('tool');setupPage('jig');enhanceModals();document.querySelectorAll('.navb[data-page="cuttingToolInfo"],.navb[data-page="jigFixtureInfo"]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>render(b.dataset.page==='cuttingToolInfo'?'tool':'jig'),30)));render('tool');render('jig');window.v303RenderInfo=render;setInterval(()=>{let b=document.getElementById('jigFixtureInfo');if(b&&!b.classList.contains('hide'))render('jig')},1800)}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,250));else setTimeout(init,250);
 })();
 </script>
@@ -17045,6 +16892,733 @@ body.jfm-v297-full-body{overflow:hidden!important}
  setTimeout(addRefresh,1200);
 })();
 </script>
+
+<!-- V291 — CLEAN LOGIN / MULTI-OPERATOR / STABLE ACCESS PATCH -->
+<style id="v291-login-style">
+#v291RoleRow{display:flex;gap:8px;margin:10px 0}
+#v291RoleRow button{flex:1}
+#v291RoleRow button.sel{outline:2px solid #56c8ff;background:#0b6fa9}
+#v291LoginSettingsBtn{width:100%;margin-top:8px;background:#273746}
+#v291AccountModal{position:fixed;inset:0;z-index:1000002;background:#000c;display:none;align-items:center;justify-content:center;padding:18px}
+#v291AccountModal.show{display:flex}
+#v291AccountCard{width:min(560px,96vw);max-height:88vh;overflow:auto;background:#101b26;border:1px solid #4d6578;border-radius:12px;padding:16px;color:#fff}
+#v291AccountCard input,#v291AccountCard select{width:100%;padding:9px;margin:4px 0 8px;background:#08131d;color:#fff;border:1px solid #40586a;border-radius:6px}
+#v291AccountList{margin-top:10px;border-top:1px solid #34495a;padding-top:8px}
+.v291Acct{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;padding:7px 0;border-bottom:1px solid #263746}
+body.hubOperator .nav .navb{display:none!important}
+body.hubOperator .nav .navb[data-page="machines"],
+body.hubOperator .nav .navb[data-page="machineStatusPage"],
+body.hubOperator .nav .navb[data-page="cabinet"],
+body.hubOperator .nav .navb[data-page="fixtures"],
+body.hubOperator .nav .navb[data-page="cuttingToolInfo"],
+body.hubOperator .nav .navb[data-page="jigFixtureInfo"]{display:inline-block!important}
+body.hubOperator .hubSettingsBtn{display:none!important}
+</style>
+<script id="v291-login-script">
+(function(){
+  const DEF={
+    admin:{password:'admin123',role:'admin'},
+    operator:{password:'operator123',role:'operator'}
+  };
+  const KEY='hub_v291_accounts';
+  let selectedRole='admin';
+
+  function loadAccounts(){
+    try{
+      const x=JSON.parse(localStorage.getItem(KEY)||'null');
+      if(x && typeof x==='object') return x;
+    }catch(e){}
+    localStorage.setItem(KEY,JSON.stringify(DEF));
+    return JSON.parse(JSON.stringify(DEF));
+  }
+  function saveAccounts(a){ localStorage.setItem(KEY,JSON.stringify(a)); }
+  function gate(){return document.getElementById('hubLoginGate')}
+  function userEl(){return document.getElementById('hubLoginUser')}
+  function passEl(){return document.getElementById('hubLoginPassword')}
+  function errEl(){return document.getElementById('hubLoginError')}
+
+  function applyRole(user,role){
+    document.body.classList.toggle('hubOperator',role==='operator');
+    document.body.classList.toggle('hubAdmin',role==='admin');
+    const b=document.getElementById('hubUserBar'),t=document.getElementById('hubLoggedUser');
+    if(t)t.textContent=String(user).toUpperCase()+' • '+String(role).toUpperCase();
+    if(b)b.classList.add('show');
+  }
+
+  function setRole(r){
+    selectedRole=r;
+    const hidden=document.getElementById('hubLoginRole');
+    if(hidden) hidden.value=r;
+    document.querySelectorAll('#v291RoleRow button').forEach(b=>b.classList.toggle('sel',b.dataset.role===r));
+  }
+
+  function enhanceGate(){
+    const g=gate(); if(!g || document.getElementById('v291RoleRow')) return;
+    const roleOld=document.getElementById('hubLoginRole');
+    if(roleOld) roleOld.style.display='none';
+    const row=document.createElement('div');
+    row.id='v291RoleRow';
+    row.innerHTML='<button type="button" data-role="admin">ADMIN</button><button type="button" data-role="operator">OPERATOR</button>';
+    row.querySelectorAll('button').forEach(b=>b.onclick=()=>setRole(b.dataset.role));
+    const p=passEl();
+    if(p && p.parentNode){ const lbl=p.previousElementSibling; p.parentNode.insertBefore(row,lbl||p); }
+    const loginBtn=[...g.querySelectorAll('button')].find(b=>/log.?in/i.test(b.textContent||''));
+    const sb=document.createElement('button');
+    sb.type='button'; sb.id='v291LoginSettingsBtn'; sb.textContent='LOGIN SETTINGS / OPERATOR ACCOUNTS';
+    sb.onclick=openSettings;
+    if(loginBtn) loginBtn.insertAdjacentElement('afterend',sb); else g.appendChild(sb);
+    setRole('admin');
+  }
+
+  window.hubLogin=function(){
+    const u=(userEl()?.value||'').trim().toLowerCase();
+    const p=passEl()?.value||'';
+    const a=loadAccounts()[u];
+    if(!a || a.password!==p || a.role!==selectedRole){
+      if(errEl())errEl().textContent='Incorrect username, password or selected role.';
+      return;
+    }
+    sessionStorage.setItem('hub_login_user',u);
+    sessionStorage.setItem('hub_login_role',a.role);
+    gate()?.classList.add('hidden');
+    if(errEl())errEl().textContent='';
+    applyRole(u,a.role);
+    const first=document.querySelector('.navb[data-page="machines"]');
+    if(first) first.click();
+  };
+  window.hubApplyRole=applyRole;
+  window.hubLogout=function(){
+    sessionStorage.removeItem('hub_login_user');sessionStorage.removeItem('hub_login_role');
+    document.body.classList.remove('hubOperator','hubAdmin');
+    document.getElementById('hubUserBar')?.classList.remove('show');
+    if(passEl())passEl().value='';
+    gate()?.classList.remove('hidden');
+    enhanceGate(); userEl()?.focus();
+  };
+
+  function ensureModal(){
+    if(document.getElementById('v291AccountModal'))return;
+    const m=document.createElement('div'); m.id='v291AccountModal';
+    m.innerHTML=`<div id="v291AccountCard">
+      <h3>Login Settings / Operator Accounts</h3>
+      <div class="mut">Use the Admin password to manage accounts. Default recovery: admin / admin123.</div>
+      <label>Admin password</label><input id="v291VerifyAdmin" type="password" placeholder="Admin password">
+      <button type="button" id="v291Unlock">UNLOCK SETTINGS</button>
+      <div id="v291Manage" style="display:none">
+        <hr><h4>Add / Update Account</h4>
+        <input id="v291NewUser" placeholder="Username">
+        <input id="v291NewPass" type="password" placeholder="Password">
+        <select id="v291NewRole"><option value="operator">Operator</option><option value="admin">Admin</option></select>
+        <button type="button" id="v291SaveAcct">SAVE ACCOUNT</button>
+        <div id="v291AccountList"></div>
+      </div>
+      <button type="button" id="v291Close" style="margin-top:12px">CLOSE</button>
+    </div>`;
+    document.body.appendChild(m);
+    m.querySelector('#v291Close').onclick=()=>m.classList.remove('show');
+    m.querySelector('#v291Unlock').onclick=()=>{
+      const ac=loadAccounts(), admin=Object.entries(ac).find(([u,a])=>a.role==='admin' && a.password===m.querySelector('#v291VerifyAdmin').value);
+      if(!admin){alert('Incorrect Admin password. Default Admin is admin / admin123.');return}
+      m.querySelector('#v291Manage').style.display='block'; renderAccounts();
+    };
+    m.querySelector('#v291SaveAcct').onclick=()=>{
+      const u=m.querySelector('#v291NewUser').value.trim().toLowerCase(), p=m.querySelector('#v291NewPass').value, r=m.querySelector('#v291NewRole').value;
+      if(!u||!p){alert('Enter username and password.');return}
+      const ac=loadAccounts(); ac[u]={password:p,role:r}; saveAccounts(ac);
+      m.querySelector('#v291NewUser').value='';m.querySelector('#v291NewPass').value='';renderAccounts();
+    };
+  }
+  function renderAccounts(){
+    const box=document.getElementById('v291AccountList'); if(!box)return;
+    const ac=loadAccounts(); box.innerHTML='';
+    Object.entries(ac).forEach(([u,a])=>{
+      const d=document.createElement('div');d.className='v291Acct';
+      d.innerHTML='<b>'+u+'</b><span>'+a.role.toUpperCase()+'</span><button type="button">DELETE</button>';
+      d.querySelector('button').onclick=()=>{
+        if(u==='admin'){alert('The default admin recovery account cannot be deleted.');return}
+        delete ac[u];saveAccounts(ac);renderAccounts();
+      };
+      box.appendChild(d);
+    });
+  }
+  function openSettings(){ensureModal();document.getElementById('v291AccountModal').classList.add('show')}
+  window.v291OpenLoginSettings=openSettings;
+
+  function boot(){
+    enhanceGate(); ensureModal();
+    /* Start cleanly at login after Enter System; do not auto-restore stale broken role. */
+    try{sessionStorage.removeItem('hub_login_user');sessionStorage.removeItem('hub_login_role')}catch(e){}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true}); else boot();
+})();
+</script>
+
+
+
+<!-- V293: Cross-window jig/tool sync stabilizer — storage is canonical; remote redraws never write back. -->
+<script id="v293-cross-window-state-stabilizer">
+(function(){
+  if(window.__v293StorageStable)return;
+  window.__v293StorageStable=true;
+  const watched=new Set(['hub_machine_setup_sim_v145','ct_fixture_cabs','hub_jig_fixture_monitor_v134','hub_program_master_v85']);
+  let applyingRemote=false, timer=0;
+  try{
+    const nativeSet=Storage.prototype.setItem;
+    Storage.prototype.setItem=function(key,value){
+      const k=String(key), v=String(value);
+      if(this===window.localStorage){
+        /* A remote redraw is display-only. Never echo its state back to the other HUB window. */
+        if(applyingRemote && watched.has(k)) return;
+        try{ if(this.getItem(k)===v) return; }catch(e){}
+      }
+      return nativeSet.call(this,k,v);
+    };
+  }catch(e){console.warn('V293 storage guard unavailable',e)}
+
+  function remoteRefresh(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      applyingRemote=true;
+      try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){}
+      try{if(typeof window.drawFixtureRack==='function')window.drawFixtureRack()}catch(e){}
+      try{if(typeof window.jfmReloadFromStorage==='function')window.jfmReloadFromStorage(); else if(typeof window.jfmRender==='function')window.jfmRender()}catch(e){}
+      try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}
+      /* Keep the guard through queued zero-delay redraws used by older HUB patches. */
+      setTimeout(function(){applyingRemote=false},150);
+    },100);
+  }
+  window.addEventListener('storage',function(e){
+    if(e.storageArea===window.localStorage && watched.has(String(e.key))) remoteRefresh();
+  });
+})();
+</script>
+
+<style id="v293-login-visible-fix">
+#hubLoginGate:not(.hidden) #v291RoleRow{display:flex!important;visibility:visible!important}
+#hubLoginGate:not(.hidden) #v291LoginSettingsBtn{display:block!important;visibility:visible!important}
+</style>
+<script id="v293-login-recovery">
+(function(){
+ function recover(){
+   const g=document.getElementById('hubLoginGate'); if(!g)return;
+   const row=document.getElementById('v291RoleRow');
+   if(!row && typeof window.hubLogout==='function'){
+     /* Re-running logout invokes the V291 gate enhancer without altering persistent HUB data. */
+     try{window.hubLogout()}catch(e){}
+   }
+ }
+ document.addEventListener('click',function(e){
+   if(e.target && (e.target.id==='hubLaunchScreen' || e.target.closest?.('#hubLaunchScreen'))) setTimeout(recover,80);
+ },true);
+ document.addEventListener('DOMContentLoaded',function(){setTimeout(recover,150)});
+})();
+</script>
+\n<!-- V294: Jig Return live-window sync — reload canonical rack/setup data before remote redraw. -->\n<script id="v294-jig-return-live-sync">\n(function(){\n  if(window.__v294JigReturnLiveSync)return;\n  window.__v294JigReturnLiveSync=true;\n  const RK='ct_fixture_cabs', SK='hub_machine_setup_sim_v145';\n  let timer=0;\n\n  function reloadRackFromStorage(){\n    try{\n      const fresh=JSON.parse(localStorage.getItem(RK)||'[]');\n      if(Array.isArray(fresh) && fresh.length){\n        /* fixtureCabs is a top-level lexical variable in the original HUB, so eval in this page scope\n           is not reliable from another closure. Use the rack's existing public reload path first. */\n        try{ if(typeof window.jfmReloadFromStorage==='function') window.jfmReloadFromStorage(); }catch(e){}\n        /* The original physical rack renderer uses its own fixtureCabs cache. Force its normal\n           navigation/init path to consume storage without writing anything back. */\n        try{\n          if(typeof fixtureCabs!=='undefined'){\n            fixtureCabs=fresh;\n            if(typeof renderFixtureTabs==='function')renderFixtureTabs();\n            if(typeof drawFixtureRack==='function')drawFixtureRack();\n          }\n        }catch(e){}\n      }\n    }catch(e){}\n  }\n\n  function reloadMachineDisplays(){\n    try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}\n    try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){}\n    try{if(typeof window.mmRefreshSetupUI==='function')window.mmRefreshSetupUI()}catch(e){}\n  }\n\n  function refresh(key){\n    clearTimeout(timer);\n    timer=setTimeout(function(){\n      if(key===RK)reloadRackFromStorage();\n      reloadMachineDisplays();\n    },60);\n  }\n\n  window.addEventListener('storage',function(e){\n    if(e.storageArea!==localStorage)return;\n    if(e.key===RK || e.key===SK)refresh(e.key);\n  });\n})();\n</script>\n
+
+<!-- V295: Cutting Tool Monitor live-window sync. ATC state is canonical and remote redraw is read-only. -->
+<script id="v295-cutting-tool-live-window-sync">
+(function(){
+  if(window.__v295CuttingToolLiveSync)return;
+  window.__v295CuttingToolLiveSync=true;
+  const AK='hub_machine_atc_sim_v145', SK='hub_machine_setup_sim_v145';
+  let timer=0;
+
+  function refreshCuttingToolMonitor(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      /* ctRefreshFromMachineSetup ultimately renders ATC directly from localStorage.
+         Do not call drawMachine here: older machine renderers can persist state and echo it back. */
+      try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}
+      try{
+        /* Repaint decorators that depend on setup/tool state without navigating/opening another HUB. */
+        const b=document.getElementById('ctSyncStatus');
+        if(b && typeof window.ctRefreshFromMachineSetup==='function')setTimeout(function(){
+          try{window.ctRefreshFromMachineSetup()}catch(e){}
+        },40);
+      }catch(e){}
+    },45);
+  }
+
+  window.addEventListener('storage',function(e){
+    if(e.storageArea!==window.localStorage)return;
+    if(e.key===AK || e.key===SK)refreshCuttingToolMonitor();
+  });
+})();
+</script>
+\n<!-- V296: unified no-jump live sync for physical Jig + Tool returns. -->
+<script id="v296-no-jump-return-live-sync">
+(function(){
+  if(window.__v296NoJumpReturnSync)return;
+  window.__v296NoJumpReturnSync=true;
+  const PULSE='hub_live_sync_pulse', RK='ct_fixture_cabs', AK='hub_machine_atc_sim_v145', SK='hub_machine_setup_sim_v145';
+  let timer=0;
+  function refreshPhysicalDisplays(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      /* Reload physical Jig Rack cache from canonical storage, but never navigate to it. */
+      try{
+        const fresh=JSON.parse(localStorage.getItem(RK)||'[]');
+        if(Array.isArray(fresh) && typeof fixtureCabs!=='undefined') fixtureCabs=fresh;
+      }catch(e){}
+      try{if(typeof window.jfmReloadFromStorage==='function')window.jfmReloadFromStorage()}catch(e){}
+      try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}
+      try{if(typeof window.mmRefreshSetupUI==='function')window.mmRefreshSetupUI()}catch(e){}
+      /* drawMachine is needed for active jig/tool state; V293 prevents remote redraw write-back. */
+      try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){}
+      try{if(typeof renderFixtureTabs==='function')renderFixtureTabs()}catch(e){}
+      try{if(typeof drawFixtureRack==='function')drawFixtureRack()}catch(e){}
+      try{if(typeof renderCabTabs==='function')renderCabTabs()}catch(e){}
+      try{if(typeof drawRack==='function')drawRack()}catch(e){}
+    },70);
+  }
+  window.addEventListener('storage',function(e){
+    if(e.storageArea!==window.localStorage)return;
+    if(e.key===PULSE || e.key===RK || e.key===AK || e.key===SK) refreshPhysicalDisplays();
+  });
+})();
+</script>
+\n<!-- V297: Tool-return live refresh + single-HUB Operator session. -->
+<style id="v297-single-operator-hub-style">
+#v297OperatorHubRow{margin:10px 0;display:none}
+#v297OperatorHubRow label{display:block;margin-bottom:5px;font-weight:900}
+#v297OperatorHubSelect{width:100%;padding:9px;background:#08131d;color:#fff;border:1px solid #40586a;border-radius:6px}
+body.hubOperator.v297SingleHub .nav .navb{display:none!important}
+body.hubOperator.v297SingleHub .nav .navb.v297ChosenHub{display:inline-block!important}
+</style>
+<script id="v297-tool-sync-single-operator-hub">
+(function(){
+ if(window.__v297ToolSingleHub)return; window.__v297ToolSingleHub=true;
+ const AK='hub_machine_atc_sim_v145', PULSE='hub_live_sync_pulse';
+ const allowed={
+   machines:'CUTTING TOOL MONITOR',
+   machineStatusPage:'MACHINE MONITOR',
+   cabinet:'CUTTING TOOL RACK',
+   fixtures:'JIG & FIXTURE RACK',
+   cuttingToolInfo:'CUTTING TOOL INFO',
+   jigFixtureInfo:'JIG & FIXTURE INFO'
+ };
+ function role(){return String(sessionStorage.getItem('hub_login_role')||'')}
+ function selected(){return String(sessionStorage.getItem('hub_operator_single_hub')||'machines')}
+ function gateSelect(){
+   const gate=document.getElementById('hubLoginGate'), pass=document.getElementById('hubLoginPassword');
+   if(!gate||!pass||document.getElementById('v297OperatorHubRow'))return;
+   const row=document.createElement('div');row.id='v297OperatorHubRow';
+   row.innerHTML='<label>OPERATOR HUB</label><select id="v297OperatorHubSelect">'+Object.entries(allowed).map(([v,t])=>'<option value="'+v+'">'+t+'</option>').join('')+'</select>';
+   const btn=document.getElementById('hubLoginButton');
+   if(btn&&btn.parentNode)btn.parentNode.insertBefore(row,btn); else pass.insertAdjacentElement('afterend',row);
+   function vis(){
+     let r=''; try{r=String(window.v291SelectedRole||'')}catch(e){}
+     const op=document.querySelector('#v291RoleRow button[data-role="operator"].sel');
+     row.style.display=op?'block':'none';
+   }
+   document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#v291RoleRow'))setTimeout(vis,0)},true); vis();
+ }
+ function applySingle(){
+   if(role()!=='operator'){document.body.classList.remove('v297SingleHub');return}
+   const page=selected(); document.body.classList.add('v297SingleHub');
+   document.querySelectorAll('.nav .navb').forEach(b=>b.classList.toggle('v297ChosenHub',b.dataset.page===page));
+   const b=document.querySelector('.nav .navb[data-page="'+CSS.escape(page)+'"]');
+   if(b)setTimeout(()=>b.click(),30);
+ }
+ function wrapLogin(){
+   const old=window.hubLogin;if(typeof old!=='function'||old.__v297)return;
+   const f=function(){
+     const op=document.querySelector('#v291RoleRow button[data-role="operator"].sel');
+     const sel=document.getElementById('v297OperatorHubSelect');
+     if(op&&sel)sessionStorage.setItem('hub_operator_single_hub',sel.value);
+     const r=old.apply(this,arguments); setTimeout(applySingle,80); return r;
+   };f.__v297=true;window.hubLogin=f;
+   const oldOut=window.hubLogout;if(typeof oldOut==='function'&&!oldOut.__v297){
+     const g=function(){document.body.classList.remove('v297SingleHub');document.querySelectorAll('.v297ChosenHub').forEach(x=>x.classList.remove('v297ChosenHub'));return oldOut.apply(this,arguments)};g.__v297=true;window.hubLogout=g;
+   }
+ }
+ function hardRefreshToolMonitor(){
+   if(!document.body.classList.contains('hubOperator') && !document.body.classList.contains('hubAdmin'))return;
+   try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}
+   try{if(typeof window.drawMachine==='function')window.drawMachine()}catch(e){}
+   /* If Cutting Tool Monitor is the visible/current HUB, re-enter that SAME HUB only.
+      This refreshes old lexical caches without navigating to Tool Rack. */
+   const page=document.getElementById('machines');
+   if(page && !page.classList.contains('hide')){
+     const b=document.querySelector('.nav .navb[data-page="machines"]');
+     if(b)setTimeout(()=>b.click(),20);
+   }
+ }
+ let t=0;function queue(){clearTimeout(t);t=setTimeout(hardRefreshToolMonitor,55)}
+ window.addEventListener('storage',e=>{
+   if(e.storageArea!==localStorage)return;
+   if(e.key===AK){queue();return}
+   if(e.key===PULSE){
+     try{const p=JSON.parse(e.newValue||'{}');if(p.type==='tool-return')queue()}catch(x){}
+   }
+ });
+ function boot(){gateSelect();wrapLogin();applySingle()}
+ document.addEventListener('DOMContentLoaded',()=>setTimeout(boot,900));setTimeout(boot,1300);
+})();
+</script>\n
+<!-- V298: Final Tool Return cross-window redraw. Preserve working jig sync + V297 single-HUB operator flow. -->
+<script id="v298-tool-return-final-sync">
+(function(){
+ if(window.__v298ToolReturnFinalSync)return; window.__v298ToolReturnFinalSync=true;
+ const AK='hub_machine_atc_sim_v145', CK='ct_cabinets', PULSE='hub_live_sync_pulse';
+ let timers=[];
+ function clear(){timers.forEach(clearTimeout);timers=[]}
+ function repaint(){
+   /* Cutting Tool Monitor's canonical renderer reads AK directly from localStorage.
+      Do NOT call drawMachine here: older drawMachine layers can repaint stale lexical tool state. */
+   try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}
+   try{if(typeof window.v270RenderToolInfo==='function')window.v270RenderToolInfo()}catch(e){}
+   try{if(typeof window.v272RenderToolInfo==='function')window.v272RenderToolInfo()}catch(e){}
+ }
+ function finalRefresh(){
+   clear();
+   /* Run after legacy V293-V297 listeners have finished their queued redraws. */
+   [180,420,850].forEach(ms=>timers.push(setTimeout(repaint,ms)));
+ }
+ window.addEventListener('storage',function(e){
+   if(e.storageArea!==window.localStorage)return;
+   if(e.key===AK || e.key===CK){finalRefresh();return}
+   if(e.key===PULSE){
+     try{let p=JSON.parse(e.newValue||'{}');if(p && p.type==='tool-return')finalRefresh()}catch(x){}
+   }
+ });
+})();
+</script>
+
+<style id="v300-machine-program-simulation-style">
+#machineStatusPage .v300Sim{margin-top:12px;border:1px solid #355066;border-radius:9px;background:#09141d;overflow:hidden}
+#machineStatusPage .v300SimHead{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:9px 10px;background:#102331;border-bottom:1px solid #355066}
+#machineStatusPage .v300SimHead b{margin-right:auto;color:#dcebf5}
+#machineStatusPage .v300Start{background:#168d50;border-color:#42c27a}.v300Stop{background:#a53636!important;border-color:#d45d5d!important}
+#machineStatusPage .v300RunState{font-size:10px;font-weight:900;color:#9fb5c5;min-width:85px;text-align:center}
+#machineStatusPage .v308SpeedWrap{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:900;color:#c9d9e4;white-space:nowrap}
+#machineStatusPage .v308Speed{height:28px;min-width:72px;padding:2px 6px;border:1px solid #49657a;border-radius:5px;background:#0b1a24;color:#e9f4fb;font-weight:900}
+#machineStatusPage .v300Program{height:330px;overflow:auto;background:#061018;color:#dcebf5;font:12px/1.45 Consolas,Monaco,monospace;padding:7px 0}
+#machineStatusPage .v300Line{padding:2px 10px;white-space:pre-wrap;border-left:4px solid transparent}
+#machineStatusPage .v300Line.active{background:#ffe98a;color:#111;border-left-color:#ff9f1a;font-weight:900}
+#machineStatusPage .v300Line.done{color:#718897}.v300ToolHit{float:right;color:#62dc92;font-weight:900;margin-left:10px}
+#machineStatusPage .v300Status{padding:8px 10px;border-top:1px solid #243a4b;color:#a9bdca;font-size:10px;font-weight:800}
+.v300LifeWarn{background:#ffd8d8!important;color:#8b1111!important}.v300LifeInput{width:70px!important;height:26px!important;padding:2px 5px!important;text-align:center}
+body.compact #machineStatusPage .v300Program{height:240px;font-size:9px}
+</style>
+<script id="v300-machine-program-simulation-script">
+(function(){
+ const LIFE='hub_tool_life_cycles_v300', PULSE='hub_live_sync_pulse';
+ const get=(k,d)=>{try{let x=JSON.parse(localStorage.getItem(k)||'null');return x==null?d:x}catch(e){return d}};
+ const put=(k,v)=>{localStorage.setItem(k,JSON.stringify(v));try{localStorage.setItem(PULSE,JSON.stringify({type:'tool-life',at:Date.now()}))}catch(e){}};
+ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ let run={machine:'',lines:[],index:0,timer:null,running:false,counted:new Set(),program:''};
+ const SPEED_KEY='hub_nc_sim_speed_v308';
+ function simSpeed(){let n=Number(localStorage.getItem(SPEED_KEY)||1);return [0.5,1,2,3,5,10].includes(n)?n:1}
+ function simDelay(){return Math.max(35,Math.round(450/simSpeed()))}
+ window.v308SetSimSpeed=function(v){let n=Number(v);if(![0.5,1,2,3,5,10].includes(n))n=1;localStorage.setItem(SPEED_KEY,String(n));let e=document.getElementById('v308SimSpeed');if(e)e.value=String(n)};
+ function mid(){try{return String(mmMachineId()||'')}catch(e){return String(window.machine||'')}}
+ function setup(){return get('hub_machine_setup_sim_v145',{})[mid()]||{}}
+ function prog(st){let a=get('hub_program_master_v85',[]);return (Array.isArray(a)?a:[]).find(p=>String(p.program||'')===String(st.program||''))||null}
+ async function ncText(p){
+   if(!p)return '';
+   if(typeof p.ncText==='string'&&p.ncText.trim())return p.ncText;
+   try{if(typeof pm94get==='function'&&typeof pm94key==='function'){let z=await pm94get(pm94key(p.program,'nc')),b=z&&(z.blob||z.data||z.file);if(b&&typeof b.text==='function'){let t=await b.text();if(t.trim())return t}}}catch(e){}
+   if(typeof p.sampleNC==='string'&&p.sampleNC.trim())return p.sampleNC;
+   if(typeof p.ncfile==='string'&&/[\n\r]/.test(p.ncfile))return p.ncfile;
+   try{if(typeof window.v196SampleNC==='function'){let t=String(window.v196SampleNC(p)||'');if(t.trim())return t}}catch(e){}
+   return '';
+ }
+ function life(){return get(LIFE,{})}
+ function toolLife(id){let a=life(),k=String(id||'').toUpperCase();return a[k]||{count:0,set:100}}
+ function saveLife(id,obj){let a=life(),k=String(id||'').toUpperCase();a[k]={count:Math.max(0,Number(obj.count)||0),set:Math.max(1,Number(obj.set)||100)};put(LIFE,a);refreshInfoSoon()}
+ window.v300SetToolLife=function(id,v){let x=toolLife(id);x.set=Math.max(1,parseInt(v,10)||1);saveLife(id,x)};
+ function firstSlot(id,st){let key=String(id||'').toUpperCase(),best=0;(st.tools||[]).forEach((t,i)=>{let tid=String((t&&typeof t==='object'?(t.id||t.toolId):t)||'').toUpperCase();let sl=Number(t&&t.slot)||i+1;if(tid===key&&(!best||sl<best))best=sl});return best}
+ function detectTool(line,st){
+   let txt=String(line||''), known=[];(st.tools||[]).forEach(t=>{let id=String((t&&typeof t==='object'?(t.id||t.toolId):t)||'').trim();if(id&&!known.some(x=>x.toUpperCase()===id.toUpperCase()))known.push(id)});
+   let up=txt.toUpperCase(), hit=known.find(id=>up.includes(id.toUpperCase()));if(hit)return hit;
+   let m=up.match(/\bT\s*0*(\d+)\b[^\r\n]*(?:M\s*0?6\b)?/i);if(m){let n=Number(m[1]),t=(st.tools||[]).find((x,i)=>(Number(x&&x.slot)||i+1)===n);if(t)return String((t&&typeof t==='object'?(t.id||t.toolId):t)||'').trim()}
+   return '';
+ }
+ function countTool(id){if(!id)return;if(run.counted.has(id.toUpperCase()))return;run.counted.add(id.toUpperCase());let x=toolLife(id);x.count++;saveLife(id,x)}
+ function ensure(){let panel=document.querySelector('#machineStatusPage .mmSetupPanel');if(!panel)return null;let box=document.getElementById('v300MachineSimulation');if(!box){box=document.createElement('div');box.id='v300MachineSimulation';box.className='v300Sim';box.innerHTML='<div class="v300SimHead"><b>NC PROGRAM SIMULATION</b><button class="v300Start" onclick="v300StartSimulation()">▶ START</button><button class="v300Stop" onclick="v300StopSimulation()">■ STOP</button><label class="v308SpeedWrap">SPEED <select id="v308SimSpeed" class="v308Speed" onchange="v308SetSimSpeed(this.value)"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="3">3×</option><option value="5">5×</option><option value="10">10×</option></select></label><span class="v300RunState">READY</span></div><div class="v300Program"><div class="v300Line">Load a Program + Fixture to display the whole NC program.</div></div><div class="v300Status">Block-by-block simulation • each detected Tool ID counts one life cycle per program run.</div>';panel.appendChild(box)}let sp=box.querySelector('#v308SimSpeed');if(sp)sp.value=String(simSpeed());return box}
+ async function load(reset=true){let box=ensure();if(!box)return;let st=setup(),p=prog(st),txt=await ncText(p),lines=String(txt||'').replace(/\r/g,'').split('\n');if(!txt.trim())lines=['NO NC/TXT PROGRAM CONTENT FOUND FOR '+(st.program||'CURRENT SETUP')];run.machine=mid();run.program=st.program||'';run.lines=lines;if(reset){run.index=0;run.counted=new Set()}let host=box.querySelector('.v300Program');host.innerHTML=lines.map((x,i)=>'<div class="v300Line" data-i="'+i+'"><span>'+esc(x||' ')+'</span></div>').join('');box.querySelector('.v300RunState').textContent=run.running?'RUNNING':'READY';return st}
+ function paint(i,tool){let box=ensure();if(!box)return;box.querySelectorAll('.v300Line.active').forEach(x=>x.classList.remove('active'));let el=box.querySelector('.v300Line[data-i="'+i+'"]');if(!el)return;el.classList.add('active');for(let n=0;n<i;n++){let d=box.querySelector('.v300Line[data-i="'+n+'"]');if(d)d.classList.add('done')}if(tool&&!el.querySelector('.v300ToolHit'))el.insertAdjacentHTML('beforeend','<span class="v300ToolHit">TOOL: '+esc(tool)+'</span>');el.scrollIntoView({block:'center',behavior:'smooth'})}
+ function finish(){run.running=false;if(run.timer){clearTimeout(run.timer);run.timer=null}let box=ensure();if(box)box.querySelector('.v300RunState').textContent='COMPLETE';refreshInfoSoon()}
+ function step(){if(!run.running)return;if(run.index>=run.lines.length){finish();return}let st=setup(),line=run.lines[run.index],tool=detectTool(line,st);if(tool)countTool(tool);paint(run.index,tool);run.index++;run.timer=setTimeout(step,simDelay())}
+ window.v300StartSimulation=async function(){let st=setup();if(!st.program)return alert('Load a Program + Fixture first.');if(run.machine!==mid()||run.program!==st.program||!run.lines.length||run.index>=run.lines.length)await load(true);run.running=true;let box=ensure();if(box)box.querySelector('.v300RunState').textContent='RUNNING';step()};
+ window.v300StopSimulation=function(){run.running=false;if(run.timer){clearTimeout(run.timer);run.timer=null}let box=ensure();if(box)box.querySelector('.v300RunState').textContent='STOPPED'};
+ function enhanceInfo(){
+   let page=document.getElementById('cuttingToolInfo');if(!page||page.classList.contains('hide'))return;let table=page.querySelector('.v274Table');if(!table)return;let hr=table.querySelector('thead tr');if(!hr)return;
+   let hs=[...hr.children].map(x=>x.textContent.trim().toUpperCase());let idIx=hs.indexOf('TOOL ID');if(idIx<0)return;
+   if(!hr.querySelector('.v300CountHead')){let a=document.createElement('th');a.className='v300CountHead';a.textContent='TOOL LIFE COUNT';let b=document.createElement('th');b.className='v300SetHead';b.textContent='TOOL LIFE SET';hr.appendChild(a);hr.appendChild(b)}
+   let stAll=get('hub_machine_setup_sim_v145',{});
+   table.querySelectorAll('tbody tr').forEach(tr=>{let cells=[...tr.children],id=cells[idIx]?.textContent.trim();if(!id)return;let x=toolLife(id);if(!tr.querySelector('.v300LifeCount')){let c=document.createElement('td');c.className='v300LifeCount';let d=document.createElement('td');d.className='v300LifeSet';tr.appendChild(c);tr.appendChild(d)}let c=tr.querySelector('.v300LifeCount'),d=tr.querySelector('.v300LifeSet');c.textContent=x.count;c.classList.toggle('v300LifeWarn',x.count>=x.set);d.innerHTML='<input class="v300LifeInput" type="number" min="1" value="'+x.set+'" onchange="v300SetToolLife(\''+String(id).replace(/'/g,"\\'")+'\',this.value)">';
+   })
+ }
+ function refreshInfoSoon(){setTimeout(enhanceInfo,80);setTimeout(enhanceInfo,400)}
+ let oldStatus=window.renderMachineStatusPage;if(typeof oldStatus==='function')window.renderMachineStatusPage=function(){let r=oldStatus.apply(this,arguments);setTimeout(()=>load(true),80);return r};
+ document.addEventListener('click',e=>{let b=e.target.closest&&e.target.closest('button');if(!b)return;let t=String(b.textContent||'');if(/LOAD PROGRAM.*(JIG|FIXTURE)|MACHINE MONITOR|MC-\d+/i.test(t))setTimeout(()=>load(true),250);if(/CUTTING TOOL INFO|REFRESH/i.test(t))refreshInfoSoon()},true);
+ window.addEventListener('storage',e=>{if(e.key===LIFE||e.key===PULSE)refreshInfoSoon()});
+ setInterval(enhanceInfo,700);
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{ensure();load(true);refreshInfoSoon()},1200));else setTimeout(()=>{ensure();load(true);refreshInfoSoon()},1200);
+})();
+</script>
+<!-- V301: Removed ATC column from Cutting Tool Info to eliminate unnecessary ATC refresh/blinking. -->
+
+<!-- V307 — Tool Master traceback cleanup: remove V141-generated records from every cabinet; no quantity cap -->
+<script id="v307ToolMasterGeneratorFix">
+(function(){
+  const CLEAN_FLAG='hub_v307_tool_master_generator_cleanup';
+  function isV141Generated(r){
+    if(!r || typeof r!=='object') return false;
+    const id=String(r.id||'').trim().toUpperCase();
+    const tool=String(r.tool||'').trim().toUpperCase();
+    const holder=String(r.holder||'').trim().toUpperCase();
+    const pull=String(r.pullstud||'').trim().toUpperCase();
+    return /^C\d+-(?:EM|FM|CH|CD|SD|DR|TP|TM|BR|SL|RM|SPT)\d{2}$/.test(id)
+      && /^(?:EM|FM|CH|CD|SD|DR|TP|TM|BR|SL|RM|SPT) #\d+$/.test(tool)
+      && /^BT40-(?:EM|FM|CH|CD|SD|DR|TP|TM|BR|SL|RM|SPT)-\d{2}$/.test(holder)
+      && pull==='PS-BT40';
+  }
+  function cabNo(r){
+    const text=String((r&&r.cab)|| (r&&r.toolin)|| (r&&r.id)||'').toUpperCase();
+    const m=text.match(/(?:CAB\s*|^C)(\d+)/);
+    return m?Number(m[1]):0;
+  }
+  function cleanup(){
+    try{
+      let a=JSON.parse(localStorage.getItem('hub_tool_master')||'[]');
+      if(!Array.isArray(a)) return;
+      const before=a.length;
+      a=a.filter(r=>!isV141Generated(r));
+      if(a.length!==before){
+        localStorage.setItem('hub_tool_master',JSON.stringify(a));
+        try{ tmRecords=a; }catch(e){}
+        try{ if(typeof tmRender==='function') tmRender(); }catch(e){}
+        try{ window.dispatchEvent(new StorageEvent('storage',{key:'hub_tool_master',newValue:JSON.stringify(a)})); }catch(e){}
+      }
+      localStorage.setItem(CLEAN_FLAG,JSON.stringify({before:before,after:a.length,removed:before-a.length,at:Date.now()}));
+    }catch(e){ console.error('V306 Tool Master cleanup',e); }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(cleanup,50),{once:true});
+  else setTimeout(cleanup,50);
+})();
+</script>
+
+<!-- V308: NC Program Simulation live speed control 0.5x-10x; V307 base preserved -->
+
+<style id="v314CleanTestRemoveStyle">
+#v314TestRemoveBtn{background:#7d2631!important;border-color:#c95a68!important;color:#fff!important;padding:8px 14px!important;margin-left:6px!important}
+#v314TestRemoveBtn:disabled{background:#3b4650!important;border-color:#596570!important;color:#9ca7af!important;opacity:.8}
+</style>
+<script id="v314CleanTestRemoveFromV308">
+(function(){
+ const AK='hub_machine_atc_sim_v145',SK='hub_machine_setup_sim_v145';
+ const get=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
+ const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+ function mid(){try{return String(mmMachineId()||'')}catch(e){return String(window.machine||'')}}
+ function sel(){let g=document.getElementById('mgrid'),h=g&&g.querySelector('.slot.v213SelectedTool');return h?[...g.children].indexOf(h)+1:null}
+ function used(id){let s=get(SK,{}),st=s[id]||{},r=new Set();(Array.isArray(st.programTools)?st.programTools:[]).forEach(x=>{let n=+x.slot;if(n)r.add(n)});return r}
+ function ensure(){
+   let l=document.querySelector('#machines .legend');if(!l)return null;
+   let b=document.getElementById('v314TestRemoveBtn');
+   if(!b){b=document.createElement('button');b.id='v314TestRemoveBtn';b.type='button';b.title='TEST ONLY — machine simulation removal; no rack return/sync.';
+     let ret=document.getElementById('v217ReturnSelectedTool');if(ret&&ret.parentNode===l)ret.after(b);else l.appendChild(b);
+     b.onclick=e=>{e.preventDefault();e.stopPropagation();removeTest()}}
+   return b;
+ }
+ function paint(){let b=ensure();if(!b)return;let n=sel(),id=mid();if(n!==null&&used(id).has(n))n=null;b.disabled=n===null;b.textContent=n===null?'REMOVE TOOL (TEST)':'TEST REMOVE T'+String(n).padStart(2,'0')}
+ function removeTest(){
+   let n=sel(),id=mid();if(n===null||used(id).has(n))return alert('Select a WHITE unused tool first.');
+   let state=get(AK,{}),a=Array.isArray(state[id])?state[id]:[],x=a.find(q=>q&&+q.slot===n);if(!x)return alert('Selected tool was not found in the machine.');
+   if(!confirm('TEST ONLY: remove T'+String(n).padStart(2,'0')+' from '+id+'?\n\nNo Tool Rack return or synchronization will be performed.'))return;
+   state[id]=a.filter(q=>!(q&&+q.slot===n));set(AK,state);
+   try{drawMachine()}catch(e){}try{ctRefreshFromMachineSetup()}catch(e){}setTimeout(paint,50);
+ }
+ document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#machines #mgrid .slot'))setTimeout(paint,35)},false);
+ const mo=new MutationObserver(()=>setTimeout(paint,0));
+ function start(){let g=document.getElementById('mgrid');if(g&&!g.dataset.v314obs){g.dataset.v314obs='1';mo.observe(g,{childList:true,subtree:true,attributes:true,attributeFilter:['class']})}paint()}
+ setInterval(start,900);setTimeout(start,450);
+})();
+</script>
+
+<style id="v326CleanHomeAdditionsStyle">
+/* V326 CLEAN: built directly on confirmed V314. Original ENTER SYSTEM is untouched. */
+#v326HomeClock{
+ position:absolute;z-index:12;top:0;left:64%;width:36%;height:8.25%;
+ box-sizing:border-box;background:#020912;display:flex;align-items:center;justify-content:center;
+ padding:0 1vw;overflow:hidden;color:#e8f5ff;font:800 clamp(9px,.95vw,16px) Arial,sans-serif;
+ text-shadow:0 0 7px rgba(0,157,255,.62);white-space:nowrap;pointer-events:none
+}
+#v326SettingsHit{
+ position:absolute;z-index:30;left:79%;top:68%;width:18.5%;height:21%;
+ border:0;background:transparent;opacity:0;cursor:pointer
+}
+#v326AdminOverlay{display:none;position:fixed;inset:0;z-index:2147483647;background:rgba(0,5,10,.88);align-items:center;justify-content:center;padding:16px;font-family:Arial,sans-serif}
+#v326AdminOverlay.show{display:flex}
+#v326AdminCard{width:min(610px,95vw);max-height:88vh;overflow:auto;background:#101b26;color:#fff;border:1px solid #4e6d83;border-radius:12px;padding:16px;box-shadow:0 20px 60px #000}
+#v326AdminCard h3{margin:0 0 4px}.v326mut{font-size:11px;color:#9fb5c6;margin-bottom:12px}
+.v326sec{border:1px solid #334b5d;border-radius:8px;padding:10px;margin:9px 0;background:#0d1720}.v326sec h4{margin:0 0 7px;font-size:12px;color:#bde6ff}
+#v326AdminCard label{display:block;margin:8px 0 4px;font-size:10px;font-weight:900;color:#bed0dd}
+#v326AdminCard input{width:100%;box-sizing:border-box;padding:10px;border:1px solid #526b7d;border-radius:6px;background:#0c151d;color:#fff}
+#v326AdminCard button{width:100%;padding:10px;margin:4px 0;border:1px solid #526d80;border-radius:6px;background:#263b4b;color:#fff;font-weight:900;cursor:pointer}
+#v326AdminCard button.primary{background:#087ec4;border-color:#32b4ff}#v326AdminCard button.danger{background:#6c3038}
+#v326AdminError{min-height:16px;color:#ff8179;font-size:10px;font-weight:800;text-align:center;margin-top:6px}
+</style>
+<script id="v326CleanHomeClockAdmin">
+(function(){
+ const ACCOUNT_KEY='hub_v291_accounts';
+ let settingsAuthorized=false;
+
+ function q(id){return document.getElementById(id)}
+ function acc(){try{return JSON.parse(localStorage.getItem(ACCOUNT_KEY)||'{}')||{}}catch(e){return{}}}
+
+ function clock(){
+   let e=q('v326HomeClock');if(!e)return;
+   let n=new Date();
+   let d=new Intl.DateTimeFormat('en-NZ',{timeZone:'Pacific/Auckland',weekday:'short',day:'2-digit',month:'short',year:'numeric'}).format(n);
+   let t=new Intl.DateTimeFormat('en-NZ',{timeZone:'Pacific/Auckland',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}).format(n);
+   e.textContent=d+'  |  '+t;
+ }
+
+ function buildHome(){
+   let h=q('hubLaunchScreen');if(!h||q('v326HomeClock'))return;
+   /* IMPORTANT: do not touch h.onclick. V314 original ENTER SYSTEM stays authoritative. */
+   let c=document.createElement('div');c.id='v326HomeClock';h.appendChild(c);
+   let s=document.createElement('button');s.id='v326SettingsHit';s.type='button';s.title='Settings & Admin';s.setAttribute('aria-label','Settings & Admin');
+   s.onclick=function(e){e.preventDefault();e.stopPropagation();openAdminLogin()};h.appendChild(s);
+   buildOverlay();clock();
+ }
+
+ function buildOverlay(){
+   if(q('v326AdminOverlay'))return;
+   let o=document.createElement('div');o.id='v326AdminOverlay';
+   o.innerHTML='<div id="v326AdminCard">'+
+   '<div id="v326LoginView"><h3>ADMIN LOGIN REQUIRED</h3><div class="v326mut">Settings remain hidden until an Admin account is authenticated. This does not log you into the HUB.</div><label>Admin username</label><input id="v326AdminUser" value="admin" autocomplete="username"><label>Admin password</label><input id="v326AdminPass" type="password" autocomplete="current-password"><div id="v326AdminError"></div><button class="primary" id="v326AdminLogin">ADMIN LOGIN</button><button id="v326Cancel">CANCEL</button></div>'+
+   '<div id="v326SettingsView" style="display:none"><h3>SETTINGS & ADMIN</h3><div class="v326mut">Admin-only controls. Close returns directly to HOME.</div>'+
+   '<div class="v326sec"><h4>SETTINGS SECURITY</h4><button id="v326ChangePw">CHANGE SETTINGS PASSWORD</button><button class="danger" id="v326ResetPw">RESET SETTINGS PASSWORD — ADMIN</button><button id="v326Lock">LOCK / UNLOCK SETTINGS</button></div>'+
+   '<div class="v326sec"><h4>USERS & ACCESS</h4><button id="v326Accounts">LOGIN / OPERATOR ACCOUNTS</button></div>'+
+   '<div class="v326sec"><h4>HUB SETTINGS</h4><button id="v326Existing">OPEN HUB DISPLAY / CABINET SETTINGS</button></div>'+
+   '<div class="v326sec"><h4>BACKUP / DEVELOPMENT</h4><button id="v326Html">EXPORT CURRENT HUB HTML SNAPSHOT</button><button id="v326Json">EXPORT COMPLETE JSON BACKUP</button><button id="v326Sync">REFRESH / RESYNC HUB</button></div>'+
+   '<button id="v326Close">CLOSE</button></div></div>';
+   document.body.appendChild(o);
+
+   q('v326Cancel').onclick=closeOverlay;q('v326Close').onclick=closeOverlay;
+   q('v326AdminLogin').onclick=authSettings;
+   q('v326AdminPass').addEventListener('keydown',e=>{if(e.key==='Enter')authSettings()});
+   q('v326ChangePw').onclick=()=>{if(typeof window.setSettingsPassword==='function')window.setSettingsPassword()};
+   q('v326ResetPw').onclick=resetPw;
+   q('v326Lock').onclick=()=>{if(typeof window.toggleSettingsLock==='function')window.toggleSettingsLock()};
+   q('v326Accounts').onclick=()=>{closeOverlay();if(typeof window.v291OpenLoginSettings==='function')window.v291OpenLoginSettings();else alert('Login / Operator Accounts unavailable.')};
+   q('v326Existing').onclick=()=>{
+     if(!settingsAuthorized)return;
+     if(typeof window.requireSettingsAccess==='function'&&!window.requireSettingsAccess())return;
+     closeOverlay();
+     /* This intentionally enters the internal HUB settings only after admin auth.
+        It does not alter V314's normal ENTER SYSTEM handler. */
+     let h=q('hubLaunchScreen');if(h)h.classList.add('hide');
+     document.body.classList.remove('hubHomePending');
+     if(typeof window.openHubSettings==='function')window.openHubSettings('machines');else alert('HUB display settings unavailable.');
+   };
+   q('v326Html').onclick=exportHtml;q('v326Json').onclick=exportJson;
+   q('v326Sync').onclick=()=>{localStorage.setItem('hub_live_sync_pulse',JSON.stringify({type:'admin-resync',at:Date.now()}));alert('HUB refresh / resync pulse sent.')};
+ }
+
+ function openAdminLogin(){
+   buildOverlay();settingsAuthorized=false;
+   q('v326SettingsView').style.display='none';q('v326LoginView').style.display='block';
+   q('v326AdminPass').value='';q('v326AdminError').textContent='';
+   q('v326AdminOverlay').classList.add('show');setTimeout(()=>q('v326AdminPass').focus(),30);
+ }
+ function closeOverlay(){
+   let o=q('v326AdminOverlay');if(o)o.classList.remove('show');
+   settingsAuthorized=false;
+ }
+ function authSettings(){
+   let u=(q('v326AdminUser').value||'').trim().toLowerCase(),p=q('v326AdminPass').value||'',a=acc()[u];
+   if(!a||a.role!=='admin'||a.password!==p){q('v326AdminError').textContent='Incorrect Admin username or password.';return}
+   /* Deliberately DO NOT write hub_login_user or hub_login_role.
+      Settings authentication must never bypass V314 ENTER SYSTEM role selection. */
+   settingsAuthorized=true;q('v326LoginView').style.display='none';q('v326SettingsView').style.display='block';
+ }
+
+ function resetPw(){
+   if(!settingsAuthorized)return;
+   let p=prompt('Enter NEW Settings password:');if(p===null)return;p=p.trim();if(!p)return alert('Password cannot be blank.');
+   let c=prompt('Confirm NEW Settings password:');if(c!==p)return alert('Passwords do not match.');
+   localStorage.setItem('hub_settings_password',p);localStorage.setItem('hub_settings_locked','1');alert('Settings password reset and locked.');
+ }
+
+ function exportJson(){
+   let data={format:'Machining Centers HUB Backup',version:'V326',createdAt:new Date().toISOString(),items:{}};
+   for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);data.items[k]=localStorage.getItem(k)}
+   let b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a'),u=URL.createObjectURL(b);
+   a.href=u;a.download='Machining_Centers_HUB_V326_Backup_'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),900);
+ }
+ function exportHtml(){
+   try{
+     let state={};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);state[k]=localStorage.getItem(k)}
+     let json=JSON.stringify(state).replace(/<\//g,'<\\/');
+     let restore='<'+'script id="v326EmbeddedState">(function(){try{var s='+json+';Object.keys(s).forEach(function(k){localStorage.setItem(k,s[k])});}catch(e){}})();<'+'/script>';
+     let html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+     html=html.replace(/<head([^>]*)>/i,all=>all+restore);
+     let b=new Blob([html],{type:'text/html;charset=utf-8'}),a=document.createElement('a'),u=URL.createObjectURL(b),d=new Date();
+     let stamp=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'_'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0');
+     a.href=u;a.download='Machining_Centers_HUB_V326_CURRENT_STATE_'+stamp+'.html';a.click();setTimeout(()=>URL.revokeObjectURL(u),900);
+   }catch(e){alert('HTML snapshot export failed: '+e.message)}
+ }
+
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(buildHome,400),{once:true});else setTimeout(buildHome,400);
+ setInterval(clock,1000);
+})();
+</script>
+
+<script id="v327LogoutReturnsHome">
+(function(){
+ function install(){
+   if(typeof window.hubLogout!=='function'||window.hubLogout.__v327)return;
+   const original=window.hubLogout;
+
+   function logoutToHome(){
+     /* Preserve all localStorage operational data. Clear login only. */
+     try{
+       sessionStorage.removeItem('hub_login_user');
+       sessionStorage.removeItem('hub_login_role');
+       sessionStorage.removeItem('hub_operator_single_hub');
+     }catch(e){}
+
+     document.body.classList.remove('hubOperator','hubAdmin','v297SingleHub');
+
+     let bar=document.getElementById('hubUserBar');
+     if(bar)bar.classList.remove('show');
+
+     let pass=document.getElementById('hubLoginPassword');
+     if(pass)pass.value='';
+     let err=document.getElementById('hubLoginError');
+     if(err)err.textContent='';
+
+     /* Hide login gate on logout. HOME is the destination. */
+     let gate=document.getElementById('hubLoginGate');
+     if(gate)gate.classList.add('hidden');
+
+     /* Close the separate V326 Admin Settings overlay if present. */
+     let admin=document.getElementById('v326AdminOverlay');
+     if(admin)admin.classList.remove('show');
+
+     /* Restore HOME graphic. V314's original onclick="enterMachiningHub()"
+        remains untouched and will reveal LOGIN when user clicks ENTER SYSTEM. */
+     let home=document.getElementById('hubLaunchScreen');
+     if(home)home.classList.remove('hide');
+
+     document.body.classList.add('hubHomePending');
+     try{window.scrollTo(0,0)}catch(e){}
+   }
+
+   logoutToHome.__v327=true;
+   logoutToHome.__original=original;
+   window.hubLogout=logoutToHome;
+ }
+ if(document.readyState==='loading'){
+   document.addEventListener('DOMContentLoaded',()=>setTimeout(install,600),{once:true});
+ }else setTimeout(install,600);
+})();
+</script>
 </body></html>
 <!-- V298: Tool Master filter bar simplified to Search only. Functional filter elements remain in DOM for compatibility. -->
 <style id="v298ToolMasterSearchOnly">
@@ -17054,3 +17628,297 @@ body.jfm-v297-full-body{overflow:hidden!important}
 #master .tmFilterBar .tmSearchBox { display:flex !important; flex:1 1 100% !important; width:100% !important; max-width:none !important; }
 #master .tmFilterBar .tmSearchBox input { width:100% !important; }
 </style>
+
+<!-- V299: Return Tool -> Tool Cabinet Rack live sync across same-origin windows. -->
+<script id="v299-tool-cabinet-rack-live-sync">
+(function(){
+  if(window.__v299ToolCabinetRackSync)return;
+  window.__v299ToolCabinetRackSync=true;
+  const CK='ct_cabinets', PULSE='hub_live_sync_pulse';
+  let timer=0;
+
+  function reloadToolCabinetRack(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      try{
+        const fresh=JSON.parse(localStorage.getItem(CK)||'[]');
+        if(Array.isArray(fresh)){
+          /* Critical: drawRack() reads the original lexical `cabinets` cache.
+             Replace that cache from canonical storage before any rack redraw. */
+          try{ cabinets=fresh; }catch(e){}
+          try{
+            if(typeof activeCab!=='undefined' && !fresh.some(c=>Number(c.number)===Number(activeCab)) && fresh[0]){
+              activeCab=fresh[0].number;
+            }
+          }catch(e){}
+        }
+      }catch(e){}
+
+      /* Background-only refresh: never click/open/navigate to Tool Rack. */
+      try{if(typeof renderCabTabs==='function')renderCabTabs()}catch(e){}
+      try{if(typeof drawRack==='function')drawRack()}catch(e){}
+      try{if(typeof window.v270RenderToolInfo==='function')window.v270RenderToolInfo()}catch(e){}
+      try{if(typeof window.v272RenderToolInfo==='function')window.v272RenderToolInfo()}catch(e){}
+    },90);
+  }
+
+  window.addEventListener('storage',function(e){
+    if(e.storageArea!==localStorage)return;
+    if(e.key===CK){ reloadToolCabinetRack(); return; }
+    if(e.key===PULSE){
+      try{
+        const p=JSON.parse(e.newValue||'{}');
+        if(p && p.type==='tool-return') reloadToolCabinetRack();
+      }catch(x){}
+    }
+  });
+})();
+</script>
+
+
+<!-- V302: Definitive Cutting Tool Info ATC removal. Keep the legacy ATC DOM cell for index compatibility, but hide it permanently so older live renderers cannot make it visible/blink. -->
+<style id="v302HideToolInfoATC">
+#cuttingToolInfo .v302HiddenATC{display:none !important;visibility:hidden !important;width:0 !important;min-width:0 !important;max-width:0 !important;padding:0 !important;border:0 !important;}
+</style>
+<script id="v302-remove-cutting-tool-info-atc">
+(function(){
+  if(window.__v302NoToolInfoATC)return;
+  window.__v302NoToolInfoATC=true;
+  function strip(){
+    const page=document.getElementById('cuttingToolInfo');
+    if(!page)return;
+    page.querySelectorAll('table').forEach(table=>{
+      const hr=table.querySelector('thead tr');
+      if(!hr)return;
+      const heads=[...hr.children];
+      heads.forEach((th,ix)=>{
+        const label=String(th.textContent||'').trim().toUpperCase().replace(/\s+/g,' ');
+        if(label==='ATC'||label==='ATC NO'||label==='ATC #'||label==='ATC NUMBER'||label==='ATC POT'||label==='ATC SLOT'){
+          th.classList.add('v302HiddenATC');
+          table.querySelectorAll('tbody tr').forEach(tr=>{const c=tr.children[ix];if(c)c.classList.add('v302HiddenATC')});
+        }
+      });
+    });
+  }
+  window.v302StripToolInfoATC=strip;
+  const obs=new MutationObserver(()=>strip());
+  function init(){
+    strip();
+    const p=document.getElementById('cuttingToolInfo');
+    if(p)obs.observe(p,{childList:true,subtree:true});
+  }
+  document.addEventListener('click',e=>{
+    const t=String(e.target&&e.target.textContent||'').toUpperCase();
+    if(t.includes('CUTTING TOOL INFO')||t.includes('REFRESH')){setTimeout(strip,0);setTimeout(strip,100);setTimeout(strip,500)}
+  },true);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+  setInterval(strip,1000);
+})();
+</script>
+\n<!-- V303: Cutting Tool Info no-blink refresh. Disable periodic full table rebuild; redraw only on relevant state changes. -->
+<script id="v303-cutting-tool-info-no-blink">
+(function(){
+ if(window.__v303ToolInfoNoBlink)return; window.__v303ToolInfoNoBlink=true;
+ let timer=0;
+ const KEYS=new Set(['ct_cabinets','hub_machine_atc_sim_v145','hub_machine_setup_sim_v145','hub_tool_info_home_v274','hub_live_sync_pulse','hub_tool_life_v300']);
+ function refresh(){
+   clearTimeout(timer); timer=setTimeout(function(){
+     const p=document.getElementById('cuttingToolInfo');
+     if(!p||p.classList.contains('hide'))return;
+     try{if(typeof window.v303RenderInfo==='function')window.v303RenderInfo('tool')}catch(e){}
+     try{if(typeof window.v302StripToolInfoATC==='function')window.v302StripToolInfoATC()}catch(e){}
+   },80);
+ }
+ window.v303RefreshCuttingToolInfo=refresh;
+ window.addEventListener('storage',function(e){if(!e.key||KEYS.has(e.key))refresh()});
+ document.addEventListener('click',function(e){
+   const b=e.target.closest&&e.target.closest('button'); if(!b)return;
+   const t=String(b.textContent||'').toUpperCase();
+   if(t.includes('CUTTING TOOL INFO')||t==='REFRESH')setTimeout(refresh,40);
+ },true);
+})();
+</script>
+
+<!-- V304: Machine Monitor white enclosure fit-screen / no scrollbar. V303 behavior preserved. -->
+<style id="v304MachineMonitorFitScreen">
+/* Use the available viewport instead of a scrolling white window. */
+#machineStatusPage .v282MMWindow{
+  max-height:calc(100vh - 170px);
+  overflow:hidden!important;
+  display:flex;
+  flex-direction:column;
+}
+#machineStatusPage .v282MMWindow.v282Max{
+  overflow:hidden!important;
+  max-height:none;
+  display:flex;
+  flex-direction:column;
+}
+#machineStatusPage .v282MMBar{
+  flex:0 0 auto;
+  padding:5px 10px;
+  min-height:30px;
+}
+#machineStatusPage .v282MMBody{
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden!important;
+  padding:6px 8px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+/* Compact the unused area above RUNNING / BREAKDOWN / ADJUSTMENT / etc. */
+#machineStatusPage .v282MMBody > .panel:first-of-type{
+  flex:0 0 auto;
+  margin:0!important;
+  padding:5px 8px!important;
+}
+#machineStatusPage .v282MMBody > .panel:first-of-type br{display:none!important}
+#machineStatusPage .bigval#machineState2{
+  margin:0 0 3px!important;
+  padding:0!important;
+  line-height:1.05!important;
+  font-size:18px!important;
+}
+#machineStatusPage #stateButtons2.stategrid{
+  margin-top:3px!important;
+  gap:5px!important;
+}
+#machineStatusPage #stateButtons2 .statebtn{
+  padding:5px 4px!important;
+  min-height:27px!important;
+}
+/* Setup panel fills the rest of the white box without creating a scrollbar. */
+#machineStatusPage .v282MMBody > .mmSetupPanel{
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden!important;
+  margin:0!important;
+  padding:6px 8px!important;
+  display:flex;
+  flex-direction:column;
+}
+#machineStatusPage .mmSetupHead{margin-bottom:4px!important;gap:6px!important}
+#machineStatusPage .mmSetupHead h3{margin:0!important;font-size:14px!important}
+#machineStatusPage .mmSetupHead .mut{font-size:9px!important;line-height:1.15!important}
+#machineStatusPage .v183FoundationNote{margin:2px 0 4px!important;padding:4px 6px!important;font-size:8px!important}
+#machineStatusPage .mmSetupGrid{gap:5px!important;flex:0 0 auto}
+#machineStatusPage .v162MasterPick label{margin-bottom:2px!important}
+#machineStatusPage .v162Picked{min-height:28px!important;padding:5px 7px!important}
+#machineStatusPage .v162MasterPick button,
+#machineStatusPage .mmSetupGrid > button{padding:5px 7px!important;min-height:28px!important;font-size:8px!important}
+#machineStatusPage .mmLoadedSummary{
+  flex:0 0 auto;
+  min-height:0!important;
+  max-height:66px;
+  overflow:hidden!important;
+  margin-top:5px!important;
+  padding:5px 7px!important;
+  font-size:9px!important;
+  line-height:1.15!important;
+}
+#machineStatusPage .mmToolChip{margin:1px!important;padding:2px 4px!important;font-size:7px!important}
+/* V300 program simulator consumes the remaining height. */
+#machineStatusPage .v300Sim{
+  flex:1 1 auto;
+  min-height:125px;
+  margin-top:5px!important;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden!important;
+}
+#machineStatusPage .v300SimHead{flex:0 0 auto;padding:5px 7px!important;gap:5px!important}
+#machineStatusPage .v300SimHead button{padding:4px 8px!important;min-height:26px!important}
+#machineStatusPage .v300Program{
+  flex:1 1 auto;
+  min-height:70px;
+  height:auto!important;
+  overflow:hidden!important;
+  font-size:10px!important;
+  line-height:1.25!important;
+  padding:3px 0!important;
+}
+#machineStatusPage .v300Line{padding:1px 7px!important}
+#machineStatusPage .v300Status{flex:0 0 auto;padding:4px 7px!important;font-size:8px!important}
+/* Fit Screen mode gets even tighter but keeps all controls visible. */
+body.compact #machineStatusPage .v282MMWindow{max-height:calc(100vh - 118px)}
+body.compact #machineStatusPage .v282MMBody{padding:4px 6px;gap:3px}
+body.compact #machineStatusPage .v300Program{height:auto!important;min-height:60px!important}
+</style>
+<script id="v304MachineMonitorFitScreenJS">
+(function(){
+ function fit(){
+   var page=document.getElementById('machineStatusPage');
+   if(!page || page.classList.contains('hide')) return;
+   var win=document.getElementById('v282MMWindow');
+   if(!win) return;
+   /* Keep the enclosure inside the visible viewport even when header/toolbars vary. */
+   var r=win.getBoundingClientRect();
+   var available=Math.max(360,window.innerHeight-r.top-8);
+   if(!win.classList.contains('v282Max')) win.style.maxHeight=available+'px';
+ }
+ window.addEventListener('resize',fit,{passive:true});
+ document.addEventListener('click',function(){setTimeout(fit,80)},true);
+ setTimeout(fit,250);setTimeout(fit,1000);
+})();
+</script>
+
+<!-- V305: Machine Monitor full-height maximize + manual bottom-edge resize. V304 functions preserved. -->
+<style id="v305MachineMonitorResizable">
+#machineStatusPage .v282MMWindow{position:relative;box-sizing:border-box}
+#machineStatusPage .v282MMWindow.v305ManualSize{max-height:none!important}
+#machineStatusPage .v282MMWindow.v282Max{
+  position:fixed!important;inset:4px!important;width:auto!important;height:calc(100vh - 8px)!important;
+  max-height:none!important;margin:0!important;box-sizing:border-box!important;
+}
+#machineStatusPage .v282MMWindow.v282Max .v282MMBody{height:auto!important;min-height:0!important;flex:1 1 auto!important}
+#machineStatusPage .v305ResizeHandle{
+  position:absolute;left:0;right:0;bottom:0;height:12px;z-index:40;cursor:ns-resize;
+  display:flex;align-items:flex-end;justify-content:center;touch-action:none;user-select:none;
+}
+#machineStatusPage .v305ResizeHandle:after{
+  content:'⋯';height:10px;line-height:6px;min-width:52px;text-align:center;border-radius:7px 7px 0 0;
+  background:#cbd4dc;color:#51606b;font-weight:900;font-size:15px;opacity:.9;
+}
+#machineStatusPage .v282MMWindow.v282Max .v305ResizeHandle{display:none}
+</style>
+<script id="v305MachineMonitorResizableJS">
+(function(){
+ if(window.__v305MMResize)return;window.__v305MMResize=true;
+ const STORE='hub_v305_machine_monitor_height';
+ function win(){return document.getElementById('v282MMWindow')}
+ function viewportHeight(w){let r=w.getBoundingClientRect();return Math.max(360,window.innerHeight-r.top-6)}
+ function applySaved(){
+   let w=win();if(!w||w.classList.contains('v282Max'))return;
+   let h=parseInt(localStorage.getItem(STORE)||'0',10);
+   if(h>0){h=Math.min(h,viewportHeight(w));w.style.height=h+'px';w.style.maxHeight='none';w.classList.add('v305ManualSize')}
+ }
+ function ensure(){
+   let w=win();if(!w)return;
+   if(!w.querySelector('.v305ResizeHandle')){
+     let h=document.createElement('div');h.className='v305ResizeHandle';h.title='Drag up or down to resize Machine Monitor';w.appendChild(h);
+     let startY=0,startH=0,drag=false;
+     const move=e=>{
+       if(!drag)return;e.preventDefault();
+       let y=e.touches?e.touches[0].clientY:e.clientY;
+       let nh=Math.max(360,Math.min(startH+(y-startY),viewportHeight(w)));
+       w.classList.remove('v282Max');w.classList.add('v305ManualSize');w.style.height=nh+'px';w.style.maxHeight='none';
+     };
+     const up=()=>{if(!drag)return;drag=false;document.body.style.userSelect='';let n=parseInt(w.style.height||'0',10);if(n)localStorage.setItem(STORE,String(n));document.removeEventListener('mousemove',move);document.removeEventListener('mouseup',up);document.removeEventListener('touchmove',move);document.removeEventListener('touchend',up)};
+     const down=e=>{if(w.classList.contains('v282Max'))return;drag=true;startY=e.touches?e.touches[0].clientY:e.clientY;startH=w.getBoundingClientRect().height;document.body.style.userSelect='none';document.addEventListener('mousemove',move,{passive:false});document.addEventListener('mouseup',up);document.addEventListener('touchmove',move,{passive:false});document.addEventListener('touchend',up)};
+     h.addEventListener('mousedown',down);h.addEventListener('touchstart',down,{passive:true});
+   }
+   applySaved();
+ }
+ /* After the original V282 maximize button toggles, force true viewport fill and restore saved manual height. */
+ document.addEventListener('click',function(e){
+   let b=e.target.closest&&e.target.closest('#machineStatusPage .v282MMBtns button[data-a="max"]');if(!b)return;
+   setTimeout(function(){let w=win();if(!w)return;if(w.classList.contains('v282Max')){w.style.height='calc(100vh - 8px)';w.style.maxHeight='none'}else{w.style.height='';w.style.maxHeight='';w.classList.remove('v305ManualSize');applySaved()}},20);
+ },true);
+ window.addEventListener('resize',function(){let w=win();if(!w)return;if(w.classList.contains('v282Max')){w.style.height='calc(100vh - 8px)'}else if(w.classList.contains('v305ManualSize')){let h=Math.min(w.getBoundingClientRect().height,viewportHeight(w));w.style.height=h+'px';localStorage.setItem(STORE,String(Math.round(h)))}} ,{passive:true});
+ const mo=new MutationObserver(()=>ensure());
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{ensure();mo.observe(document.body,{childList:true,subtree:true})});else{ensure();mo.observe(document.body,{childList:true,subtree:true})}
+ setTimeout(ensure,300);setTimeout(ensure,1200);
+})();
+</script>
