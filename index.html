@@ -13398,6 +13398,9 @@ setTimeout(()=>{try{mmRefreshSetupUI();drawMachine()}catch(e){console.warn('V145
  function mid(){try{return String(mmMachineId()||'')}catch(e){let m=window.currentMachine&&currentMachine();return String((m&&m.id)||window.machine||'')}}
  function selectedProgram(){let id=mid(),sel=document.getElementById('mmProgramSelect'),a=get(PK,[]);return a.find(p=>String(p.program||'')===String(sel&&sel.value||'')&&String(p.machine||'')===id)||a.find(p=>String(p.program||'')===String(sel&&sel.value||''))||null}
  async function ncText(p){
+   /* V348 portability: Program Master ncText is the portable authoritative NC/TXT.
+      It travels with the HUB/localStorage and is not tied to file:// or GitHub IndexedDB. */
+   if(p&&typeof p.ncText==='string'&&p.ncText.trim())return {text:p.ncText,source:'PROGRAM MASTER EMBEDDED NC/TXT'};
    let stored=null;
    try{if(typeof pm94get==='function'&&typeof pm94key==='function')stored=await pm94get(pm94key(p.program,'nc'))}catch(e){}
    try{if(!stored&&typeof pmGetBlob==='function'&&typeof pmAttachmentKey==='function')stored=await pmGetBlob(pmAttachmentKey(p.program,'nc'))}catch(e){}
@@ -18392,97 +18395,6 @@ body.compact #machineStatusPage .v300Program{height:240px;font-size:9px}
  document.addEventListener('click',()=>setTimeout(refresh,80),true);
  setInterval(refresh,350);
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(refresh,900),{once:true});else setTimeout(refresh,900);
-})();
-</script>
-
-
-<script id="v347GithubCabColorCompatibilityFix">
-(function(){
- if(window.__v347GithubCabColorCompatibilityFix)return;
- window.__v347GithubCabColorCompatibilityFix=true;
-
- const AK='hub_machine_atc_sim_v145',SK='hub_machine_setup_sim_v145',PULSE='hub_live_sync_pulse';
- const get=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||'null')??f}catch(e){return f}};
- const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
- const U=v=>String(v||'').trim().toUpperCase();
-
- function mid(){
-   try{return String(mmMachineId()||'')}catch(e){
-     try{let m=currentMachine();return String((m&&m.id)||window.machine||'')}catch(_){return String(window.machine||'')}
-   }
- }
- function master(id){
-   try{return (window.tmRecords||[]).find(r=>U(r&&r.id)===U(id))||null}catch(e){return null}
- }
- function cabFromMaster(r){
-   if(!r)return '';
-   let raw=String(r.location||r.toolin||r.cab||'').trim();
-   let m=raw.match(/CAB\s*[-# ]?(\d+)\s*[-:]\s*(\d+)/i);
-   if(m)return 'CAB'+(+m[1])+'-'+(+m[2]);
-   let c=raw.match(/CAB\s*[-# ]?(\d+)/i), p=String(r.pot||r.position||'').match(/(\d+)/);
-   return c&&p?'CAB'+(+c[1])+'-'+(+p[1]):'';
- }
- function stdColor(r,x){
-   let type=String((r&&r.type)||(x&&x.type)||'Tool');
-   try{
-     if(typeof window.hubToolColorStandard==='function')
-       return String(window.hubToolColorStandard(type,(r&&r.tool)||'',(r&&r.desc)||'')||x.color||'blue').toLowerCase();
-   }catch(e){}
-   let q=(type+' '+String(r&&r.tool||'')+' '+String(r&&r.desc||'')).toLowerCase();
-   if(/thread\s*mill|threadmill|\btap\b|tapping/.test(q))return 'pink';
-   if(/end\s*mill|endmill/.test(q))return 'orange';
-   if(/face\s*mill|facemill|chamfer|countersink|center\s*drill|centre\s*drill|spot\s*drill|spotting/.test(q))return 'blue';
-   if(/boring|\bbore\b|\bslot\b|slotting/.test(q))return 'violet';
-   if(/reamer|reaming|\bream\b|special|custom/.test(q))return 'peach';
-   if(/\bdrill\b|drilling|twist\s*drill/.test(q))return 'green';
-   return String(x&&x.color||'blue').toLowerCase();
- }
- function repair(){
-   let id=mid(),atc=get(AK,{}),a=Array.isArray(atc[id])?atc[id]:[],changed=false;
-   a=a.map(x=>{
-     if(!x)return x;
-     let y={...x},tid=String(y.displayTool||y.id||y.toolId||'').trim(),r=master(tid);
-     if(!tid||!r)return y;
-     let cab=String(y.ncCab||y.displayCab||y.cab||'').trim();
-     if(!cab)cab=cabFromMaster(r);
-     if(cab && (!y.cab||!y.displayCab)){y.cab=cab;y.displayCab=cab;y.ncCab=cab;changed=true}
-     let color=stdColor(r,y),type=String(r.type||y.type||'Tool');
-     if(U(y.color)!==U(color)){y.color=color;changed=true}
-     if(type && y.type!==type){y.type=type;changed=true}
-     return y;
-   });
-   if(!changed)return false;
-   atc[id]=a;set(AK,atc);
-   let ss=get(SK,{}),st=ss[id];
-   if(st){
-     st.tools=a;
-     if(Array.isArray(st.programTools)){
-       let by=new Map(a.map(x=>[Number(x&&x.slot),x]));
-       st.programTools=st.programTools.map(x=>{
-         let y=by.get(Number(x&&x.slot)); return y?{...x,cab:y.cab,displayCab:y.displayCab,ncCab:y.ncCab,type:y.type,color:y.color}:x;
-       });
-     }
-     ss[id]=st;set(SK,ss);
-   }
-   try{localStorage.setItem(PULSE,JSON.stringify({type:'github-cab-color-repair',machine:id,at:Date.now()}))}catch(e){}
-   try{if(typeof window.ctRefreshFromMachineSetup==='function')window.ctRefreshFromMachineSetup()}catch(e){}
-   return true;
- }
-
- // Keep the proven loader intact; enrich only its saved ATC result after it finishes.
- let loader=window.v158LoadToolsFromProgram;
- if(typeof loader==='function'){
-   window.v158LoadToolsFromProgram=async function(){
-     let r=await loader.apply(this,arguments);
-     repair();
-     return r;
-   };
- }
- window.v347RepairGithubCabColor=repair;
- window.addEventListener('storage',e=>{
-   if(e.key===AK||e.key===SK)setTimeout(repair,60);
- });
- setTimeout(repair,700);
 })();
 </script>
 
